@@ -15,7 +15,7 @@ function M.apply()
 	opt.cursorline = true
 	opt.ruler = false
 	opt.signcolumn = "yes"
-	cmd.colorscheme  "gruvbox"
+	cmd.colorscheme("gruvbox")
 
 	-- Set indentation settings
 	opt.tabstop = 4
@@ -24,11 +24,11 @@ function M.apply()
 	opt.smartindent = true
 
 	-- Spell check settings
-	opt.spelllang = 'en_us'
+	opt.spelllang = "en_us"
 	opt.spell = true
 
 	-- Formatting settings
-	cmd('autocmd BufEnter * set formatoptions-=cro')
+	cmd("autocmd BufEnter * set formatoptions-=cro")
 end
 
 return M
