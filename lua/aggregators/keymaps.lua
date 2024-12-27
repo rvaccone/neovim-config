@@ -7,13 +7,14 @@ local notify = vim.notify
 local M = {}
 
 -- Function to aggregate and execute all keymap files from lua/keymaps/
+---@return nil
 function M.aggregate()
 	local keymaps_dir = fn.stdpath("config") .. "/lua/keymaps/"
 
 	-- Scan the keymaps directory once and store results
-	local handle, err = loop.fs_scandir(keymaps_dir)
+	local handle, err_scandir = loop.fs_scandir(keymaps_dir)
 	if not handle then
-		notify("Failed to scan keymaps directory: " .. keymaps_dir .. "\nError: " .. err, log.levels.ERROR)
+		notify("Failed to scan keymaps directory: " .. keymaps_dir .. "\nError: " .. err_scandir, log.levels.ERROR)
 		return
 	end
 
@@ -31,9 +32,9 @@ function M.aggregate()
 	-- Execute each keymap file
 	for _, name in ipairs(files) do
 		local filepath = keymaps_dir .. name
-		local success, err = pcall(dofile, filepath)
+		local success, err_pcall = pcall(dofile, filepath)
 		if not success then
-			notify("Failed to execute keymap file: " .. filepath .. "\nError: " .. err, log.levels.ERROR)
+			notify("Failed to execute keymap file: " .. filepath .. "\nError: " .. err_pcall, log.levels.ERROR)
 		end
 	end
 end

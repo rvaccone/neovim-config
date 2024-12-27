@@ -3,7 +3,7 @@ return {
 	main = "ibl",
 	opts = {
 		scope = {
-			enabled = true
-		}
-	}
+			enabled = true,
+		},
+	},
 }

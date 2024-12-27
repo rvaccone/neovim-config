@@ -6,6 +6,7 @@ local tbl_deep_extend = vim.tbl_deep_extend
 
 local M = {}
 
+---@return nil
 function M.setup()
 	--  Setup Mason
 	require("mason").setup({})
@@ -90,7 +91,7 @@ function M.setup()
 		-- Override handlers for specific servers
 		["lua_ls"] = function()
 			require("lspconfig").lua_ls.setup({
-				settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+				settings = { Lua = { diagnostics = { globals = { "vim" } }, telemetry = { enable = false } } },
 			})
 		end,
 	})

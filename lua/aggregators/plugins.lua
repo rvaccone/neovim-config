@@ -6,6 +6,7 @@ local opt = vim.opt
 local uv = vim.uv
 local v = vim.v
 
+---@return nil
 local function bootstrap_lazy()
 	local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not (uv or loop).fs_stat(lazypath) then
@@ -34,6 +35,7 @@ end
 
 local M = {}
 
+---@return nil
 function M.aggregate()
 	bootstrap_lazy()
 	require("lazy").setup({

@@ -1,9 +1,9 @@
 return {
-	'kylechui/nvim-surround',
+	"kylechui/nvim-surround",
 	event = "VeryLazy",
 	config = function()
-		require('nvim-surround').setup {
-			skip_unbalanced = true
-		}
-	end
+		require("nvim-surround").setup({
+			skip_unbalanced = true,
+		})
+	end,
 }
