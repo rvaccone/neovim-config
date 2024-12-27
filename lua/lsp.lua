@@ -1,5 +1,6 @@
 -- Setup localized vim variables
 local api = vim.api
+local diagnostic = vim.diagnostic
 local keymap = vim.keymap
 local snippet = vim.snippet
 local tbl_deep_extend = vim.tbl_deep_extend
@@ -9,7 +10,7 @@ local M = {}
 ---@return nil
 function M.setup()
 	-- Configure diagnostics display
-	vim.diagnostic.config({
+	diagnostic.config({
 		virtual_text = true,
 		signs = false,
 		underline = true,

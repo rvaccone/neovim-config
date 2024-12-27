@@ -2,6 +2,6 @@ return {
 	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
 	config = function()
-		require("gruvbox").setup({ contrast = "medium" })
+		require("gruvbox").setup({ contrast = "hard", transparent_mode = true })
 	end,
 }
