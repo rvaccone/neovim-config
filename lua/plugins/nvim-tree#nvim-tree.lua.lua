@@ -1,3 +1,8 @@
+-- Setup localized vim variables
+local api = vim.api
+local fn = vim.fn
+local cmd = vim.cmd
+
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
@@ -15,11 +20,6 @@ return {
 			renderer = {
 				indent_markers = {
 					enable = true,
-					icons = {
-						corner = "└ ",
-						edge = "│ ",
-						none = "  ",
-					},
 				},
 			},
 			git = {
@@ -27,12 +27,19 @@ return {
 			},
 		})
 
+		-- Auto open functionality
+		api.nvim_create_autocmd({ "VimEnter" }, {
+			callback = function()
+				require("nvim-tree.api").tree.toggle({ focus = false })
+			end,
+		})
+
 		-- Auto close functionality
-		vim.api.nvim_create_autocmd("BufEnter", {
+		api.nvim_create_autocmd("BufEnter", {
 			nested = true,
 			callback = function()
-				if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
-					vim.cmd("quit")
+				if #api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+					cmd("quit")
 				end
 			end,
 		})
