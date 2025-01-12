@@ -41,10 +41,12 @@ function M.setup()
 			-- Formatters
 			"black", -- Python formatter
 			"ruff", -- Python formatter
+			"shfmt", -- Shell formatter
 			"stylua", -- Lua formatter
 			"prettier", -- JavaScript/TypeScript formatter
-			"prettierd", --  JavaScript/TypeScript formatter
+			"prettierd", --  JavaScript/TypeScript formatter },
 		},
+		auto_update = true,
 	})
 	require("mason-lspconfig").setup({
 		ensure_installed = {

@@ -16,6 +16,7 @@ function M.apply()
 	opt.cursorline = true -- Highlight the current line
 	opt.ruler = false -- Hide the ruler
 	opt.signcolumn = "yes" -- Always show the sign column
+	opt.scrolloff = 10 -- Keep eight lines above and below the cursor if possible
 	opt.termguicolors = true -- Use the terminal colors
 	cmd.colorscheme("gruvbox") -- Set the colorscheme
 
