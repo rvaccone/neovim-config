@@ -34,6 +34,18 @@ function M.setup()
 
 	--  Setup Mason
 	require("mason").setup({})
+	require("mason-tool-installer").setup({
+		ensure_installed = {
+			-- Linters
+			"eslint_d", -- JavaScript/TypeScript linter
+			-- Formatters
+			"black", -- Python formatter
+			"ruff", -- Python formatter
+			"stylua", -- Lua formatter
+			"prettier", -- JavaScript/TypeScript formatter
+			"prettierd", --  JavaScript/TypeScript formatter
+		},
+	})
 	require("mason-lspconfig").setup({
 		ensure_installed = {
 			"bashls", -- Bash language server
