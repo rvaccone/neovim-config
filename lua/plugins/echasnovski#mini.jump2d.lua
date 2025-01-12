@@ -3,7 +3,23 @@ return {
 	version = "*",
 	config = function()
 		require("mini.jump2d").setup({
-			n_steps_ahead = 1,
+			spotter = require("mini.jump2d").builtin_opts.word_start.spotter,
+			labels = "abcdefghijklmnopqrstuvwxyz;",
+			view = {
+				n_steps_ahead = 1,
+			},
+			allowed_lines = {
+				blank = false,
+				cursor_at = false,
+			},
+			allowed_windows = {
+				not_current = false,
+			},
+			-- Remove default mappings to keep them in the keymaps folder
+			mappings = {
+				start_jumping = "",
+			},
+			silent = true,
 		})
 	end,
 }
