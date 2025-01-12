@@ -88,10 +88,29 @@ function M.setup()
 				snippet.expand(args.body)
 			end,
 		},
-		-- Enter key will trigger completion
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = false }),
 		}),
+		-- Enter key will trigger completion
+		formatting = {
+			format = function(entry, vim_item)
+				-- Show source
+				vim_item.menu = ({
+					nvim_lsp = "[LSP]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+				})[entry.source.name]
+
+				-- Limit completion width
+				local label = vim_item.abbr
+				local truncated_label = vim.fn.strcharpart(label, 0, 50)
+				if truncated_label ~= label then
+					vim_item.abbr = truncated_label .. "..."
+				end
+
+				return vim_item
+			end,
+		},
 		-- Select first item in list
 		preselect = "item",
 		completion = { completeopt = "menu,menuone,noinsert" },
@@ -105,6 +124,11 @@ function M.setup()
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:Normal",
 			},
+		},
+		matching = {
+			disallow_fuzzy_matching = false,
+			disallow_partial_matching = false,
+			disallow_prefix_unmatching = false,
 		},
 	})
 end
