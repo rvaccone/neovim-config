@@ -51,9 +51,31 @@ local function focus_or_create_window(window_number)
 	cmd("enew")
 end
 
+---@param window_number number The window number to operate on
+---@param operation string The command to execute on the window
+---@return nil
+local function operate_on_window(window_number, operation)
+	local editor_windows = list_content_windows()
+	if window_number <= #editor_windows then
+		api.nvim_set_current_win(editor_windows[window_number])
+		cmd(operation)
+	end
+end
+
 -- Setup keymaps for window navigation
 for i = 1, config.max_windows do
+	-- Focusing or creating windows
 	keymap.set("n", "<leader>" .. i, function()
 		focus_or_create_window(i)
 	end, { desc = "Focus or create window " .. i, silent = true })
+
+	-- Closing windows without saving
+	keymap.set("n", "<leader>q" .. i, function()
+		operate_on_window(i, "q!")
+	end, { desc = "Close window " .. i .. " without saving", silent = true })
+
+	-- Closing windows with saving
+	keymap.set("n", "<leader>z" .. i, function()
+		operate_on_window(i, "wq")
+	end, { desc = "Close window " .. i .. " with saving", silent = true })
 end
