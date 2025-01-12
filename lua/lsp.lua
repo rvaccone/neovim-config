@@ -1,7 +1,6 @@
 -- Setup localized vim variables
-local api = vim.api
 local diagnostic = vim.diagnostic
-local keymap = vim.keymap
+local lsp = vim.lsp
 local snippet = vim.snippet
 local tbl_deep_extend = vim.tbl_deep_extend
 
@@ -9,6 +8,14 @@ local M = {}
 
 ---@return nil
 function M.setup()
+	-- Configure LSP window borders
+	local win_opts = { border = "rounded" }
+	for name, handler in pairs(vim.lsp.handlers) do
+		if type(handler) == "function" then
+			lsp.handlers[name] = lsp.with(handler, win_opts)
+		end
+	end
+
 	-- Configure diagnostics display
 	diagnostic.config({
 		virtual_text = true,
@@ -21,6 +28,7 @@ function M.setup()
 			source = "always",
 			header = "",
 			prefix = "",
+			style = "minimal",
 		},
 	})
 
@@ -48,54 +56,6 @@ function M.setup()
 	local lspconfig_defaults = require("lspconfig").util.default_config
 	lspconfig_defaults.capabilities =
 		tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-	-- Add LSP keymaps
-	api.nvim_create_autocmd("LspAttach", {
-		desc = "LSP actions",
-		callback = function(event)
-			local opts = { buffer = event.buf }
-
-			-- Show hover documentation
-			opts.desc = "Show hover documentation"
-			keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-
-			-- Go to definition
-			opts.desc = "Go to definition"
-			keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-
-			-- Go to declaration
-			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-
-			-- Go to implementation
-			opts.desc = "Go to implementation"
-			keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-
-			-- Go to type definition
-			opts.desc = "Go to type definition"
-			keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-
-			-- Show references
-			opts.desc = "Show references"
-			keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-
-			-- Show signature help
-			opts.desc = "Show signature help"
-			keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-
-			-- Rename symbol
-			opts.desc = "Rename symbol"
-			keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-
-			-- Format code
-			opts.desc = "Format code"
-			keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-
-			-- Show code actions
-			opts.desc = "Show code actions"
-			keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		end,
-	})
 
 	-- Automatically setup servers installed via mason-lspconfig
 	require("mason-lspconfig").setup_handlers({
