@@ -12,13 +12,13 @@ api.nvim_create_autocmd("FileType", {
 	callback = function(event)
 		keymap.set(
 			"n",
-			"<leader>tm",
+			"<leader>im",
 			"<cmd>TSToolsAddMissingImports<cr>",
 			{ desc = "TSTools add missing imports", buffer = event.buf }
 		)
 		keymap.set(
 			"n",
-			"<leader>to",
+			"<leader>it",
 			"<cmd>TSToolsOrganizeImports<cr>",
 			{ desc = "TSTools organize imports", buffer = event.buf }
 		)
