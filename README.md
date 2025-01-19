@@ -154,18 +154,18 @@ Modes:
 ```lua
 📁 ~/.config/nvim
 ├── 📁 lua/
-│   ├── 📁 aggregators/   # Combines configuration files to ensure modularity
+│   ├── 📁 aggregators/        # Combines configuration files to ensure modularity
 │   │   ├── 📄 keymaps.lua     # Loads all keymap configurations
 │   │   └── 📄 plugins.lua     # Loads all plugin configurations
-│   ├── 📁 keymaps/      # Organized keybinding configurations
-│   ├── 📁 plugins/      # Organized plugin configurations
-│   ├── 📄 lsp.lua      # Language server configurations
-│   └── 📄 vim_settings.lua  # Core Neovim settings
-├── 📁 spell/           # Spell checking configuration
-├── 📄 .gitignore      # Git ignore rules
-├── 📄 lazy-lock.json  # Plugin version lockfile
-├── 📄 stylua.toml     # Lua formatter configuration
-└── 📄 init.lua         # Main configuration file
+│   ├── 📁 keymaps/            # Organized keybinding configurations
+│   ├── 📁 plugins/            # Organized plugin configurations
+│   ├── 📄 lsp.lua             # Language server configurations
+│   └── 📄 vim_settings.lua    # Core Neovim settings
+├── 📁 spell/                  # Spell checking configuration
+├── 📄 .gitignore              # Git ignore rules
+├── 📄 lazy-lock.json          # Plugin version lockfile
+├── 📄 stylua.toml             # Lua formatter configuration
+└── 📄 init.lua                # Main configuration file
 ```
 
 ### Plugin Configuration Structure
