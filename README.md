@@ -16,7 +16,7 @@ brew install neovim lua luarocks stylua ripgrep fd trash lazygit
 3. Save your current Neovim configuration (optional)
 
 ```bash
-mv ~/.config/nvim ~/.config/old-nvim
+mv ~/.config/nvim ~/.config/nvim.backup
 ```
 
 4. Clone the repository
@@ -50,49 +50,74 @@ Modes:
 - Visual: Selection mode (press `v` to enter)
 - Command: Command mode (press `:` to enter)
 
-### Essential Navigation
+- [Help](#help-and-documentation)
+- [Navigation](#navigation)
+- [Mark Management](#mark-management)
+- [Window Management](#window-management)
+- [Language Server Protocol (LSP)](#language-server-protocol-lsp)
+- [Text Manipulation](#text-manipulation)
+- [Code Assistance](#code-assistance)
+- [Language Tools](#language-tools)
+- [Quickfix](#quickfix)
+- [System Tools](#system-tools)
 
-| Keymap       | Action                 | Mode   | Category  |
-| ------------ | ---------------------- | ------ | --------- |
-| `<cr>`       | Quick jump anywhere    | Normal | Jump      |
-| `<leader>sf` | Find files             | Normal | Search    |
-| `<leader>sg` | Search in project      | Normal | Search    |
-| `<leader>ss` | Search in current file | Normal | Search    |
-| `<leader>sw` | Search current word    | Normal | Search    |
-| `<leader>bo` | Browse open buffers    | Normal | Buffers   |
-| `m1-9`       | Toggle bookmark        | Normal | Bookmarks |
-| `dm1-9`      | Delete bookmark        | Normal | Bookmarks |
-| `]1-9`       | Next bookmark          | Normal | Bookmarks |
-| `[1-9`       | Previous bookmark      | Normal | Bookmarks |
+### Help
+
+| Keymap       | Action                    | Mode   |
+| ------------ | ------------------------- | ------ |
+| `<leader>?`  | Show buffer-local keymaps | Normal |
+| `<leader>ho` | Search help docs          | Normal |
+
+### Navigation
+
+| Keymap       | Action                 | Mode   |
+| ------------ | ---------------------- | ------ |
+| `<cr>`       | Quick jump anywhere    | Normal |
+| `<leader>sf` | Find files             | Normal |
+| `<leader>sg` | Search in project      | Normal |
+| `<leader>ss` | Search in current file | Normal |
+| `<leader>sw` | Search current word    | Normal |
+| `<leader>bo` | Browse open buffers    | Normal |
+
+### Mark Management
+
+| Keymap     | Action            | Mode   |
+| ---------- | ----------------- | ------ |
+| `m:`       | Preview mark      | Normal |
+| `'` or '`' | Show all marks    | Normal |
+| `m1-9`     | Toggle bookmark   | Normal |
+| `dm1-9`    | Delete bookmark   | Normal |
+| `]1-9`     | Next bookmark     | Normal |
+| `[1-9`     | Previous bookmark | Normal |
 
 ### Window Management
 
-| Keymap         | Action                      | Mode   | Category      |
-| -------------- | --------------------------- | ------ | ------------- |
-| `<leader>0`    | Focus file tree             | Normal | File Tree     |
-| `<leader>nt`   | Toggle file tree            | Normal | File Tree     |
-| `-`            | Open file explorer          | Normal | File Explorer |
-| `<leader>1-9`  | Focus/create window         | Normal | Windows       |
-| `<leader>q1-9` | Close window without saving | Normal | Windows       |
-| `<leader>z1-9` | Close window with saving    | Normal | Windows       |
-| `QQ`           | Quit session                | Normal | System        |
+| Keymap         | Action                      | Mode   |
+| -------------- | --------------------------- | ------ |
+| `<leader>0`    | Focus file tree             | Normal |
+| `<leader>nt`   | Toggle file tree            | Normal |
+| `-`            | Open file explorer          | Normal |
+| `<leader>1-9`  | Focus/create window         | Normal |
+| `<leader>q1-9` | Close window without saving | Normal |
+| `<leader>z1-9` | Close window with saving    | Normal |
+| `QQ`           | Quit session                | Normal |
 
 You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
-| Keymap       | Action                | Mode   | Category |
-| ------------ | --------------------- | ------ | -------- |
-| `gd`         | Go to definition      | Normal | LSP      |
-| `gD`         | Go to declaration     | Normal | LSP      |
-| `gi`         | Go to implementation  | Normal | LSP      |
-| `go`         | Go to type definition | Normal | LSP      |
-| `gr`         | Show references       | Normal | LSP      |
-| `K`          | Show documentation    | Normal | LSP      |
-| `gs`         | Show signature help   | Normal | LSP      |
-| `<leader>a`  | Code action           | Normal | LSP      |
-| `<leader>rn` | Rename symbol         | Normal | LSP      |
-| `<leader>lr` | Restart LSP           | Normal | LSP      |
+| Keymap       | Action                | Mode   |
+| ------------ | --------------------- | ------ |
+| `gd`         | Go to definition      | Normal |
+| `gD`         | Go to declaration     | Normal |
+| `gi`         | Go to implementation  | Normal |
+| `go`         | Go to type definition | Normal |
+| `gr`         | Show references       | Normal |
+| `K`          | Show documentation    | Normal |
+| `gs`         | Show signature help   | Normal |
+| `<leader>a`  | Code action           | Normal |
+| `<leader>rn` | Rename symbol         | Normal |
+| `<leader>lr` | Restart LSP           | Normal |
 
 ### Text Manipulation
 
@@ -117,40 +142,39 @@ You can also use the `q` key to close the floating parent directory.
 
 ### Code Assistance
 
-| Keymap       | Action                    | Mode   | Category    |
-| ------------ | ------------------------- | ------ | ----------- |
-| `<c-n>`      | Next completion item      | Insert | Completion  |
-| `<c-p>`      | Previous completion item  | Insert | Completion  |
-| `<cr>`       | Accept completion         | Insert | Completion  |
-| `<s-cr>`     | Abort completion          | Insert | Completion  |
-| `<tab>`      | Accept in-line prediction | Insert | Completion  |
-| `<leader>df` | Show & copy diagnostic    | Normal | Diagnostics |
-| `<leader>dp` | Previous diagnostic       | Normal | Diagnostics |
-| `<leader>dn` | Next diagnostic           | Normal | Diagnostics |
+| Keymap       | Action                    | Mode   |
+| ------------ | ------------------------- | ------ |
+| `<c-n>`      | Next completion item      | Insert |
+| `<c-p>`      | Previous completion item  | Insert |
+| `<cr>`       | Accept completion         | Insert |
+| `<s-cr>`     | Abort completion          | Insert |
+| `<tab>`      | Accept in-line prediction | Insert |
+| `<leader>df` | Show & copy diagnostic    | Normal |
+| `<leader>dp` | Previous diagnostic       | Normal |
+| `<leader>dn` | Next diagnostic           | Normal |
 
 ### Language Tools
 
-| Keymap       | Action                  | Mode   | Category          |
+| Keymap       | Action                  | Mode   | Languages         |
 | ------------ | ----------------------- | ------ | ----------------- |
 | `<leader>im` | Add missing imports     | Normal | TypeScript        |
 | `<leader>it` | Organize imports/Format | Normal | TypeScript/Python |
 
-### Development Tools
+### Quickfix
 
-| Keymap       | Action                 | Mode   | Category |
-| ------------ | ---------------------- | ------ | -------- |
-| `<leader>co` | Open quickfix          | Normal | Quickfix |
-| `<leader>cq` | Close quickfix         | Normal | Quickfix |
-| `<leader>cn` | Next quickfix item     | Normal | Quickfix |
-| `<leader>cp` | Previous quickfix item | Normal | Quickfix |
+| Keymap       | Action                 | Mode   |
+| ------------ | ---------------------- | ------ |
+| `<leader>co` | Open quickfix          | Normal |
+| `<leader>cq` | Close quickfix         | Normal |
+| `<leader>cn` | Next quickfix item     | Normal |
+| `<leader>cp` | Previous quickfix item | Normal |
 
 ### System Tools
 
-| Keymap       | Action               | Mode   | Category |
-| ------------ | -------------------- | ------ | -------- |
-| `<leader>lg` | Open LazyGit         | Normal | Git      |
-| `<leader>ln` | Open package manager | Normal | System   |
-| `<leader>ho` | Search help docs     | Normal | Help     |
+| Keymap       | Action               | Mode   |
+| ------------ | -------------------- | ------ |
+| `<leader>lg` | Open LazyGit         | Normal |
+| `<leader>ln` | Open package manager | Normal |
 
 ## Configuration Structure Overview
 

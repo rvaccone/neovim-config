@@ -10,7 +10,7 @@ local tbl_contains = vim.tbl_contains
 ---@field split_direction "vsplit"|"split" Split direction to use when creating new windows
 local config = {
 	max_windows = 9,
-	excluded_filetypes = { "NvimTree" },
+	excluded_filetypes = { "help", "NvimTree" },
 	split_direction = "vsplit",
 }
 

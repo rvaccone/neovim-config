@@ -14,4 +14,4 @@ require("vim_settings").apply()
 require("lsp").setup()
 
 -- Load 2Vim and user keymaps
-require("aggregators.keymaps").aggregate()
+require("aggregators/keymaps").aggregate()
