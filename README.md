@@ -67,14 +67,17 @@ Modes:
 
 ### Window Management
 
-| Keymap         | Action                      | Mode   | Category  |
-| -------------- | --------------------------- | ------ | --------- |
-| `<leader>0`    | Focus file tree             | Normal | File Tree |
-| `<leader>nt`   | Toggle file tree            | Normal | File Tree |
-| `<leader>1-9`  | Focus/create window         | Normal | Windows   |
-| `<leader>q1-9` | Close window without saving | Normal | Windows   |
-| `<leader>z1-9` | Close window with saving    | Normal | Windows   |
-| `QQ`           | Quit session                | Normal | System    |
+| Keymap         | Action                      | Mode   | Category      |
+| -------------- | --------------------------- | ------ | ------------- |
+| `<leader>0`    | Focus file tree             | Normal | File Tree     |
+| `<leader>nt`   | Toggle file tree            | Normal | File Tree     |
+| `-`            | Open file explorer          | Normal | File Explorer |
+| `<leader>1-9`  | Focus/create window         | Normal | Windows       |
+| `<leader>q1-9` | Close window without saving | Normal | Windows       |
+| `<leader>z1-9` | Close window with saving    | Normal | Windows       |
+| `QQ`           | Quit session                | Normal | System        |
+
+You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
