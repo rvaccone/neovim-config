@@ -50,6 +50,8 @@ Modes:
 - Visual: Selection mode (press `v` to enter)
 - Command: Command mode (press `:` to enter)
 
+Quick links:
+
 - [Help](#help-and-documentation)
 - [Navigation](#navigation)
 - [Mark Management](#mark-management)
