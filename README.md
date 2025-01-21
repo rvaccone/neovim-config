@@ -83,14 +83,14 @@ Quick links:
 
 ### Mark Management
 
-| Keymap     | Action            | Mode   |
-| ---------- | ----------------- | ------ |
-| `m:`       | Preview mark      | Normal |
-| `'` or '`' | Show all marks    | Normal |
-| `m1-9`     | Toggle bookmark   | Normal |
-| `dm1-9`    | Delete bookmark   | Normal |
-| `]1-9`     | Next bookmark     | Normal |
-| `[1-9`     | Previous bookmark | Normal |
+| Keymap       | Action            | Mode   |
+| ------------ | ----------------- | ------ |
+| `m:`         | Preview mark      | Normal |
+| `'` or ````` | Show all marks    | Normal |
+| `m1-9`       | Toggle bookmark   | Normal |
+| `dm1-9`      | Delete bookmark   | Normal |
+| `]1-9`       | Next bookmark     | Normal |
+| `[1-9`       | Previous bookmark | Normal |
 
 ### Window Management
 
