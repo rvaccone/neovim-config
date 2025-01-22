@@ -10,7 +10,7 @@ My personal Neovim configuration that focuses on intentionality and thoughtful d
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
 ```
 
 3. Save your current Neovim configuration (optional)
@@ -79,7 +79,7 @@ Quick links:
 | `<leader>sg` | Search in project      | Normal |
 | `<leader>ss` | Search in current file | Normal |
 | `<leader>sw` | Search current word    | Normal |
-| `<leader>bo` | Browse open buffers    | Normal |
+| `<leader>sb` | Search buffer          | Normal |
 
 ### Mark Management
 

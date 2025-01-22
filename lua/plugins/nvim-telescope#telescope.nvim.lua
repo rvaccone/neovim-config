@@ -18,7 +18,20 @@ return {
 				color_devicons = true,
 				results_title = false,
 				-- Sorting
-				file_ignore_patterns = { "node_modules/.*", ".git/.*", "%.lock" },
+				file_ignore_patterns = {
+					"node_modules/.*",
+					".git/.*",
+					"%.lock",
+					"%.svg",
+					"%.png",
+					"%.jpg",
+					"%.jpeg",
+					"%.webp",
+					"%.gif",
+					"%.mp4",
+					"%.pdf",
+					"%.DS_Store",
+				},
 				-- Layout
 				sorting_strategy = "ascending",
 				layout_strategy = "horizontal",
@@ -28,31 +41,34 @@ return {
 						height = 0.5,
 					},
 				},
+				path_display = { "truncate" },
 				mappings = {
-					-- i = { ["<esc>"] = require("telescope.actions").close }, -- Immediately close Telescope
+					i = { ["<esc>"] = require("telescope.actions").close }, -- Immediately close Telescope
 				},
 			},
 			pickers = {
 				find_files = {
 					hidden = true,
-					no_ignore = true,
 					follow = true,
 				},
 				live_grep = {
 					hidden = true,
-					no_ignore = true,
 					additional_args = function()
 						return { "--hidden" }
 					end,
 				},
+				buffers = {
+					show_all_buffers = true,
+					sort_lastused = true,
+					mappings = {
+						i = {
+							["<c-d>"] = require("telescope.actions").delete_buffer,
+						},
+					},
+				},
 			},
 			extensions = {
-				fzf = {
-					fuzzy = true,
-					override_generic_sorter = true,
-					override_file_sorter = true,
-					case_mode = "smart_case",
-				},
+				fzf = {},
 			},
 		})
 
