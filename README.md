@@ -72,14 +72,14 @@ Quick links:
 
 ### Navigation
 
-| Keymap       | Action                 | Mode   |
-| ------------ | ---------------------- | ------ |
-| `<cr>`       | Quick jump anywhere    | Normal |
-| `<leader>sf` | Find files             | Normal |
-| `<leader>sg` | Search in project      | Normal |
-| `<leader>ss` | Search in current file | Normal |
-| `<leader>sw` | Search current word    | Normal |
-| `<leader>sb` | Search buffer          | Normal |
+| Keymap       | Action              | Mode   |
+| ------------ | ------------------- | ------ |
+| `<cr>`       | Quick jump anywhere | Normal |
+| `<leader>ff` | Find files          | Normal |
+| `<leader>fg` | Find with grep      | Normal |
+| `<leader>fs` | Find in file        | Normal |
+| `<leader>fw` | Find word           | Normal |
+| `<leader>fb` | Find buffer         | Normal |
 
 ### Mark Management
 

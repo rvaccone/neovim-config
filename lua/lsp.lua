@@ -57,6 +57,7 @@ function M.setup()
 			"jsonls", -- JSON language server
 			"lua_ls", -- Lua language server
 			"pyright", -- Python language server
+			"ruff", -- Python language server
 			"rust_analyzer", -- Rust language server
 			"tailwindcss", -- Tailwind CSS language server
 			"ts_ls", -- TypeScript language server

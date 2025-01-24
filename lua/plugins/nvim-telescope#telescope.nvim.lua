@@ -30,6 +30,8 @@ return {
 					"%.gif",
 					"%.mp4",
 					"%.pdf",
+					"%.ttf",
+					"%.otf",
 					"%.DS_Store",
 				},
 				-- Layout

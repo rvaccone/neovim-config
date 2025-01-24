@@ -16,10 +16,6 @@ return {
 			allowed_windows = {
 				not_current = false,
 			},
-			-- Remove default mappings to keep them in the keymaps folder
-			mappings = {
-				start_jumping = "",
-			},
 			silent = true,
 		})
 	end,
