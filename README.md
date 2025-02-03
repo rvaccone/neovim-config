@@ -13,17 +13,33 @@ My personal Neovim configuration that focuses on intentionality and thoughtful d
 brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
 ```
 
-3. Save your current Neovim configuration (optional)
+3. Install a better terminal emulator (optional)
+
+I use both [Ghostty](https://ghostty.org/) and [Warp](https://www.warp.dev/) terminal emulators for Neovim.
+
+4. Install a Nerd Font (optional, but required for icons)
+
+You can find a list of Nerd Fonts [here](https://www.nerdfonts.com/font-downloads). I use [JetBrains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip). You should set the font in your terminal after.
+
+5. Save your current Neovim configuration (optional)
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.backup
 ```
 
-4. Clone the repository
+6. Clone the repository
 
 ```bash
 git clone https://github.com/rvaccone/neovim-config.git ~/.config/nvim
 ```
+
+7. Remove the Supermaven plugin (optional)
+
+```bash
+rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
+```
+
+While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. Remove the plugin to avoid activation prompts until you're ready to try it out.
 
 ## Configuration-specific features
 
