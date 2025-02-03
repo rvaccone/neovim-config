@@ -7,6 +7,11 @@ My personal Neovim configuration that focuses on intentionality and thoughtful d
 ### macOS
 
 1. Install [Homebrew](https://brew.sh/)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 2. Install Neovim and its dependencies
 
 ```bash
@@ -15,7 +20,7 @@ brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
 
 3. Install a better terminal emulator (optional)
 
-I use both [Ghostty](https://ghostty.org/) and [Warp](https://www.warp.dev/) terminal emulators for Neovim.
+I use both Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
 
 4. Install a Nerd Font (optional, but required for icons)
 
