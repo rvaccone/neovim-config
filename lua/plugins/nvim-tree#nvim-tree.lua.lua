@@ -1,6 +1,5 @@
 -- Setup localized vim variables
 local api = vim.api
-local fn = vim.fn
 local cmd = vim.cmd
 
 return {
