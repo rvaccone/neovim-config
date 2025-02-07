@@ -17,6 +17,9 @@ return {
 				["j"] = { -- jsx template literal
 					add = { "{`", "`}" },
 				},
+				["m"] = { -- jsx comment
+					add = { "{/*", "*/}" },
+				},
 				["p"] = { -- promise
 					add = { "Promise<", ">" },
 				},

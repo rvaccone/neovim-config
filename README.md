@@ -167,6 +167,7 @@ You can also use the `q` key to close the floating parent directory.
 - `c` - Console.log
 - `d` - Div
 - `j` - JSX template literal
+- `m` - JSX multiline comment
 - `p` - Promise
 - `y` - Try/catch
 - `t` - HTML/JSX/TSX tags (e.g., `ysiwt<div>`)
