@@ -199,6 +199,16 @@ You can also use the `q` key to close the floating parent directory.
 | `<leader>lg` | Open LazyGit         | Normal |
 | `<leader>ln` | Open package manager | Normal |
 
+## Text Objects
+
+| Text Object | Description                                |
+| ----------- | ------------------------------------------ |
+| Function    | Select a function's contents or boundaries |
+| Block       | Select a block's contents or boundaries    |
+| Scope       | Select a scope's contents or boundaries    |
+
+Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode.
+
 ## Configuration Structure Overview
 
 ```lua
