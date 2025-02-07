@@ -18,7 +18,7 @@ return {
 					add = { "{`", "`}" },
 				},
 				["m"] = { -- jsx comment
-					add = { "{/*", "*/}" },
+					add = { "{/* ", " */}" },
 				},
 				["p"] = { -- promise
 					add = { "Promise<", ">" },
