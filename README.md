@@ -155,7 +155,7 @@ You can also use the `q` key to close the floating parent directory.
 | `cs`         | Change surround           | Normal         | `cs'"` - Change ' to "                       |
 | `ds`         | Delete surround           | Normal         | `dst` - remove HTML tags                     |
 | `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` |
-| `<leader>=`  | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` |
 
 **Surround Operators:**
 
