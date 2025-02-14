@@ -5,13 +5,10 @@ local keymap = vim.keymap
 local tbl_contains = vim.tbl_contains
 
 ---@class Config
----@field max_windows number Maximum number of windows to support
----@field excluded_filetypes string[] List of filetypes to exclude from window creation
----@field split_direction "vsplit"|"split" Split direction to use when creating new windows
+---@field max_windows number Maximum number of windows to support @field excluded_filetypes string[] List of filetypes to exclude from window creation
 local config = {
 	max_windows = 9,
 	excluded_filetypes = { "help", "NvimTree" },
-	split_direction = "vsplit",
 }
 
 ---@return table
@@ -31,8 +28,9 @@ local function list_content_windows()
 end
 
 ---@param window_number number The window number to focus or create (1-based indexed)
+---@param split_direction "vsplit"|"split" The split direction to use when creating a new window
 ---@return nil
-local function focus_or_create_window(window_number)
+local function focus_or_create_window(window_number, split_direction)
 	local editor_windows = list_content_windows()
 
 	-- If the requested window exists, focus it
@@ -46,8 +44,12 @@ local function focus_or_create_window(window_number)
 		api.nvim_set_current_win(editor_windows[#editor_windows])
 	end
 
-	cmd(config.split_direction)
-	cmd("wincmd l")
+	cmd(split_direction)
+	if split_direction == "vsplit" then
+		cmd("wincmd l")
+	else
+		cmd("wincmd j")
+	end
 	cmd("enew")
 end
 
@@ -64,9 +66,14 @@ end
 
 -- Setup keymaps for window navigation
 for i = 1, config.max_windows do
-	-- Focusing or creating windows
+	-- Focusing or creating horizontal windows
 	keymap.set("n", "<leader>" .. i, function()
-		focus_or_create_window(i)
+		focus_or_create_window(i, "vsplit")
+	end, { desc = "Focus or create window " .. i, silent = true })
+
+	-- Focusing or creating vertical windows
+	keymap.set("n", "<leader>v" .. i, function()
+		focus_or_create_window(i, "split")
 	end, { desc = "Focus or create window " .. i, silent = true })
 
 	-- Closing windows without saving
