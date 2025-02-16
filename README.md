@@ -115,15 +115,16 @@ Quick links:
 
 ### Window Management
 
-| Keymap         | Action                      | Mode   |
-| -------------- | --------------------------- | ------ |
-| `<leader>0`    | Focus file tree             | Normal |
-| `<leader>nt`   | Toggle file tree            | Normal |
-| `-`            | Open file explorer          | Normal |
-| `<leader>1-9`  | Focus/create window         | Normal |
-| `<leader>q1-9` | Close window without saving | Normal |
-| `<leader>z1-9` | Close window with saving    | Normal |
-| `QQ`           | Quit session                | Normal |
+| Keymap         | Action                       | Mode   |
+| -------------- | ---------------------------- | ------ |
+| `<leader>0`    | Focus file tree              | Normal |
+| `<leader>nt`   | Toggle file tree             | Normal |
+| `-`            | Open file explorer           | Normal |
+| `<leader>1-9`  | Focus/create window          | Normal |
+| `<leader>v1-9` | Focus/create vertical window | Normal |
+| `<leader>q1-9` | Close window without saving  | Normal |
+| `<leader>z1-9` | Close window with saving     | Normal |
+| `QQ`           | Quit session                 | Normal |
 
 You can also use the `q` key to close the floating parent directory.
 
