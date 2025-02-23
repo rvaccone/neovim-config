@@ -4,8 +4,9 @@ return {
 	cmd = { "ConformInfo" },
 	opts = {
 		formatters_by_ft = {
+			bash = { "shfmt" },
+			sh = { "shfmt" },
 			lua = { "stylua" },
-			python = { "black" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			javascriptreact = { "prettier" },
@@ -16,8 +17,8 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
-			sh = { "shfmt" },
-			bash = { "shfmt" },
+			python = { "black" },
+			sql = { "sqlfmt" },
 			["*"] = { "trim_whitespace" },
 			["_"] = { "trim_newlines" },
 		},

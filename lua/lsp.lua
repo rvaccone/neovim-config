@@ -42,6 +42,7 @@ function M.setup()
 			"black", -- Python formatter
 			"ruff", -- Python formatter
 			"shfmt", -- Shell formatter
+			"sqlfmt", -- SQL formatter
 			"stylua", -- Lua formatter
 			"prettier", -- JavaScript/TypeScript formatter
 			"prettierd", --  JavaScript/TypeScript formatter },
