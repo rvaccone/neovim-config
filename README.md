@@ -211,11 +211,11 @@ You can also use the `q` key to close the floating parent directory.
 
 ## Text Objects
 
-| Text Object | Description                                |
-| ----------- | ------------------------------------------ |
-| Function    | Select a function's contents or boundaries |
-| Block       | Select a block's contents or boundaries    |
-| Scope       | Select a scope's contents or boundaries    |
+| Shorthand | Text Object | Description                                |
+| --------- | ----------- | ------------------------------------------ |
+| f         | Function    | Select a function's contents or boundaries |
+| b         | Block       | Select a block's contents or boundaries    |
+| s         | Scope       | Select a scope's contents or boundaries    |
 
 Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode.
 
