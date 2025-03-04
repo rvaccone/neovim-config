@@ -9,7 +9,7 @@ api.nvim_create_autocmd("FileType", {
 	group = group,
 	pattern = "python",
 	callback = function(event)
-		keymap.set("n", "<leader>it", function()
+		keymap.set("n", "<leader>io", function()
 			require("conform").format({ bufnr = event.buf, formatters = { "ruff", "black" } })
 		end, { desc = "Organize imports", buffer = event.buf })
 	end,

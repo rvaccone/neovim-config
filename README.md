@@ -145,18 +145,18 @@ You can also use the `q` key to close the floating parent directory.
 
 ### Text Manipulation
 
-| Keymap       | Action                    | Mode           | Example                                      |
-| ------------ | ------------------------- | -------------- | -------------------------------------------- |
-| `gcc`        | Comment line              | Normal         | `gcc` - Comment current line                 |
-| `gc`         | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                   |
-| `<leader>ya` | Copy buffer to clipboard  | Normal         | `<leader>ya` - Copy entire file              |
-| `ys`         | Add surround              | Normal         | `ysiw"` - Surround word with quotes          |
-| `yss`        | Surround line             | Normal         | `yss)` - Surround line with ()               |
-| `ySS`        | Surround line indent      | Normal         | `ySS{` - Surround with {} and indent         |
-| `cs`         | Change surround           | Normal         | `cs'"` - Change ' to "                       |
-| `ds`         | Delete surround           | Normal         | `dst` - remove HTML tags                     |
-| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` |
-| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` |
+| Keymap       | Action                            | Mode           | Example                                      |
+| ------------ | --------------------------------- | -------------- | -------------------------------------------- |
+| `gcc`        | Comment line                      | Normal         | `gcc` - Comment current line                 |
+| `gc`         | Comment selection                 | Normal, Visual | `gcip` - Comment paragraph                   |
+| `<leader>ya` | Copy buffer and path to clipboard | Normal         | `<leader>ya` - Copy entire file              |
+| `ys`         | Add surround                      | Normal         | `ysiw"` - Surround word with quotes          |
+| `yss`        | Surround line                     | Normal         | `yss)` - Surround line with ()               |
+| `ySS`        | Surround line indent              | Normal         | `ySS{` - Surround with {} and indent         |
+| `cs`         | Change surround                   | Normal         | `cs'"` - Change ' to "                       |
+| `ds`         | Delete surround                   | Normal         | `dst` - remove HTML tags                     |
+| `<leader>=`  | Evaluate and replace text         | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` |
+| `<leader>==` | Evaluate and replace line         | Normal         | Given `2-2`, `<leader>==` - Replace with `0` |
 
 **Surround Operators:**
 
@@ -191,7 +191,7 @@ You can also use the `q` key to close the floating parent directory.
 | Keymap       | Action                  | Mode   | Languages         |
 | ------------ | ----------------------- | ------ | ----------------- |
 | `<leader>im` | Add missing imports     | Normal | TypeScript        |
-| `<leader>it` | Organize imports/Format | Normal | TypeScript/Python |
+| `<leader>io` | Organize imports/Format | Normal | TypeScript/Python |
 
 ### Quickfix
 

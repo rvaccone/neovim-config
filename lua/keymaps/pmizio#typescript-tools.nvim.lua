@@ -18,7 +18,7 @@ api.nvim_create_autocmd("FileType", {
 		)
 		keymap.set(
 			"n",
-			"<leader>it",
+			"<leader>io",
 			"<cmd>TSToolsOrganizeImports<cr>",
 			{ desc = "TSTools organize imports", buffer = event.buf }
 		)
