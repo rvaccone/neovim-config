@@ -213,11 +213,14 @@ You can also use the `q` key to close the floating parent directory.
 
 | Shorthand | Text Object | Description                                |
 | --------- | ----------- | ------------------------------------------ |
-| f         | Function    | Select a function's contents or boundaries |
-| b         | Block       | Select a block's contents or boundaries    |
-| s         | Scope       | Select a scope's contents or boundaries    |
+| `f`       | Function    | Select a function's contents or boundaries |
+| `b`       | Block       | Select a block's contents or boundaries    |
+| `s`       | Scope       | Select a scope's contents or boundaries    |
 
-Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode.
+Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode. For example:
+
+- `if` - Selects the contents of a function without the function name
+- `ab` - Selects the contents of a block, including the delimiters
 
 ## Configuration Structure Overview
 
