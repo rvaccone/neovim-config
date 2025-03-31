@@ -166,12 +166,28 @@ You can also use the `q` key to close the floating parent directory.
 - `[`, `]` - Square brackets
 - `<`, `>` - Angle brackets
 - `$` - Interpolation
-- `c` - Console.log
+  - JavaScript/TypeScript: `${...}`
+  - Lua: `$(...)`
+  - Python: `{...}`
+  - Shell: `${...}`
+- `c` - Comment
+  - JavaScript/TypeScript: `/*...*/`
+  - JavaScriptReact/TypeScriptReact: `{/*...*/}`
+  - lua: `--[[...]]`
+  - python: `"""..."""`
 - `d` - Div
+  - JavaScriptReact/TypeScriptReact: `<div className="">...</div>`
+  - html: `<div>...</div>`
+- `D` - View
+  - JavaScriptReact/TypeScriptReact: `<View className="">...</View>`
 - `j` - JSX template literal
-- `m` - JSX multiline comment
+- `l` - Log
+  - JavaScript/TypeScript: `console.log(...)`
+  - Lua/Python: `print(...)`
 - `p` - Promise
-- `y` - Try (language-aware)
+  - JavaScript/TypeScript: `Promise<...>`
+  - Python: `Awaitable[...]`
+- `y` - Try
   - JavaScript: `try { ... } catch (error) { console.error(error); }`
   - TypeScript: `try { ... } catch (error: unknown) { console.error(error); }`
   - Lua: `pcall(function() ... end)`

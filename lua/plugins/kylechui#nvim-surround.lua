@@ -5,37 +5,124 @@ return {
 	"kylechui/nvim-surround",
 	event = "VeryLazy",
 	config = function()
+		-- Get surround pattern for current filetype
+		local function get_pattern(patterns)
+			local filetype = bo.filetype
+			return patterns[filetype] or patterns["typescript"] or { "", "" }
+		end
+
 		require("nvim-surround").setup({
 			skip_unbalanced = true,
 			surrounds = {
 				["$"] = { -- interpolation
-					add = { "${", "}" },
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascript"] = { "${", "}" },
+							["javascriptreact"] = { "${", "}" },
+							["typescript"] = { "${", "}" },
+							["typescriptreact"] = { "${", "}" },
+
+							-- Lua
+							["lua"] = { "$(", ")" },
+
+							-- Python
+							["python"] = { "{", "}" },
+
+							-- Shell
+							["bash"] = { "${", "}" },
+							["sh"] = { "${", "}" },
+							["zsh"] = { "${", "}" },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
-				["c"] = { -- console.log
-					add = { "console.log(", ")" },
+				["c"] = { -- Comment
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascript"] = { "/* ", " */" },
+							["javascriptreact"] = { "{/* ", " */}" },
+							["typescript"] = { "/* ", " */" },
+							["typescriptreact"] = { "{/* ", " */}" },
+
+							-- Lua
+							["lua"] = { "--[[ ", " ]]" },
+
+							-- Python
+							["python"] = { '"""', '"""' },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
 				["d"] = { -- div
-					add = { '<div className="">', "</div>" },
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascriptreact"] = { '<div className="">', "</div>" },
+							["typescriptreact"] = { '<div className="">', "</div>" },
+
+							-- HTML
+							["html"] = { "<div>", "</div>" },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
-				["j"] = { -- jsx template literal
-					add = { "{`", "`}" },
+				["D"] = { -- view
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascriptreact"] = { '<View className="">', "</View>" },
+							["typescriptreact"] = { '<View className="">', "</View>" },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
-				["m"] = { -- jsx comment
-					add = { "{/* ", " */}" },
+				["l"] = { -- log
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascript"] = { "console.log(", ")" },
+							["javascriptreact"] = { "console.log(", ")" },
+							["typescript"] = { "console.log(", ")" },
+							["typescriptreact"] = { "console.log(", ")" },
+
+							-- Lua
+							["lua"] = { "print(", ")" },
+
+							-- Python
+							["python"] = { "print(", ")" },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
 				["p"] = { -- promise
-					add = { "Promise<", ">" },
+					add = function()
+						local patterns = {
+							-- JavaScript/TypeScript
+							["javascript"] = { "Promise<", ">" },
+							["javascriptreact"] = { "Promise<", ">" },
+							["typescript"] = { "Promise<", ">" },
+							["typescriptreact"] = { "Promise<", ">" },
+
+							-- Python
+							["python"] = { "Awaitable[", "]" },
+						}
+
+						return get_pattern(patterns)
+					end,
 				},
 				["y"] = { -- try
 					add = function()
-						local filetype = bo.filetype
-
 						local patterns = {
-							-- JavaScript
+							-- JavaScript/TypeScript
 							["javascript"] = { "try {", "} catch (error) { console.error(error); }" },
 							["javascriptreact"] = { "try {", "} catch (error) { console.error(error); }" },
-
-							-- TypeScript
 							["typescript"] = { "try {", "} catch (error: unknown) { console.error(error); }" },
 							["typescriptreact"] = { "try {", "} catch (error: unknown) { console.error(error); }" },
 
@@ -43,7 +130,7 @@ return {
 							["lua"] = { "pcall(function() ", " end)" },
 						}
 
-						return patterns[filetype] or patterns["typescript"]
+						return get_pattern(patterns)
 					end,
 				},
 			},
