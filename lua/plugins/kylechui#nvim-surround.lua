@@ -1,3 +1,6 @@
+-- Setup localized vim variables
+local bo = vim.bo
+
 return {
 	"kylechui/nvim-surround",
 	event = "VeryLazy",
@@ -23,8 +26,25 @@ return {
 				["p"] = { -- promise
 					add = { "Promise<", ">" },
 				},
-				["y"] = { -- try/catch
-					add = { "try {", "} catch (error: unknown) { console.error(error); }" },
+				["y"] = { -- try
+					add = function()
+						local filetype = bo.filetype
+
+						local patterns = {
+							-- JavaScript
+							["javascript"] = { "try {", "} catch (error) { console.error(error); }" },
+							["javascriptreact"] = { "try {", "} catch (error) { console.error(error); }" },
+
+							-- TypeScript
+							["typescript"] = { "try {", "} catch (error: unknown) { console.error(error); }" },
+							["typescriptreact"] = { "try {", "} catch (error: unknown) { console.error(error); }" },
+
+							-- Lua
+							["lua"] = { "pcall(function() ", " end)" },
+						}
+
+						return patterns[filetype] or patterns["typescript"]
+					end,
 				},
 			},
 		})

@@ -38,6 +38,7 @@ function M.setup()
 		ensure_installed = {
 			-- Linters
 			"eslint_d", -- JavaScript/TypeScript linter
+			"pylint", -- Python linter
 			-- Formatters
 			"black", -- Python formatter
 			"ruff", -- Python formatter

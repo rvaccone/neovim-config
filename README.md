@@ -79,6 +79,7 @@ Quick links:
 - [Window Management](#window-management)
 - [Language Server Protocol (LSP)](#language-server-protocol-lsp)
 - [Text Manipulation](#text-manipulation)
+- [Search and Replace](#search-and-replace)
 - [Code Assistance](#code-assistance)
 - [Language Tools](#language-tools)
 - [Quickfix](#quickfix)
@@ -170,8 +171,19 @@ You can also use the `q` key to close the floating parent directory.
 - `j` - JSX template literal
 - `m` - JSX multiline comment
 - `p` - Promise
-- `y` - Try/catch
+- `y` - Try (language-aware)
+  - JavaScript: `try { ... } catch (error) { console.error(error); }`
+  - TypeScript: `try { ... } catch (error: unknown) { console.error(error); }`
+  - Lua: `pcall(function() ... end)`
 - `t` - HTML/JSX/TSX tags (e.g., `ysiwt<div>`)
+
+### Search and Replace
+
+| Keymap       | Action                    | Mode           |
+| ------------ | ------------------------- | -------------- |
+| `<leader>sr` | Start search and replace  | Normal, Visual |
+| `<leader>sw` | Replace word under cursor | Normal         |
+| `<leader>sn` | Clear search highlighting | Normal         |
 
 ### Code Assistance
 
