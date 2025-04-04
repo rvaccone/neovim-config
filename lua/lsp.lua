@@ -39,6 +39,7 @@ function M.setup()
 			-- Linters
 			"eslint_d", -- JavaScript/TypeScript linter
 			"pylint", -- Python linter
+			"typos", -- Spell checker
 			-- Formatters
 			"black", -- Python formatter
 			"ruff", -- Python formatter
