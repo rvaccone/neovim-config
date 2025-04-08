@@ -3,9 +3,4 @@ return {
 	dependencies = {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-	opts = {
-		ui = {
-			border = "rounded",
-		},
-	},
 }
