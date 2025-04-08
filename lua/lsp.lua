@@ -37,7 +37,6 @@ function M.setup()
 			source = "always",
 			header = "",
 			prefix = "",
-			style = "minimal",
 		},
 	})
 
@@ -118,6 +117,35 @@ function M.setup()
 	local cmp = require("cmp")
 	local max_cmp_items = 5
 
+	-- Kind icons for menu display
+	local kind_icons = {
+		Text = "󰉿",
+		Method = "󰆧",
+		Function = "󰊕",
+		Constructor = "󰒿",
+		Field = "󰜢",
+		Variable = "󰀫",
+		Class = "󰠱",
+		Interface = "󰜰",
+		Module = "󰏗",
+		Property = "󰜢",
+		Unit = "󰑭",
+		Value = "󰎠",
+		Enum = "󰒻",
+		Keyword = "󰌋",
+		Snippet = "󰩫",
+		Color = "󰏘",
+		File = "󰈙",
+		Reference = "󰈇",
+		Folder = "󰉋",
+		EnumMember = "󰒿",
+		Constant = "󰏿",
+		Struct = "󰙅",
+		Event = "󰉁",
+		Operator = "󰆕",
+		TypeParameter = "󰊄",
+	}
+
 	cmp.setup({
 		-- Set sources
 		sources = {
@@ -142,6 +170,9 @@ function M.setup()
 		-- Set formatting
 		formatting = {
 			format = function(entry, vim_item)
+				-- Add icons
+				vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
+
 				-- Add source indicators
 				vim_item.menu = ({
 					nvim_lsp = "[LSP]",
@@ -149,7 +180,7 @@ function M.setup()
 					calc = "[Calc]",
 					path = "[Path]",
 					cmdline = "[Cmdline]",
-				})[entry.source.name]
+				})[entry.source.name] or entry.source.name
 
 				-- Truncate long completion items
 				local label = vim_item.abbr
@@ -172,11 +203,13 @@ function M.setup()
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:Normal",
 				side_padding = 1,
+				col_offset = -1,
 			},
 			documentation = {
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:Normal",
 				side_padding = 1,
+				col_offset = -1,
 			},
 		},
 
@@ -190,7 +223,31 @@ function M.setup()
 
 	-- Add completion for search mode
 	cmp.setup.cmdline({ "/", "?" }, {
-		mapping = cmp.mapping.preset.cmdline(),
+		mapping = cmp.mapping.preset.cmdline({
+			["<C-n>"] = cmp.mapping(function()
+				if cmp.visible() then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+
+			["<C-p>"] = cmp.mapping(function()
+				if cmp.visible() then
+					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+
+			["<Tab>"] = cmp.mapping(function(_)
+				if cmp.visible() then
+					cmp.confirm({ select = true })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+		}),
 		sources = {
 			{ name = "buffer", max_item_count = max_cmp_items, priority = 100 },
 		},
@@ -198,7 +255,31 @@ function M.setup()
 
 	-- Add completion for command-line mode
 	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline(),
+		mapping = cmp.mapping.preset.cmdline({
+			["<C-n>"] = cmp.mapping(function()
+				if cmp.visible() then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+
+			["<C-p>"] = cmp.mapping(function()
+				if cmp.visible() then
+					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+
+			["<Tab>"] = cmp.mapping(function(_)
+				if cmp.visible() then
+					cmp.confirm({ select = true })
+				else
+					cmp.complete()
+				end
+			end, { "c" }),
+		}),
 		sources = cmp.config.sources({
 			{ name = "cmdline", max_item_count = max_cmp_items, priority = 100 },
 		}, {
