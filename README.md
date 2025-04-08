@@ -232,10 +232,11 @@ You can also use the `q` key to close the floating parent directory.
 
 ### System Tools
 
-| Keymap       | Action               | Mode   |
-| ------------ | -------------------- | ------ |
-| `<leader>lg` | Open LazyGit         | Normal |
-| `<leader>ln` | Open package manager | Normal |
+| Keymap       | Action                                    | Mode   |
+| ------------ | ----------------------------------------- | ------ |
+| `<leader>ln` | Open plugin package manager (Lazy.nvim)   | Normal |
+| `<leader>lg` | Open git UI (LazyGit)                     | Normal |
+| `<leader>lm` | Open LSP and tool package manager (Mason) | Normal |
 
 ## Text Objects
 

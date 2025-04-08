@@ -41,6 +41,9 @@ function M.aggregate()
 	require("lazy").setup({
 		spec = { { import = "plugins" } },
 		checker = { enabled = true },
+		ui = {
+			border = "rounded",
+		},
 	})
 end
 
