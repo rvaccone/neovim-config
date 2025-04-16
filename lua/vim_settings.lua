@@ -18,7 +18,7 @@ function M.apply()
 	opt.signcolumn = "yes" -- Always show the sign column
 	opt.scrolloff = 10 -- Keep eight lines above and below the cursor if possible
 	opt.termguicolors = true -- Use the terminal colors
-	cmd.colorscheme("gruvbox") -- Set the colorscheme
+	cmd.colorscheme("everforest") -- Set the colorscheme
 
 	-- Text wrapping settings
 	opt.wrap = true -- Wrap lines
