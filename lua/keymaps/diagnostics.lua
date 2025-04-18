@@ -5,6 +5,10 @@ local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
 keymap.set("n", "<leader>df", function()
+	---@class FloatOpts
+	---@field border "rounded"|"single"|"double"|"shadow"|"none"
+	---@field focusable boolean
+	---@field close_events string[]
 	local float_opts = {
 		border = "rounded",
 		focusable = true,
@@ -21,5 +25,7 @@ keymap.set("n", "<leader>df", function()
 	-- Show the float as usual
 	diagnostic.open_float(float_opts)
 end, { desc = "Float diagnostic message and copy to clipboard" })
+
 keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+
 keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })

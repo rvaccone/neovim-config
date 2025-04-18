@@ -5,7 +5,8 @@ local keymap = vim.keymap
 local tbl_contains = vim.tbl_contains
 
 ---@class Config
----@field max_windows number Maximum number of windows to support @field excluded_filetypes string[] List of filetypes to exclude from window creation
+---@field max_windows number Maximum number of windows to support
+---@field excluded_filetypes string[] List of filetypes to exclude from window creation
 local config = {
 	max_windows = 9,
 	excluded_filetypes = { "help", "NvimTree" },
@@ -65,24 +66,24 @@ local function operate_on_window(window_number, operation)
 end
 
 -- Setup keymaps for window navigation
-for i = 1, config.max_windows do
+for index = 1, config.max_windows do
 	-- Focusing or creating horizontal windows
-	keymap.set("n", "<leader>" .. i, function()
-		focus_or_create_window(i, "vsplit")
-	end, { desc = "Focus or create window " .. i, silent = true })
+	keymap.set("n", "<leader>" .. index, function()
+		focus_or_create_window(index, "vsplit")
+	end, { desc = "Focus or create window " .. index, silent = true })
 
 	-- Focusing or creating vertical windows
-	keymap.set("n", "<leader>v" .. i, function()
-		focus_or_create_window(i, "split")
-	end, { desc = "Focus or create window " .. i, silent = true })
+	keymap.set("n", "<leader>v" .. index, function()
+		focus_or_create_window(index, "split")
+	end, { desc = "Focus or create window " .. index, silent = true })
 
 	-- Closing windows without saving
-	keymap.set("n", "<leader>q" .. i, function()
-		operate_on_window(i, "q!")
-	end, { desc = "Close window " .. i .. " without saving", silent = true })
+	keymap.set("n", "<leader>q" .. index, function()
+		operate_on_window(index, "q!")
+	end, { desc = "Close window " .. index .. " without saving", silent = true })
 
 	-- Closing windows with saving
-	keymap.set("n", "<leader>z" .. i, function()
-		operate_on_window(i, "wq")
-	end, { desc = "Close window " .. i .. " with saving", silent = true })
+	keymap.set("n", "<leader>z" .. index, function()
+		operate_on_window(index, "wq")
+	end, { desc = "Close window " .. index .. " with saving", silent = true })
 end

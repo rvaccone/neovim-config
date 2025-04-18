@@ -6,6 +6,7 @@ local opt = vim.opt
 local uv = vim.uv
 local v = vim.v
 
+--- Bootstrap lazy.nvim
 ---@return nil
 local function bootstrap_lazy()
 	local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -35,15 +36,17 @@ end
 
 local M = {}
 
+--- Function to aggregate and execute all plugin files from lua/plugins/
 ---@return nil
 function M.aggregate()
 	bootstrap_lazy()
 	require("lazy").setup({
-		spec = { { import = "plugins" } },
 		checker = { enabled = true },
 		ui = {
 			border = "rounded",
+			title = "Lazy.nvim",
 		},
+		spec = { { import = "plugins" } },
 	})
 end
 

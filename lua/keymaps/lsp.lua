@@ -10,6 +10,9 @@ local group = api.nvim_create_augroup("LSPConfig", { clear = true })
 api.nvim_create_autocmd("LspAttach", {
 	group = group,
 	desc = "LSP actions",
+
+	---@param event table
+	---@return nil
 	callback = function(event)
 		-- Navigation
 		keymap.set("n", "gd", buf.definition, { desc = "Go to definition", buffer = event.buf })

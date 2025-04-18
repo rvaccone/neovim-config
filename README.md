@@ -19,8 +19,7 @@ brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
 ```
 
 3. Install a better terminal emulator (optional)
-
-I use both Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
+   I use both Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
 
 4. Install a Nerd Font (optional, but required for icons)
 
@@ -87,10 +86,11 @@ Quick links:
 
 ### Help
 
-| Keymap       | Action                    | Mode   |
-| ------------ | ------------------------- | ------ |
-| `<leader>?`  | Show buffer-local keymaps | Normal |
-| `<leader>ho` | Search help docs          | Normal |
+| Keymap       | Action                                | Mode   |
+| ------------ | ------------------------------------- | ------ |
+| `<leader>?`  | Show buffer-local keymaps             | Normal |
+| `<leader>ho` | Focus help window or open help search | Normal |
+| `<leader>hq` | Close help window                     | Normal |
 
 ### Navigation
 

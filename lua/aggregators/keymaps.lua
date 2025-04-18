@@ -6,7 +6,7 @@ local notify = vim.notify
 
 local M = {}
 
--- Function to aggregate and execute all keymap files from lua/keymaps/
+--- Function to aggregate and execute all keymap files from lua/keymaps/
 ---@return nil
 function M.aggregate()
 	local keymaps_dir = fn.stdpath("config") .. "/lua/keymaps/"

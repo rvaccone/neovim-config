@@ -7,6 +7,7 @@ local tbl_deep_extend = vim.tbl_deep_extend
 
 local M = {}
 
+--- Function to setup LSP
 ---@return nil
 function M.setup()
 	-- Configure LSP window borders
@@ -282,7 +283,6 @@ function M.setup()
 		}),
 		sources = cmp.config.sources({
 			{ name = "cmdline", max_item_count = max_cmp_items, priority = 100 },
-		}, {
 			{ name = "path", max_item_count = max_cmp_items, priority = 50 },
 		}),
 	})
