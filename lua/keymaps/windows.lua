@@ -7,8 +7,7 @@ local notify = vim.notify
 local tbl_contains = vim.tbl_contains
 
 ---@class Config
----@field max_windows number Maximum number of windows to support
----@field excluded_filetypes string[] List of filetypes to exclude from window creation
+---@field max_windows number Maximum number of windows to support @field excluded_filetypes string[] List of filetypes to exclude from window creation
 local config = {
 	max_windows = 9,
 	excluded_filetypes = { "help", "NvimTree" },
@@ -25,7 +24,9 @@ local function list_content_windows()
 
 		if buf and buf > 0 then
 			local filetype = api.nvim_buf_get_option(buf, "filetype")
-			if not tbl_contains(config.excluded_filetypes, filetype) then
+			local buftype = api.nvim_buf_get_option(buf, "buftype")
+
+			if not tbl_contains(config.excluded_filetypes, filetype) and buftype ~= "help" then
 				table.insert(editor_windows, window)
 			end
 		end

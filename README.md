@@ -18,15 +18,15 @@ A Neovim configuration that focuses on intentionality and thoughtful design for 
 brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
 ```
 
-3. Install your favorite terminal emulator (optional)
+3. Install your favorite terminal emulator _(optional)_
 
 I use both Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
 
-4. Install a Nerd Font (optional, but required for icons)
+4. Install a Nerd Font _(optional, but required for icons)_
 
 You can find a list of Nerd Fonts [here](https://www.nerdfonts.com/font-downloads). I use [JetBrains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip). You should set the font in your terminal after.
 
-5. Save your current Neovim configuration (optional)
+5. Save your current Neovim configuration _(optional)_
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.backup
@@ -38,33 +38,54 @@ mv ~/.config/nvim ~/.config/nvim.backup
 git clone https://github.com/rvaccone/neovim-config.git ~/.config/nvim
 ```
 
-7. Remove the Supermaven plugin (optional)
+7. Remove the Supermaven plugin _(optional)_
 
 ```bash
 rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
 ```
 
-While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. Remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
+While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. You can remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
 
 ## Configuration-specific features
 
-- Language Server Protocol (LSP) support out of the box
-- Automatically formats code on save
-- Support for common linters and language parsers
-- Git integration without leaving Neovim
-- Effortless window & buffer management
-- Gruvbox theme and simply beautiful aesthetic
-- Modular configuration designed to adjust to you
-- Curated plugin collection
+- **Batteries Included Language Support**
+
+  - Language Server Protocol (LSP) support out of the box
+  - In-line predictions and suggestions built-in
+  - Common formatters, linters, and language parsers included
+
+- **Simply Beautiful Aesthetic**
+
+  - Features a nostalgic Gruvbox theme
+  - Polished icons, borders, and colors that are easy on the eyes
+  - Clean visual design that employs functional minimalism
+
+- **Intuitive Window Management**
+
+  - Keymaps for quick window navigation and creation
+  - Support for managing help and quickfix windows
+  - Robust mark support and reference
+
+- **Thoughtful Modular Configuration**
+
+  - Isolated plugin and keymap specifications
+  - Dedicated files for LSP setup and vim settings
+  - Aggregators that allow you to adjust to your needs
+
+- **Cohesive User Experience**
+
+  - Git integration without leaving Neovim
+  - Intuitive, semantic keymaps
+  - Curated plugin collection
 
 ## Configuration-specific keymaps
 
 Special Keys:
 
-- `<leader>` = Spacebar
-- `<cr>` = Enter/Return
-- `<c-n>` = Control + n
-- `<s-cr>` = Shift + Enter
+- `<leader>` → Spacebar
+- `<cr>` → Enter/Return
+- `<c-n>` → Control + n
+- `<s-cr>` → Shift + Enter
 
 Modes:
 
