@@ -32,9 +32,9 @@ function M.aggregate()
 	-- Execute each keymap file
 	for _, name in ipairs(files) do
 		local filepath = keymaps_dir .. name
-		local success, err_pcall = pcall(dofile, filepath)
+		local success, result = pcall(dofile, filepath)
 		if not success then
-			notify("Failed to execute keymap file: " .. filepath .. "\nError: " .. err_pcall, log.levels.ERROR)
+			notify("Failed to execute keymap file: " .. filepath .. "\nError: " .. result, log.levels.ERROR)
 		end
 	end
 end

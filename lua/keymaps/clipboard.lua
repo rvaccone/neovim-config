@@ -2,6 +2,7 @@
 local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
+local log = vim.log
 local notify = vim.notify
 
 --- Function to yank the entire buffer and append the file path
@@ -24,3 +25,13 @@ local function yank_with_path()
 end
 
 keymap.set("n", "<leader>ya", yank_with_path, { desc = "Yank buffer content and file path to clipboard" })
+
+keymap.set("n", "<leader>yn", function()
+	local filename = fn.expand("%:t")
+	if filename and filename ~= "" then
+		fn.setreg("+", filename)
+		notify(string.format("Copied filename %s to clipboard", filename))
+	else
+		notify("No filename found", log.levels.ERROR)
+	end
+end, { desc = "Yank filename to clipboard" })
