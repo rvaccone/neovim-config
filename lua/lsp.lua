@@ -58,7 +58,11 @@ function M.setup()
 		ensure_installed = {
 			-- Linters
 			"eslint_d", -- JavaScript/TypeScript
+			"hadolint", -- Dockerfile
+			"luacheck", -- Lua
 			"pylint", -- Python
+			"shellcheck", -- Shell
+			"sqruff", -- SQL
 			"typos", -- Spell checker
 
 			-- Formatters
@@ -78,10 +82,14 @@ function M.setup()
 		ensure_installed = {
 			"bashls", -- Bash
 			"cssls", -- CSS
+			"docker_compose_language_service", -- Docker Compose
+			"dockerls", -- Docker
 			"eslint", -- ESLint
 			"graphql", -- GraphQL
+			"html", -- HTML
 			"jsonls", -- JSON
 			"lua_ls", -- Lua
+			"marksman", -- Markdown
 			"pyright", -- Python
 			"ruff", -- Python
 			"rust_analyzer", -- Rust
@@ -112,6 +120,9 @@ function M.setup()
 				settings = { Lua = { diagnostics = { globals = { "vim" } }, telemetry = { enable = false } } },
 			})
 		end,
+
+		-- Prevent lspconfig from configuring ts_ls for pmizio/typescript-tools.nvim
+		["ts_ls"] = function() end,
 	})
 
 	-- Setup completion with cmp

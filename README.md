@@ -118,14 +118,18 @@ Quick links:
 
 ### Navigation
 
-| Keymap       | Action              | Mode   | Source                            |
-| ------------ | ------------------- | ------ | --------------------------------- |
-| `<cr>`       | Quick jump anywhere | Normal | echasnovski#mini.jump2d.lua       |
-| `<leader>ff` | Find files          | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fg` | Find with grep      | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fs` | Find in file        | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fw` | Find word           | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fb` | Find buffer         | Normal | nvim-telescope#telescope.nvim.lua |
+I prioritize intentionality significantly in my workflow. As a result, `<cr>` will allow you to jump to visible locations, replacing the default behavior.
+
+| Keymap       | Action           | Mode   | Source                            |
+| ------------ | ---------------- | ------ | --------------------------------- |
+| `<cr>`       | Quick jump       | Normal | echasnovski#mini.jump2d.lua       |
+| `<leader>ff` | Find files       | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fg` | Find with grep   | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fs` | Find in file     | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fw` | Find word        | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fb` | Find buffer      | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fd` | Find diagnostics | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fm` | Find marks       | Normal | nvim-telescope#telescope.nvim.lua |
 
 ### Mark Management
 
@@ -155,18 +159,18 @@ You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
-| Keymap       | Action                | Mode   | Source          |
-| ------------ | --------------------- | ------ | --------------- |
-| `gd`         | Go to definition      | Normal | keymaps/lsp.lua |
-| `gD`         | Go to declaration     | Normal | keymaps/lsp.lua |
-| `gi`         | Go to implementation  | Normal | keymaps/lsp.lua |
-| `go`         | Go to type definition | Normal | keymaps/lsp.lua |
-| `gr`         | Show references       | Normal | keymaps/lsp.lua |
-| `K`          | Show documentation    | Normal | keymaps/lsp.lua |
-| `gs`         | Show signature help   | Normal | keymaps/lsp.lua |
-| `<leader>a`  | Code action           | Normal | keymaps/lsp.lua |
-| `<leader>rn` | Rename symbol         | Normal | keymaps/lsp.lua |
-| `<leader>lr` | Restart LSP           | Normal | keymaps/lsp.lua |
+| Keymap       | Action                | Mode           | Source          |
+| ------------ | --------------------- | -------------- | --------------- |
+| `gd`         | Go to definition      | Normal         | keymaps/lsp.lua |
+| `gD`         | Go to declaration     | Normal         | keymaps/lsp.lua |
+| `gi`         | Go to implementation  | Normal         | keymaps/lsp.lua |
+| `go`         | Go to type definition | Normal         | keymaps/lsp.lua |
+| `gr`         | Show references       | Normal         | keymaps/lsp.lua |
+| `K`          | Show documentation    | Normal         | keymaps/lsp.lua |
+| `gs`         | Show signature help   | Normal         | keymaps/lsp.lua |
+| `<leader>a`  | Code action           | Normal, Visual | keymaps/lsp.lua |
+| `<leader>rn` | Rename symbol         | Normal         | keymaps/lsp.lua |
+| `<leader>lr` | Restart LSP           | Normal         | keymaps/lsp.lua |
 
 ### Text Manipulation
 
@@ -225,26 +229,29 @@ You can also use the `q` key to close the floating parent directory.
 | `<leader>sr` | Start search and replace  | Normal, Visual | keymaps/search.lua |
 | `<leader>sw` | Replace word under cursor | Normal         | keymaps/search.lua |
 | `<leader>sn` | Clear search highlighting | Normal         | keymaps/search.lua |
+| `<leader>sb` | Search document symbols   | Normal         | keymaps/lsp.lua    |
+| `<leader>sB` | Search workspace symbols  | Normal         | keymaps/lsp.lua    |
 
 ### Code Assistance
 
-| Keymap       | Action                    | Mode   | Source                             |
-| ------------ | ------------------------- | ------ | ---------------------------------- |
-| `<c-n>`      | Next completion item      | Insert | keymaps/lsp.lua                    |
-| `<c-p>`      | Previous completion item  | Insert | keymaps/lsp.lua                    |
-| `<cr>`       | Accept completion         | Insert | keymaps/lsp.lua                    |
-| `<s-cr>`     | Abort completion          | Insert | keymaps/lsp.lua                    |
-| `<tab>`      | Accept in-line prediction | Insert | supermaven-inc#supermaven-nvim.lua |
-| `<leader>df` | Show & copy diagnostic    | Normal | keymaps/lsp.lua                    |
-| `<leader>dp` | Previous diagnostic       | Normal | keymaps/lsp.lua                    |
-| `<leader>dn` | Next diagnostic           | Normal | keymaps/lsp.lua                    |
+| Keymap       | Action                       | Mode   | Source                             |
+| ------------ | ---------------------------- | ------ | ---------------------------------- |
+| `<c-n>`      | Next completion item         | Insert | keymaps/lsp.lua                    |
+| `<c-p>`      | Previous completion item     | Insert | keymaps/lsp.lua                    |
+| `<cr>`       | Accept completion            | Insert | keymaps/lsp.lua                    |
+| `<s-cr>`     | Abort completion             | Insert | keymaps/lsp.lua                    |
+| `<tab>`      | Accept in-line prediction    | Insert | supermaven-inc#supermaven-nvim.lua |
+| `<leader>dy` | Yank diagnostic              | Normal | keymaps/diagnostics.lua            |
+| `<leader>dh` | Show & yank diagnostic hover | Normal | keymaps/diagnostics.lua            |
+| `<leader>dp` | Previous diagnostic          | Normal | keymaps/diagnostics.lua            |
+| `<leader>dn` | Next diagnostic              | Normal | keymaps/diagnostics.lua            |
 
 ### Language Tools
 
-| Keymap       | Action                  | Mode   | Languages         | Source                                                      |
-| ------------ | ----------------------- | ------ | ----------------- | ----------------------------------------------------------- |
-| `<leader>im` | Add missing imports     | Normal | TypeScript        | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
-| `<leader>io` | Organize imports/Format | Normal | TypeScript/Python | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
+| Keymap       | Action              | Mode   | Languages         | Source                                                      |
+| ------------ | ------------------- | ------ | ----------------- | ----------------------------------------------------------- |
+| `<leader>im` | Add missing imports | Normal | TypeScript        | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
+| `<leader>io` | Organize imports    | Normal | TypeScript/Python | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
 
 ### Quickfix
 

@@ -14,3 +14,7 @@ keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "Find 
 keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find word" })
 
 keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
+
+keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostic" })
+
+keymap.set("n", "<leader>fm", builtin.marks, { desc = "Search marks", noremap = true, silent = true })
