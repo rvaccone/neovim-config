@@ -70,6 +70,7 @@ function M.setup()
 			"ruff", -- Python
 			"shfmt", -- Shell
 			"sqlfmt", -- SQL
+			"tex-fmt", -- LaTeX
 			"stylua", -- Lua
 			"prettier", -- JavaScript/TypeScript
 			"prettierd", --  JavaScript/TypeScript
@@ -88,6 +89,7 @@ function M.setup()
 			"graphql", -- GraphQL
 			"html", -- HTML
 			"jsonls", -- JSON
+			"texlab", -- LaTeX
 			"lua_ls", -- Lua
 			"marksman", -- Markdown
 			"pyright", -- Python

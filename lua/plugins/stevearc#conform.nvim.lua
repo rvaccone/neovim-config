@@ -17,6 +17,8 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
+			latex = { "tex-fmt" },
+			tex = { "tex-fmt" },
 			python = { "black" },
 			sql = { "sqlfmt" },
 			["*"] = { "trim_whitespace" },
