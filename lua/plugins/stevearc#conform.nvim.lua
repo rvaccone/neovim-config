@@ -19,6 +19,7 @@ return {
 			graphql = { "prettier" },
 			latex = { "tex-fmt" },
 			tex = { "tex-fmt" },
+			plaintex = { "tex-fmt" },
 			python = { "black" },
 			sql = { "sqlfmt" },
 			["*"] = { "trim_whitespace" },
