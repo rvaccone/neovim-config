@@ -1,7 +1,9 @@
 -- Setup localized vim variables
 local fn = vim.fn
 local diagnostic = vim.diagnostic
+local log = vim.log
 local lsp = vim.lsp
+local notify = vim.notify
 local snippet = vim.snippet
 local tbl_deep_extend = vim.tbl_deep_extend
 
@@ -35,7 +37,6 @@ function M.setup()
 		severity_sort = true,
 		float = {
 			border = "rounded",
-			source = "always",
 			header = "",
 			prefix = "",
 		},
@@ -75,33 +76,7 @@ function M.setup()
 			"prettier", -- JavaScript/TypeScript
 			"prettierd", --  JavaScript/TypeScript
 		},
-		auto_update = true,
-	})
-
-	-- Configure language servers
-	require("mason-lspconfig").setup({
-		ensure_installed = {
-			"bashls", -- Bash
-			"cssls", -- CSS
-			"docker_compose_language_service", -- Docker Compose
-			"dockerls", -- Docker
-			"eslint", -- ESLint
-			"graphql", -- GraphQL
-			"html", -- HTML
-			"jsonls", -- JSON
-			"texlab", -- LaTeX
-			"lua_ls", -- Lua
-			"marksman", -- Markdown
-			"pyright", -- Python
-			"ruff", -- Python
-			"rust_analyzer", -- Rust
-			"sqlls", -- SQL
-			"tailwindcss", -- Tailwind CSS
-			"ts_ls", -- TypeScript
-			"vimls", -- Vim
-			"yamlls", -- YAML
-		},
-		automatic_installation = true,
+		auto_update = false,
 	})
 
 	-- Add cmp_nvim_lsp capabilities to lspconfig
@@ -110,21 +85,71 @@ function M.setup()
 		tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 	-- Automatically setup servers installed via mason-lspconfig
-	require("mason-lspconfig").setup_handlers({
-		-- Default handler
-		function(server_name)
-			require("lspconfig")[server_name].setup({})
-		end,
+	require("mason-lspconfig").setup({
+		ensure_installed = {
+			"lua_ls",
+			"bashls",
+			"cssls",
+			"docker_compose_language_service",
+			"dockerls",
+			"eslint",
+			"graphql",
+			"html",
+			"jsonls",
+			"texlab",
+			"marksman",
+			"pyright",
+			"ruff",
+			"rust_analyzer",
+			"sqlls",
+			"tailwindcss",
+			"ts_ls",
+			"vimls",
+			"yamlls",
+		},
+		automatic_installation = true,
+		handlers = {
+			-- Default handler
+			function(server_name)
+				local server_config = {
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				}
+				local M_lspconfig = require("lspconfig")
+				if M_lspconfig[server_name] and M_lspconfig[server_name].setup then
+					M_lspconfig[server_name].setup(server_config)
+				else
+					notify("LSPConfig: No default setup found for " .. server_name, log.levels.WARN)
+				end
+			end,
 
-		-- Override handlers for specific servers
-		["lua_ls"] = function()
-			require("lspconfig").lua_ls.setup({
-				settings = { Lua = { diagnostics = { globals = { "vim" } }, telemetry = { enable = false } } },
-			})
-		end,
+			-- Override handlers for specific servers
+			["lua_ls"] = function()
+				require("lspconfig").lua_ls.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					settings = {
+						Lua = {
+							runtime = { version = "LuaJIT" },
+							diagnostics = { globals = { "vim" } },
+							workspace = { library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false },
+							telemetry = { enable = false },
+						},
+					},
+				})
+			end,
+			["ruff"] = function()
+				require("lspconfig").ruff.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				})
+			end,
+			["eslint"] = function()
+				require("lspconfig").eslint.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				})
+			end,
 
-		-- Prevent lspconfig from configuring ts_ls for pmizio/typescript-tools.nvim
-		["ts_ls"] = function() end,
+			-- Prevent lspconfig from configuring ts_ls for pmizio/typescript-tools.nvim
+			["ts_ls"] = function() end,
+		},
 	})
 
 	-- Setup completion with cmp
