@@ -11,11 +11,14 @@ function M.apply()
 	opt.clipboard = "unnamedplus" -- Use the system clipboard
 	opt.incsearch = true -- Show search results as you type
 
-	-- Appearance settings
-	opt.cursorline = true -- Highlight the current line
+	-- Layout settings
 	opt.ruler = false -- Hide the ruler
+	opt.showmode = false -- Hide the mode indicator
 	opt.number = true -- Show line numbers
 	opt.signcolumn = "yes" -- Always show the sign column
+
+	-- Appearance settings
+	opt.cursorline = true -- Highlight the current line
 	opt.scrolloff = 10 -- Keep eight lines above and below the cursor if possible
 	opt.termguicolors = true -- Use the terminal colors
 	cmd.colorscheme("gruvbox") -- Set the colorscheme

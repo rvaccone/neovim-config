@@ -17,22 +17,35 @@ return {
 				entry_prefix = "  ",
 				color_devicons = true,
 				results_title = false,
+
 				-- Sorting
 				file_ignore_patterns = {
-					"node_modules/.*",
-					".git/.*",
+					-- Folders
+					"^.git/",
+					"%.DS_Store",
 					"%.lock",
+					"^node_modules/",
+
+					-- Fonts
+					"%.ttf",
+					"%.otf",
+
+					-- Images
 					"%.svg",
 					"%.png",
 					"%.jpg",
 					"%.jpeg",
 					"%.webp",
 					"%.gif",
+
+					-- Videos
 					"%.mp4",
+					"%.mkv",
+					"%.mov",
+
+					-- Documents
 					"%.pdf",
-					"%.ttf",
-					"%.otf",
-					"%.DS_Store",
+					"%.doc",
 				},
 				-- Layout
 				sorting_strategy = "ascending",

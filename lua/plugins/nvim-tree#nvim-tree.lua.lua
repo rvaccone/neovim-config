@@ -20,6 +20,7 @@ return {
 				indent_markers = {
 					enable = true,
 				},
+				full_name = true,
 			},
 			git = {
 				ignore = false,
