@@ -1,3 +1,6 @@
+-- Setup localized vim variables
+local bo = vim.bo
+
 return {
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets" },
@@ -20,46 +23,20 @@ return {
 			["<S-CR>"] = { "cancel", "fallback" },
 		},
 
-		appearance = {
-			-- Kind icons
-			kind_icons = {
-				Text = "󰉿",
-				Method = "󰆧",
-				Function = "󰊕",
-				Constructor = "󰒿",
-				Field = "󰜢",
-				Variable = "󰀫",
-				Class = "󰠱",
-				Interface = "󰜰",
-				Module = "󰏗",
-				Property = "󰜢",
-				Unit = "󰑭",
-				Value = "󰎠",
-				Enum = "󰒻",
-				Keyword = "󰌋",
-				Snippet = "󰩫",
-				Color = "󰏘",
-				File = "󰈙",
-				Reference = "󰈇",
-				Folder = "󰉋",
-				EnumMember = "󰒿",
-				Constant = "󰏿",
-				Struct = "󰙅",
-				Event = "󰉁",
-				Operator = "󰆕",
-				TypeParameter = "󰊄",
-			},
-		},
+		-- Prevent blink from showing on NvimTree
+		enabled = function()
+			return bo.buftype ~= "nofile"
+		end,
 
 		completion = {
-			list = {
-				max_items = 5,
-			},
+			list = { max_items = 5 },
+
 			menu = {
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:Normal",
 				draw = {
 					columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+					treesitter = { "lsp" },
 					components = {
 						source_name = {
 							text = function(ctx)
@@ -68,24 +45,15 @@ return {
 									buffer = "[Buffer]",
 									path = "[Path]",
 									snippets = "[Snippet]",
+									cmdline = "[Cmd]",
 								}
 								return source_names[ctx.source_name] or ("[" .. ctx.source_name .. "]")
-							end,
-						},
-
-						-- Truncate long labels
-						label = {
-							text = function(ctx)
-								local label = ctx.label
-								if #label > 50 then
-									return label:sub(1, 50) .. "..."
-								end
-								return label
 							end,
 						},
 					},
 				},
 			},
+
 			documentation = {
 				window = {
 					border = "rounded",
@@ -94,34 +62,39 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 			},
-			accept = { auto_brackets = { enabled = true } },
 		},
 
-		-- Add signature help
-		signature = {
-			enabled = true,
-			window = {
-				border = "rounded",
-				winhighlight = "Normal:Normal,FloatBorder:Normal",
+		-- Cmdline configuration
+		cmdline = {
+			keymap = {
+				preset = "none",
+
+				-- Navigation
+				["<C-p>"] = { "select_prev", "fallback" },
+				["<C-n>"] = { "select_next", "fallback" },
+
+				-- Confirmation
+				["<Tab>"] = { "show", "accept" },
 			},
+			completion = { menu = { auto_show = true } },
 		},
 
 		-- Sources configuration
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
 			providers = {
-				buffer = {
-					max_items = 5,
-				},
-				lsp = {
-					max_items = 5,
-				},
-				path = {
-					max_items = 5,
-				},
-				snippets = {
-					max_items = 5,
-				},
+				lsp = { max_items = 5 },
+				buffer = { max_items = 5 },
+				path = { max_items = 5 },
+				snippets = { max_items = 5 },
+			},
+		},
+
+		-- Fuzzy configuration
+		fuzzy = {
+			sorts = {
+				"exact",
+				"score",
+				"sort_text",
 			},
 		},
 	},
