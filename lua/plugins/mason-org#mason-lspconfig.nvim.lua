@@ -2,7 +2,6 @@
 local api = vim.api
 local log = vim.log
 local notify = vim.notify
-local tbl_deep_extend = vim.tbl_deep_extend
 
 return {
 	"mason-org/mason-lspconfig.nvim",
@@ -99,16 +98,6 @@ return {
 				auto_update = true,
 			},
 		},
-		{
-			"neovim/nvim-lspconfig",
-			config = function()
-				local lspconfig_defaults = require("lspconfig").util.default_config
-				lspconfig_defaults.capabilities = tbl_deep_extend(
-					"force",
-					lspconfig_defaults.capabilities or {},
-					require("cmp_nvim_lsp").default_capabilities()
-				)
-			end,
-		},
+		{ "neovim/nvim-lspconfig", event = { "BufReadPost", "BufNewFile" } },
 	},
 }
