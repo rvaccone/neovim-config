@@ -1,7 +1,9 @@
 -- Setup localized vim variables
 local api = vim.api
 local buf = vim.lsp.buf
+local log = require("utils.log")
 local keymap = vim.keymap
+local notify = vim.notify
 
 -- Telescope builtin
 local telescope_builtin = require("telescope.builtin")
@@ -29,7 +31,7 @@ local function open_lsp_location_in_new_window(method, split_direction)
 	elseif method == "type_definition" then
 		buf.type_definition()
 	else
-		vim.notify("Unsupported LSP method: " .. tostring(method), vim.log.levels.ERROR)
+		notify("Unsupported LSP method: " .. tostring(method), log.levels.ERROR)
 	end
 end
 

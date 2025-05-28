@@ -87,7 +87,6 @@ return {
 
 					-- Formatters
 					"black", -- Python
-					"ruff", -- Python
 					"shfmt", -- Shell
 					"sqlfmt", -- SQL
 					"tex-fmt", -- LaTeX
