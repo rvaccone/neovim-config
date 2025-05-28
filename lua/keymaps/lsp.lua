@@ -1,8 +1,8 @@
 -- Setup localized vim variables
 local api = vim.api
 local buf = vim.lsp.buf
-local log = require("utils.log")
 local keymap = vim.keymap
+local log = vim.log
 local notify = vim.notify
 
 -- Telescope builtin
