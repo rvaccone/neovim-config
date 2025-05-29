@@ -15,7 +15,7 @@ A Neovim configuration that focuses on intentionality and thoughtful design for 
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit make
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make yazi ffmpeg sevenzip jq poppler fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 ```
 
 3. Install your favorite terminal emulator _(optional)_
@@ -130,6 +130,7 @@ I prioritize intentionality significantly in my workflow. As a result, `<cr>` wi
 | `<leader>fb` | Find buffer      | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fd` | Find diagnostics | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fm` | Find marks       | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fr` | Resume last find | Normal | nvim-telescope#telescope.nvim.lua |
 
 ### Mark Management
 
@@ -144,33 +145,39 @@ I prioritize intentionality significantly in my workflow. As a result, `<cr>` wi
 
 ### Window Management
 
-| Keymap         | Action                       | Mode   | Source                      |
-| -------------- | ---------------------------- | ------ | --------------------------- |
-| `<leader>0`    | Focus file tree              | Normal | nvim-tree#nvim-tree.lua.lua |
-| `<leader>nt`   | Toggle file tree             | Normal | nvim-tree#nvim-tree.lua.lua |
-| `-`            | Open file explorer           | Normal | stevearc#oil.nvim.lua       |
-| `<leader>1-9`  | Focus/create window          | Normal | keymaps/windows.lua         |
-| `<leader>v1-9` | Focus/create vertical window | Normal | keymaps/windows.lua         |
-| `<leader>q1-9` | Close window without saving  | Normal | keymaps/windows.lua         |
-| `<leader>z1-9` | Close window with saving     | Normal | keymaps/windows.lua         |
-| `QQ`           | Quit session                 | Normal | keymaps/session.lua         |
+| Keymap         | Action                       | Mode           | Source                      |
+| -------------- | ---------------------------- | -------------- | --------------------------- |
+| `<leader>0`    | Focus file tree              | Normal         | nvim-tree#nvim-tree.lua.lua |
+| `<leader>nt`   | Toggle file tree             | Normal         | nvim-tree#nvim-tree.lua.lua |
+| `<leader>-`    | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua    |
+| `<leader>1-9`  | Focus/create window          | Normal         | keymaps/windows.lua         |
+| `<leader>v1-9` | Focus/create vertical window | Normal         | keymaps/windows.lua         |
+| `<leader>q1-9` | Close window without saving  | Normal         | keymaps/windows.lua         |
+| `<leader>z1-9` | Close window with saving     | Normal         | keymaps/windows.lua         |
+| `QQ`           | Quit session                 | Normal         | keymaps/session.lua         |
 
 You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
-| Keymap       | Action                | Mode           | Source          |
-| ------------ | --------------------- | -------------- | --------------- |
-| `gd`         | Go to definition      | Normal         | keymaps/lsp.lua |
-| `gD`         | Go to declaration     | Normal         | keymaps/lsp.lua |
-| `gi`         | Go to implementation  | Normal         | keymaps/lsp.lua |
-| `go`         | Go to type definition | Normal         | keymaps/lsp.lua |
-| `gr`         | Show references       | Normal         | keymaps/lsp.lua |
-| `K`          | Show documentation    | Normal         | keymaps/lsp.lua |
-| `gs`         | Show signature help   | Normal         | keymaps/lsp.lua |
-| `<leader>a`  | Code action           | Normal, Visual | keymaps/lsp.lua |
-| `<leader>rn` | Rename symbol         | Normal         | keymaps/lsp.lua |
-| `<leader>lr` | Restart LSP           | Normal         | keymaps/lsp.lua |
+| Keymap        | Action                                         | Mode           | Source          |
+| ------------- | ---------------------------------------------- | -------------- | --------------- |
+| `gd`          | Go to definition                               | Normal         | keymaps/lsp.lua |
+| `<leader>gd`  | Go to definition in a new window               | Normal         | keymaps/lsp.lua |
+| `<leader>vgd` | Go to definition in a new vertical window      | Normal         | keymaps/lsp.lua |
+| `gD`          | Go to declaration                              | Normal         | keymaps/lsp.lua |
+| `<leader>gD`  | Go to declaration in a new window              | Normal         | keymaps/lsp.lua |
+| `<leader>vgD` | Go to declaration in a new vertical window     | Normal         | keymaps/lsp.lua |
+| `gi`          | Go to implementation                           | Normal         | keymaps/lsp.lua |
+| `gt`          | Go to type definition                          | Normal         | keymaps/lsp.lua |
+| `<leader>gt`  | Go to type definition in a new window          | Normal         | keymaps/lsp.lua |
+| `<leader>vgt` | Go to type definition in a new vertical window | Normal         | keymaps/lsp.lua |
+| `gr`          | Show references                                | Normal         | keymaps/lsp.lua |
+| `K`           | Show documentation                             | Normal         | keymaps/lsp.lua |
+| `gs`          | Show signature help                            | Normal         | keymaps/lsp.lua |
+| `<leader>a`   | Code action                                    | Normal, Visual | keymaps/lsp.lua |
+| `<leader>rn`  | Rename symbol                                  | Normal         | keymaps/lsp.lua |
+| `<leader>lr`  | Restart LSP                                    | Normal         | keymaps/lsp.lua |
 
 ### Text Manipulation
 
@@ -293,7 +300,7 @@ Each text object can be used with `i` (inner) or `a` (around), combined with ope
 │   │   └── 📄 plugins.lua     # Loads all plugin configurations
 │   ├── 📁 keymaps/            # Specific keybinding configurations
 │   ├── 📁 plugins/            # Specific plugin configurations
-│   ├── 📄 lsp.lua             # Language Server Protocol (LSP) setup
+│   ├── 📄 ui.lua              # Overarching UI setup
 │   └── 📄 vim_settings.lua    # Core Neovim settings
 ├── 📁 spell/                  # Spell checking files
 ├── 📄 .gitignore              # Git ignore rules
