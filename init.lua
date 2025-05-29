@@ -10,8 +10,8 @@ require("aggregators/plugins").aggregate()
 -- Apply Vim settings
 require("vim_settings").apply()
 
--- LSP setup
+-- UI setup
 require("ui").setup()
 
--- Load 2Vim and user keymaps
+-- Load keymaps
 require("aggregators/keymaps").aggregate()
