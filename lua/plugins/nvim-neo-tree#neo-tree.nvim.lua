@@ -1,3 +1,6 @@
+-- Setup localized vim variables
+local defer_fn = vim.defer_fn
+
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -27,6 +30,8 @@ return {
 		})
 
 		-- Automatically show neo-tree
-		require("neo-tree.command").execute({ action = "show" })
+		defer_fn(function()
+			require("neo-tree.command").execute({ action = "show" })
+		end, 100)
 	end,
 }
