@@ -15,7 +15,7 @@ A Neovim configuration that focuses on intentionality and thoughtful design for 
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit make yazi ffmpeg sevenzip jq poppler fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make yazi ffmpeg sevenzip jq poppler fzf zoxide resvg imagemagick font-symbols-only-nerd-font gnu-sed
 ```
 
 3. Install your favorite terminal emulator _(optional)_
@@ -51,7 +51,7 @@ While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier 
 - **Batteries Included Language Support**
 
   - Language Server Protocol (LSP) support out of the box
-  - In-line predictions and suggestions built-in
+  - In-line predictions and completion suggestions built-in
   - Common formatters, linters, and language parsers included
 
 - **Simply Beautiful Aesthetic**
@@ -68,15 +68,15 @@ While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier 
 
 - **Thoughtful Modular Configuration**
 
-  - Isolated plugin and keymap specifications
-  - Dedicated files for LSP setup and vim settings
-  - Aggregators that allow you to adjust to your needs
+  - Isolated plugin and keymap specifications with aggregators
+  - Dedicated files for vim settings and utility functions
+  - Consistent plugin file naming convention and sources in the README
 
 - **Cohesive User Experience**
 
   - Git integration without leaving Neovim
-  - Intuitive, semantic keymaps
-  - Curated plugin collection
+  - Intuitive, semantic keymaps with intentionality in mind
+  - Modern curated plugin collection
 
 ## Configuration-specific keymaps
 
@@ -145,16 +145,16 @@ I prioritize intentionality significantly in my workflow. As a result, `<cr>` wi
 
 ### Window Management
 
-| Keymap         | Action                       | Mode           | Source                      |
-| -------------- | ---------------------------- | -------------- | --------------------------- |
-| `<leader>0`    | Focus file tree              | Normal         | nvim-tree#nvim-tree.lua.lua |
-| `<leader>nt`   | Toggle file tree             | Normal         | nvim-tree#nvim-tree.lua.lua |
-| `<leader>-`    | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua    |
-| `<leader>1-9`  | Focus/create window          | Normal         | keymaps/windows.lua         |
-| `<leader>v1-9` | Focus/create vertical window | Normal         | keymaps/windows.lua         |
-| `<leader>q1-9` | Close window without saving  | Normal         | keymaps/windows.lua         |
-| `<leader>z1-9` | Close window with saving     | Normal         | keymaps/windows.lua         |
-| `QQ`           | Quit session                 | Normal         | keymaps/session.lua         |
+| Keymap         | Action                       | Mode           | Source                          |
+| -------------- | ---------------------------- | -------------- | ------------------------------- |
+| `<leader>0`    | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
+| `<leader>nt`   | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
+| `<leader>-`    | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua        |
+| `<leader>1-9`  | Focus/create window          | Normal         | keymaps/windows.lua             |
+| `<leader>v1-9` | Focus/create vertical window | Normal         | keymaps/windows.lua             |
+| `<leader>q1-9` | Close window without saving  | Normal         | keymaps/windows.lua             |
+| `<leader>z1-9` | Close window with saving     | Normal         | keymaps/windows.lua             |
+| `QQ`           | Quit session                 | Normal         | keymaps/session.lua             |
 
 You can also use the `q` key to close the floating parent directory.
 
@@ -231,13 +231,14 @@ You can also use the `q` key to close the floating parent directory.
 
 ### Search and Replace
 
-| Keymap       | Action                    | Mode           | Source             |
-| ------------ | ------------------------- | -------------- | ------------------ |
-| `<leader>sr` | Start search and replace  | Normal, Visual | keymaps/search.lua |
-| `<leader>sw` | Replace word under cursor | Normal         | keymaps/search.lua |
-| `<leader>sn` | Clear search highlighting | Normal         | keymaps/search.lua |
-| `<leader>sb` | Search document symbols   | Normal         | keymaps/lsp.lua    |
-| `<leader>sB` | Search workspace symbols  | Normal         | keymaps/lsp.lua    |
+| Keymap       | Action                      | Mode           | Source                     |
+| ------------ | --------------------------- | -------------- | -------------------------- |
+| `<leader>sr` | Start search and replace    | Normal, Visual | keymaps/search.lua         |
+| `<leader>sw` | Replace word under cursor   | Normal         | keymaps/search.lua         |
+| `<leader>sn` | Clear search highlighting   | Normal         | keymaps/search.lua         |
+| `<leader>sb` | Search document symbols     | Normal         | keymaps/lsp.lua            |
+| `<leader>sB` | Search workspace symbols    | Normal         | keymaps/lsp.lua            |
+| `<leader>sp` | Advanced search and replace | Normal         | nvim-pack#nvim-spectre.lua |
 
 ### Code Assistance
 
