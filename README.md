@@ -274,11 +274,11 @@ You can also use the `q` key to close the floating parent directory.
 
 ### System Tools
 
-| Keymap       | Action                            | Mode   | Source                      |
-| ------------ | --------------------------------- | ------ | --------------------------- |
-| `<leader>ln` | Open plugin package manager       | Normal | aggregators/plugins.lua     |
-| `<leader>lg` | Open git UI                       | Normal | kdheepak#lazygit.nvim.lua   |
-| `<leader>lm` | Open LSP and tool package manager | Normal | williamboman#mason.nvim.lua |
+| Keymap       | Action                            | Mode   | Source                    |
+| ------------ | --------------------------------- | ------ | ------------------------- |
+| `<leader>ln` | Open plugin package manager       | Normal | aggregators/plugins.lua   |
+| `<leader>lg` | Open git UI                       | Normal | kdheepak#lazygit.nvim.lua |
+| `<leader>lm` | Open LSP and tool package manager | Normal | mason-org#mason.nvim.lua  |
 
 ## Text Objects
 
