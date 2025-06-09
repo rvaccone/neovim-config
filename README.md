@@ -103,7 +103,7 @@ Quick links:
 - [Language Server Protocol (LSP)](#language-server-protocol-lsp)
 - [Clipboard Operations](#clipboard-operations)
 - [Text Manipulation](#text-manipulation)
-- [Text Editing & Surround Operations](#text-editing--surround-operations)
+- [Surround Operations](#surround-operations)
 - [Search and Replace](#search-and-replace)
 - [Code Assistance](#code-assistance)
 - [Language Tools](#language-tools)
@@ -197,7 +197,7 @@ You can also use the `q` key to close the floating parent directory.
 | `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` | echasnovski#mini.operators.lua |
 | `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` | echasnovski#mini.operators.lua |
 
-### Text Editing & Surround Operations
+### Surround Operations
 
 | Keymap | Action                | Mode           | Example                             | Source                        |
 | ------ | --------------------- | -------------- | ----------------------------------- | ----------------------------- |
