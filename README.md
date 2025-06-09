@@ -179,16 +179,21 @@ You can also use the `q` key to close the floating parent directory.
 | `<leader>rn`  | Rename symbol                                  | Normal         | keymaps/lsp.lua |
 | `<leader>lr`  | Restart LSP                                    | Normal         | keymaps/lsp.lua |
 
+### Clipboard Operations
+
+| Keymap       | Action                            | Mode   | Source                |
+| ------------ | --------------------------------- | ------ | --------------------- |
+| `<leader>ya` | Copy buffer and path to clipboard | Normal | keymaps/clipboard.lua |
+| `<leader>yn` | Copy filename to clipboard        | Normal | keymaps/clipboard.lua |
+
 ### Text Manipulation
 
-| Keymap       | Action                            | Mode           | Example                                      | Source                         |
-| ------------ | --------------------------------- | -------------- | -------------------------------------------- | ------------------------------ |
-| `gcc`        | Comment line                      | Normal         | `gcc` - Comment current line                 | numToStr#Comment.nvim.lua      |
-| `gc`         | Comment selection                 | Normal, Visual | `gcip` - Comment paragraph                   | numToStr#Comment.nvim.lua      |
-| `<leader>ya` | Copy buffer and path to clipboard | Normal         | `<leader>ya` - Copy entire file              | keymaps/clipboard.lua          |
-| `<leader>yn` | Copy filename to clipboard        | Normal         | `<leader>yn` - Copy current filename         | keymaps/clipboard.lua          |
-| `<leader>=`  | Evaluate and replace text         | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` | echasnovski#mini.operators.lua |
-| `<leader>==` | Evaluate and replace line         | Normal         | Given `2-2`, `<leader>==` - Replace with `0` | echasnovski#mini.operators.lua |
+| Keymap       | Action                    | Mode           | Example                                      | Source                         |
+| ------------ | ------------------------- | -------------- | -------------------------------------------- | ------------------------------ |
+| `gcc`        | Comment line              | Normal         | `gcc` - Comment current line                 | numToStr#Comment.nvim.lua      |
+| `gc`         | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                   | numToStr#Comment.nvim.lua      |
+| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` | echasnovski#mini.operators.lua |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` | echasnovski#mini.operators.lua |
 
 ### Text Editing & Surround Operations
 
