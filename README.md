@@ -179,55 +179,55 @@ You can also use the `q` key to close the floating parent directory.
 | `<leader>rn`  | Rename symbol                                  | Normal         | keymaps/lsp.lua |
 | `<leader>lr`  | Restart LSP                                    | Normal         | keymaps/lsp.lua |
 
+### Clipboard Operations
+
+| Keymap       | Action                            | Mode   | Source                |
+| ------------ | --------------------------------- | ------ | --------------------- |
+| `<leader>ya` | Copy buffer and path to clipboard | Normal | keymaps/clipboard.lua |
+| `<leader>yn` | Copy filename to clipboard        | Normal | keymaps/clipboard.lua |
+
 ### Text Manipulation
 
-| Keymap       | Action                            | Mode           | Example                                      | Source                         |
-| ------------ | --------------------------------- | -------------- | -------------------------------------------- | ------------------------------ |
-| `gcc`        | Comment line                      | Normal         | `gcc` - Comment current line                 | numToStr#Comment.nvim.lua      |
-| `gc`         | Comment selection                 | Normal, Visual | `gcip` - Comment paragraph                   | numToStr#Comment.nvim.lua      |
-| `<leader>ya` | Copy buffer and path to clipboard | Normal         | `<leader>ya` - Copy entire file              | keymaps/clipboard.lua          |
-| `<leader>yn` | Copy filename to clipboard        | Normal         | `<leader>yn` - Copy current filename         | keymaps/clipboard.lua          |
-| `ys`         | Add surround                      | Normal         | `ysiw"` - Surround word with quotes          | kylechui#nvim-surround.lua     |
-| `yss`        | Surround line                     | Normal         | `yss)` - Surround line with ()               | kylechui#nvim-surround.lua     |
-| `ySS`        | Surround line indent              | Normal         | `ySS{` - Surround with {} and indent         | kylechui#nvim-surround.lua     |
-| `cs`         | Change surround                   | Normal         | `cs'"` - Change ' to "                       | kylechui#nvim-surround.lua     |
-| `ds`         | Delete surround                   | Normal         | `dst` - remove HTML tags                     | kylechui#nvim-surround.lua     |
-| `<leader>=`  | Evaluate and replace text         | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` | echasnovski#mini.operators.lua |
-| `<leader>==` | Evaluate and replace line         | Normal         | Given `2-2`, `<leader>==` - Replace with `0` | echasnovski#mini.operators.lua |
+| Keymap       | Action                    | Mode           | Example                                      | Source                         |
+| ------------ | ------------------------- | -------------- | -------------------------------------------- | ------------------------------ |
+| `gcc`        | Comment line              | Normal         | `gcc` - Comment current line                 | numToStr#Comment.nvim.lua      |
+| `gc`         | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                   | numToStr#Comment.nvim.lua      |
+| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with`4` | echasnovski#mini.operators.lua |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0` | echasnovski#mini.operators.lua |
 
-**Surround Operators:**
+### Text Editing & Surround Operations
 
-- `(`, `)`, `b` - Parentheses
-- `{`, `}`, `B` - Curly braces
-- `[`, `]` - Square brackets
-- `<`, `>` - Angle brackets
-- `$` - Interpolation
-  - JavaScript/TypeScript: `${...}`
-  - Lua: `$(...)`
-  - Python: `{...}`
-  - Shell: `${...}`
-- `c` - Comment
-  - JavaScript/TypeScript: `/*...*/`
-  - JavaScriptReact/TypeScriptReact: `{/*...*/}`
-  - lua: `--[[...]]`
-  - python: `"""..."""`
-- `d` - Div
-  - JavaScriptReact/TypeScriptReact: `<div className="">...</div>`
-  - html: `<div>...</div>`
-- `D` - View
-  - JavaScriptReact/TypeScriptReact: `<View className="">...</View>`
-- `j` - JSX template literal
-- `l` - Log
-  - JavaScript/TypeScript: `console.log(...)`
-  - Lua/Python: `print(...)`
-- `p` - Promise
-  - JavaScript/TypeScript: `Promise<...>`
-  - Python: `Awaitable[...]`
-- `y` - Try
-  - JavaScript: `try { ... } catch (error) { console.error(error); }`
-  - TypeScript: `try { ... } catch (error: unknown) { console.error(error); }`
-  - Lua: `pcall(function() ... end)`
-- `t` - HTML/JSX/TSX tags (e.g., `ysiwt<div>`)
+| Keymap | Action                | Mode           | Example                             | Source                        |
+| ------ | --------------------- | -------------- | ----------------------------------- | ----------------------------- |
+| `sa`   | Add surround          | Normal, Visual | `saiw"` - Surround word with quotes | echasnovski#mini.surround.lua |
+| `sd`   | Delete surround       | Normal         | `sd"` - Remove quotes               | echasnovski#mini.surround.lua |
+| `sr`   | Replace surround      | Normal         | `sr'"` - Change ' to "              | echasnovski#mini.surround.lua |
+| `sf`   | Find surround (right) | Normal         | `sf"` - Jump to next "              | echasnovski#mini.surround.lua |
+| `sF`   | Find surround (left)  | Normal         | `sF"` - Jump to previous "          | echasnovski#mini.surround.lua |
+| `sh`   | Highlight surround    | Normal         | `sh"` - Highlight quotes            | echasnovski#mini.surround.lua |
+| `sn`   | Update n_lines        | Normal         | `sn` - Update search lines          | echasnovski#mini.surround.lua |
+
+**Non-Language-Aware Surroundings:**
+
+- `b` - Parentheses
+- `f` - Function
+- `q` - Quotes
+- `t` - HTML/JSX/TSX tags
+- `?` - User prompt
+
+**Language-Aware Surroundings:**
+
+| Key | Name                      | Languages                                                                     | Example Output                                                    |
+| --- | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `$` | Interpolation             | JS/TS: `${...}`, Lua: `$(...)`, Python: `{...}`, Shell: `${...}`              | `sa$` → `${`_selection_`}`                                        |
+| `c` | Comment                   | JS/TS: `/*...*/`, JSX/TSX: `{/*...*/}`, Lua: `--[[...]]`, Python: `"""..."""` | `sac` → `/* `_selection_` */`                                     |
+| `d` | Div                       | JSX/TSX: `<div className="">...</div>`, HTML: `<div>...</div>`                | `sad` → `<div className="">`_selection_`</div>`                   |
+| `D` | View                      | JSX/TSX: `<View className="">...</View>`                                      | `saD` → `<View className="">`_selection_`</View>`                 |
+| `l` | Log                       | JS/TS: `console.log(...)`, Lua/Python: `print(...)`                           | `sal` → `console.log(`_selection_`)`                              |
+| `p` | Promise                   | JS/TS: `Promise<...>`, Python: `Awaitable[...]`                               | `sap` → `Promise<`_selection_`>`                                  |
+| `t` | Custom Tag                | JSX/TSX/HTML                                                                  | `sat` → prompts for tag name → `<tag>`_selection_`</tag>`         |
+| `T` | Custom Tag with className | JSX/TSX                                                                       | `saT` → prompts for tag → `<tag className="">`_selection_`</tag>` |
+| `y` | Try-Catch                 | JS: `try {...} catch (error) {...}`, TS: typed catch, Lua: `pcall(...)`       | `say` → `try { `_selection_` } catch (error) {...}`               |
 
 ### Search and Replace
 
