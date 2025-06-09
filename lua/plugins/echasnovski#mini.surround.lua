@@ -149,18 +149,6 @@ return {
 					end,
 				},
 				["t"] = {
-					input = function()
-						local patterns = {
-							-- JavaScript/TypeScript
-							["javascriptreact"] = { "<%w+[^>]*>().-()</[^>]*>", "<%w+[^/>]*/>" },
-							["typescriptreact"] = { "<%w+[^>]*>().-()</[^>]*>", "<%w+[^/>]*/>" },
-
-							-- HTML
-							["html"] = { "<%w+[^>]*>().-()</[^>]*>", "<%w+[^/>]*/>" },
-						}
-
-						return get_pattern(patterns, "input")
-					end,
 					output = function()
 						local tag = require("mini.surround").user_input("Tag name: ")
 						if not tag then

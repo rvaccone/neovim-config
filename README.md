@@ -202,27 +202,27 @@ You can also use the `q` key to close the floating parent directory.
 | `sh`   | Highlight surround    | Normal         | `sh"` - Highlight quotes            | echasnovski#mini.surround.lua |
 | `sn`   | Update n_lines        | Normal         | `sn` - Update search lines          | echasnovski#mini.surround.lua |
 
-**Built-in Surroundings:**
+**Non-Language-Aware Surroundings:**
 
-- `(`, `)`, `b` - Parentheses
-- `{`, `}`, `B` - Curly braces
-- `[`, `]` - Square brackets
-- `<`, `>` - Angle brackets
-- `'`, `"`, `` ` `` - Quotes
+- `b` - Parentheses
+- `f` - Function
+- `q` - Quotes
+- `t` - HTML/JSX/TSX tags
+- `?` - User prompt
 
-**Custom Language-Aware Surroundings:**
+**Language-Aware Surroundings:**
 
-| Key | Name                      | Languages                                                                     | Example Output                                                |
-| --- | ------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `$` | Interpolation             | JS/TS: `${...}`, Lua: `$(...)`, Python: `{...}`, Shell: `${...}`              | `sa$` → `${selection}`                                        |
-| `c` | Comment                   | JS/TS: `/*...*/`, JSX/TSX: `{/*...*/}`, Lua: `--[[...]]`, Python: `"""..."""` | `sac` → `/* selection */`                                     |
-| `d` | Div                       | JSX/TSX: `<div className="">...</div>`, HTML: `<div>...</div>`                | `sad` → `<div className="">selection</div>`                   |
-| `D` | View                      | JSX/TSX: `<View className="">...</View>`                                      | `saD` → `<View className="">selection</View>`                 |
-| `l` | Log                       | JS/TS: `console.log(...)`, Lua/Python: `print(...)`                           | `sal` → `console.log(selection)`                              |
-| `p` | Promise                   | JS/TS: `Promise<...>`, Python: `Awaitable[...]`                               | `sap` → `Promise<selection>`                                  |
-| `t` | Custom Tag                | JSX/TSX/HTML                                                                  | `sat` → prompts for tag name → `<tag>selection</tag>`         |
-| `T` | Custom Tag with className | JSX/TSX                                                                       | `saT` → prompts for tag → `<tag className="">selection</tag>` |
-| `y` | Try-Catch                 | JS: `try {...} catch (error) {...}`, TS: typed catch, Lua: `pcall(...)`       | `say` → `try { selection } catch (error) {...}`               |
+| Key | Name                      | Languages                                                                     | Example Output                                                    |
+| --- | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `$` | Interpolation             | JS/TS: `${...}`, Lua: `$(...)`, Python: `{...}`, Shell: `${...}`              | `sa$` → `${`_selection_`}`                                        |
+| `c` | Comment                   | JS/TS: `/*...*/`, JSX/TSX: `{/*...*/}`, Lua: `--[[...]]`, Python: `"""..."""` | `sac` → `/* `_selection_` */`                                     |
+| `d` | Div                       | JSX/TSX: `<div className="">...</div>`, HTML: `<div>...</div>`                | `sad` → `<div className="">`_selection_`</div>`                   |
+| `D` | View                      | JSX/TSX: `<View className="">...</View>`                                      | `saD` → `<View className="">`_selection_`</View>`                 |
+| `l` | Log                       | JS/TS: `console.log(...)`, Lua/Python: `print(...)`                           | `sal` → `console.log(`_selection_`)`                              |
+| `p` | Promise                   | JS/TS: `Promise<...>`, Python: `Awaitable[...]`                               | `sap` → `Promise<`_selection_`>`                                  |
+| `t` | Custom Tag                | JSX/TSX/HTML                                                                  | `sat` → prompts for tag name → `<tag>`_selection_`</tag>`         |
+| `T` | Custom Tag with className | JSX/TSX                                                                       | `saT` → prompts for tag → `<tag className="">`_selection_`</tag>` |
+| `y` | Try-Catch                 | JS: `try {...} catch (error) {...}`, TS: typed catch, Lua: `pcall(...)`       | `say` → `try { `_selection_` } catch (error) {...}`               |
 
 ### Search and Replace
 
