@@ -1,67 +1,68 @@
 -- Setup localized vim variables
 local api = vim.api
-local log = vim.log
-local notify = vim.notify
 
 return {
 	"mason-org/mason-lspconfig.nvim",
-	opts = {
-		ensure_installed = {
-			"bashls",
-			"cssls",
-			"docker_compose_language_service",
-			"dockerls",
-			"eslint",
-			"graphql",
-			"html",
-			"jsonls",
-			"lua_ls",
-			"marksman",
-			"pyright",
-			"ruff",
-			"rust_analyzer",
-			"sqlls",
-			"tailwindcss",
-			"texlab",
-			"vimls",
-			"yamlls",
-		},
-		automatic_enable = true,
-		handlers = {
-			-- Default handler
-			function(server_name)
-				local server_config = {}
-				local M_lspconfig = require("lspconfig")
-				if M_lspconfig[server_name] and M_lspconfig[server_name].setup then
-					M_lspconfig[server_name].setup(server_config)
-				else
-					notify("LSPConfig: No default setup found for " .. server_name, log.levels.WARN)
-				end
-			end,
+	config = function()
+		require("mason-lspconfig").setup({
+			ensure_installed = {
+				"bashls",
+				"cssls",
+				"docker_compose_language_service",
+				"dockerls",
+				"eslint",
+				"graphql",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"marksman",
+				"pyright",
+				"ruff",
+				"rust_analyzer",
+				"sqlls",
+				"tailwindcss",
+				"texlab",
+				"vimls",
+				"yamlls",
+			},
+			automatic_enable = {
+				exclude = { "pyright", "lua_ls" },
+			},
+		})
 
-			-- Override handlers for specific servers
-			["lua_ls"] = function()
-				require("lspconfig").lua_ls.setup({
-					settings = {
-						Lua = {
-							runtime = { version = "LuaJIT" },
-							diagnostics = { globals = { "vim" } },
-							workspace = { library = api.nvim_get_runtime_file("", true), checkThirdParty = false },
-							telemetry = { enable = false },
-						},
+		-- Manual configuration for language servers for customization
+		local lspconfig = require("lspconfig")
+		lspconfig.lua_ls.setup({
+			settings = {
+				Lua = {
+					runtime = { version = "LuaJIT" },
+					diagnostics = { globals = { "vim" } },
+					workspace = {
+						library = api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
 					},
-				})
-			end,
+					telemetry = { enable = false },
+				},
+			},
+		})
 
-			-- pmizio#typescript-tools.nvim.lua is handling this LSP
-			["ts_ls"] = function() end,
-		},
-	},
+		lspconfig.pyright.setup({
+			settings = {
+				python = {
+					analysis = {
+						diagnosticMode = "workspace",
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+					},
+				},
+			},
+		})
+	end,
 	dependencies = {
 		{
 			"mason-org/mason.nvim",
 			opts = {
-				max_concurrent_installers = 8,
+				max_concurrent_installers = 10,
 				ui = {
 					border = "rounded",
 					icons = {
@@ -77,26 +78,26 @@ return {
 			opts = {
 				ensure_installed = {
 					-- Linters
-					"eslint_d", -- JavaScript/TypeScript
-					"hadolint", -- Dockerfile
-					"luacheck", -- Lua
-					"pylint", -- Python
-					"shellcheck", -- Shell
-					"sqruff", -- SQL
-					"typos", -- Spell checker
+					"eslint_d",
+					"hadolint",
+					"luacheck",
+					"pylint",
+					"shellcheck",
+					"sqruff",
+					"typos",
 
 					-- Formatters
-					"black", -- Python
-					"shfmt", -- Shell
-					"sqlfmt", -- SQL
-					"tex-fmt", -- LaTeX
-					"stylua", -- Lua
-					"prettier", -- JavaScript/TypeScript
-					"prettierd", --  JavaScript/TypeScript
+					"black",
+					"shfmt",
+					"sqlfmt",
+					"tex-fmt",
+					"stylua",
+					"prettier",
+					"prettierd",
 				},
 				auto_update = true,
 			},
 		},
-		{ "neovim/nvim-lspconfig", event = { "BufReadPost", "BufNewFile" } },
+		{ "neovim/nvim-lspconfig" },
 	},
 }
