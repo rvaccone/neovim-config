@@ -1,6 +1,48 @@
-# Neovim Configuration
+<!-- Header -->
+<div align="center">
+  <h1>Neovim Configuration</h1>
+  <p>
+    Focuses on intentionality and thoughtful design for an unparalleled experience
+    <br />
+    <a href="#features">Features</a>
+    ·
+    <a href="#installation">Installation</a>
+    ·
+    <a href="#keymaps">Keymaps</a>
+  </p>
+</div>
 
-A Neovim configuration that focuses on intentionality and thoughtful design for an unparalleled experience.
+## Features
+
+- **Batteries Included Language Support**
+
+  - Language Server Protocol (LSP) support out of the box
+  - In-line predictions and completion suggestions built-in
+  - Common formatters, linters, and language parsers included
+
+- **Simply Beautiful Aesthetic**
+
+  - Features a nostalgic Gruvbox theme
+  - Polished icons, borders, and colors that are easy on the eyes
+  - Clean visual design that employs functional minimalism
+
+- **Intuitive Window Management**
+
+  - Keymaps for quick window navigation and creation
+  - Support for managing help and quickfix windows
+  - Robust mark support and reference
+
+- **Thoughtful Modular Configuration**
+
+  - Isolated plugin and keymap specifications with aggregators
+  - Dedicated files for vim settings and utility functions
+  - Consistent plugin file naming convention and sources in the README
+
+- **Cohesive User Experience**
+
+  - Git integration without leaving Neovim
+  - Intuitive, semantic keymaps with intentionality in mind
+  - Modern curated plugin collection
 
 ## Installation
 
@@ -46,39 +88,10 @@ rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
 
 While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. You can remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
 
-## Configuration-specific features
+> [!NOTE]
+> This configuration has only been tested on macOS.
 
-- **Batteries Included Language Support**
-
-  - Language Server Protocol (LSP) support out of the box
-  - In-line predictions and completion suggestions built-in
-  - Common formatters, linters, and language parsers included
-
-- **Simply Beautiful Aesthetic**
-
-  - Features a nostalgic Gruvbox theme
-  - Polished icons, borders, and colors that are easy on the eyes
-  - Clean visual design that employs functional minimalism
-
-- **Intuitive Window Management**
-
-  - Keymaps for quick window navigation and creation
-  - Support for managing help and quickfix windows
-  - Robust mark support and reference
-
-- **Thoughtful Modular Configuration**
-
-  - Isolated plugin and keymap specifications with aggregators
-  - Dedicated files for vim settings and utility functions
-  - Consistent plugin file naming convention and sources in the README
-
-- **Cohesive User Experience**
-
-  - Git integration without leaving Neovim
-  - Intuitive, semantic keymaps with intentionality in mind
-  - Modern curated plugin collection
-
-## Configuration-specific keymaps
+## Keymaps
 
 Special Keys:
 
@@ -96,7 +109,7 @@ Modes:
 
 Quick links:
 
-- [Help](#help-and-documentation)
+- [Help](#help)
 - [Navigation](#navigation)
 - [Mark Management](#mark-management)
 - [Window Management](#window-management)
@@ -114,13 +127,13 @@ Quick links:
 
 | Keymap       | Action                                | Mode   | Source                   |
 | ------------ | ------------------------------------- | ------ | ------------------------ |
-| `<leader>?`  | Show buffer-local keymaps             | Normal | folke#which-key.nvim.lua |
 | `<leader>ho` | Focus help window or open help search | Normal | keymaps/help.lua         |
 | `<leader>hq` | Close help window                     | Normal | keymaps/help.lua         |
+| `<leader>?`  | Show buffer-local keymaps             | Normal | folke#which-key.nvim.lua |
 
 ### Navigation
 
-I prioritize intentionality significantly in my workflow. As a result, `<cr>` will allow you to jump to visible locations, replacing the default behavior.
+To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior.
 
 | Keymap       | Action           | Mode   | Source                            |
 | ------------ | ---------------- | ------ | --------------------------------- |
@@ -203,9 +216,9 @@ You can also use the `q` key to close the floating parent directory.
 | ------ | --------------------- | -------------- | ----------------------------------- | ----------------------------- |
 | `sa`   | Add surround          | Normal, Visual | `saiw"` - Surround word with quotes | echasnovski#mini.surround.lua |
 | `sd`   | Delete surround       | Normal         | `sd"` - Remove quotes               | echasnovski#mini.surround.lua |
-| `sr`   | Replace surround      | Normal         | `sr'"` - Change ' to "              | echasnovski#mini.surround.lua |
-| `sf`   | Find surround (right) | Normal         | `sf"` - Jump to next "              | echasnovski#mini.surround.lua |
-| `sF`   | Find surround (left)  | Normal         | `sF"` - Jump to previous "          | echasnovski#mini.surround.lua |
+| `sr`   | Replace surround      | Normal         | `sr'"` - Change `'` to `"`          | echasnovski#mini.surround.lua |
+| `sf`   | Find surround (right) | Normal         | `sf"` - Jump to next `"`            | echasnovski#mini.surround.lua |
+| `sF`   | Find surround (left)  | Normal         | `sF"` - Jump to previous `"`        | echasnovski#mini.surround.lua |
 | `sh`   | Highlight surround    | Normal         | `sh"` - Highlight quotes            | echasnovski#mini.surround.lua |
 | `sn`   | Update n_lines        | Normal         | `sn` - Update search lines          | echasnovski#mini.surround.lua |
 
@@ -282,18 +295,26 @@ You can also use the `q` key to close the floating parent directory.
 
 ## Text Objects
 
-| Shorthand | Text Object | Description                                | Source                              |
-| --------- | ----------- | ------------------------------------------ | ----------------------------------- |
-| `f`       | Function    | Select a function's contents or boundaries | nvim-treesitter#nvim-treesitter.lua |
-| `b`       | Block       | Select a block's contents or boundaries    | nvim-treesitter#nvim-treesitter.lua |
-| `s`       | Scope       | Select a scope's contents or boundaries    | nvim-treesitter#nvim-treesitter.lua |
+| Shorthand | Text Object        | Source                  |
+| --------- | ------------------ | ----------------------- |
+| `a`       | Argument/parameter | echasnovski#mini.ai.lua |
+| `b`       | Bracket            | echasnovski#mini.ai.lua |
+| `f`       | Function           | echasnovski#mini.ai.lua |
+| `q`       | Scope              | echasnovski#mini.ai.lua |
+| `t`       | Tag                | echasnovski#mini.ai.lua |
+| `?`       | User prompt        | echasnovski#mini.ai.lua |
 
 Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode. For example:
 
 - `if` - Selects the contents of a function without the function name
 - `ab` - Selects the contents of a block, including the delimiters
 
-## Configuration Structure Overview
+You can also select the last and next instance with `l` and `n` respectively. For example:
+
+- `ilf` - Selects the contents of the last function without the function name
+- `anb` - Selects the contents of the next block, including the delimiters
+
+## Structure
 
 ```lua
 📁 ~/.config/nvim
@@ -312,7 +333,7 @@ Each text object can be used with `i` (inner) or `a` (around), combined with ope
 └── 📄 init.lua                # Configuration entry point
 ```
 
-### Plugin Configuration Structure
+### Plugin Naming Convention
 
 Plugin configuration files under `lua/plugins` follow the format: `[GitHub username]#[repository].lua`
 Example: `nvim-telescope#telescope.nvim.lua` for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
