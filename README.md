@@ -1,16 +1,20 @@
 <!-- Header -->
 <div align="center">
-  <h1>Neovim Configuration</h1>
-  <p>
-    Focuses on intentionality and thoughtful design for an unparalleled experience
-    <br />
-    <a href="#features">Features</a>
-    ·
-    <a href="#installation">Installation</a>
-    ·
-    <a href="#keymaps">Keymaps</a>
-  </p>
+    <h1>Neovim Configuration</h1>
+    <p>
+        Focuses on intentionality and thoughtful design for an unparalleled experience
+        <br />
+        <a href="#features">Features</a>
+        ·
+        <a href="#installation">Installation</a>
+        ·
+        <a href="#keymaps">Keymaps</a>
+    </p>
 </div>
+
+## About
+
+There is profound beauty in molding our environment in pursuit of growth—a relationship where tool and craftsperson evolve together. Like well-worn clogs that conform to you over time, Neovim develops alongside you, becoming an extension of your creative process. This configuration represents the culmination of many hours spent contemplating how to embrace the discipline of best practices. It prioritizes **intentionality**—every keymap, every motion, every design choice serves a deliberate purpose. The goal is to achieve a state where keymaps cease to be conscious actions and become instinctive motions toward your goals. Force yourself to adapt, embrace the discomfort of new patterns, then adjust this configuration when you are ready.
 
 ## Features
 
@@ -46,10 +50,6 @@
 
 ## Installation
 
-> [!WARNING]
->
-> This configuration has only been tested on macOS.
-
 ### macOS
 
 1. Install [Homebrew](https://brew.sh/)
@@ -57,6 +57,9 @@
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+> [!IMPORTANT]
+> Make sure to add Homebrew to your PATH when prompted by the installer.
 
 2. Install Neovim and its dependencies
 
@@ -67,6 +70,9 @@ brew install neovim lua luarocks stylua ripgrep fd trash lazygit make yazi ffmpe
 3. Install your favorite terminal emulator _(optional)_
 
 I use both Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
+
+> [!TIP]
+> For the best experience, use a terminal that supports true color and ligatures.
 
 4. Install a Nerd Font _(optional, but required for icons)_
 
@@ -91,6 +97,9 @@ rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
 ```
 
 While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. You can remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
+
+> [!WARNING]
+> This configuration has only been tested on macOS. It will take some time to install the plugins, language servers, and formatters on the first launch.
 
 ## Keymaps
 
@@ -134,10 +143,6 @@ Quick links:
 
 ### Navigation
 
-> [!NOTE]
->
-> To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior.
-
 | Keymap       | Action           | Mode   | Source                            |
 | ------------ | ---------------- | ------ | --------------------------------- |
 | `<cr>`       | Quick jump       | Normal | echasnovski#mini.jump2d.lua       |
@@ -149,6 +154,9 @@ Quick links:
 | `<leader>fd` | Find diagnostics | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fm` | Find marks       | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fr` | Resume last find | Normal | nvim-telescope#telescope.nvim.lua |
+
+> [!NOTE]
+> To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior.
 
 ### Mark Management
 
@@ -174,7 +182,8 @@ Quick links:
 | `<leader>z1-9` | Close window with saving     | Normal         | keymaps/windows.lua             |
 | `QQ`           | Quit session                 | Normal         | keymaps/session.lua             |
 
-You can also use the `q` key to close the floating parent directory.
+> [!NOTE]
+> You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
@@ -225,6 +234,9 @@ You can also use the `q` key to close the floating parent directory.
 | `sh`   | Highlight surround    | Normal         | `sh"` - Highlight quotes            | echasnovski#mini.surround.lua |
 | `sn`   | Update n_lines        | Normal         | `sn` - Update search lines          | echasnovski#mini.surround.lua |
 
+<details>
+<Summary>Available Surroundings</Summary>
+
 **Non-Language-Aware Surroundings:**
 
 - `b` - Parentheses
@@ -246,6 +258,8 @@ You can also use the `q` key to close the floating parent directory.
 | `t` | Custom Tag                | JSX/TSX/HTML                                                                  | `sat` → prompts for tag name → `<tag>`_selection_`</tag>`         |
 | `T` | Custom Tag with className | JSX/TSX                                                                       | `saT` → prompts for tag → `<tag className="">`_selection_`</tag>` |
 | `y` | Try-Catch                 | JS: `try {...} catch (error) {...}`, TS: typed catch, Lua: `pcall(...)`       | `say` → `try { `_selection_` } catch (error) {...}`               |
+
+</details>
 
 ### Search and Replace
 
@@ -340,3 +354,8 @@ You can also select the last and next instance with `l` and `n` respectively. Fo
 
 Plugin configuration files under `lua/plugins` follow the format: `[GitHub username]#[repository].lua`
 Example: `nvim-telescope#telescope.nvim.lua` for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+
+<!-- Footer -->
+<div align="center">
+    <p>Made to make development more intentional</p>
+</div>
