@@ -21,6 +21,7 @@ function M.apply()
 	opt.cursorline = true -- Highlight the current line
 	opt.scrolloff = 10 -- Keep eight lines above and below the cursor if possible
 	opt.termguicolors = true -- Use the terminal colors
+	opt.winborder = "rounded" -- Use rounded borders for floating windows
 	cmd.colorscheme("gruvbox") -- Set the colorscheme
 
 	-- Text wrapping settings

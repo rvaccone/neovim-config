@@ -25,8 +25,8 @@ function M.list_content_windows()
 		local buf = api.nvim_win_get_buf(window)
 
 		if buf and buf > 0 then
-			local filetype = api.nvim_buf_get_option(buf, "filetype")
-			local buftype = api.nvim_buf_get_option(buf, "buftype")
+			local filetype = api.nvim_get_option_value("filetype", { buf = buf })
+			local buftype = api.nvim_get_option_value("buftype", { buf = buf })
 
 			if not tbl_contains(M.windows_config.excluded_filetypes, filetype) and buftype ~= "help" then
 				table.insert(editor_windows, window)

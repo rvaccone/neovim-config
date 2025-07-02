@@ -38,6 +38,10 @@ keymap.set("n", "<leader>dh", function()
 	diagnostic.open_float(float_opts)
 end, { desc = "Float diagnostic message and copy to clipboard" })
 
-keymap.set("n", "<leader>dp", diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+keymap.set("n", "<leader>dp", function()
+	diagnostic.jump({ count = -1, float = true })
+end, { desc = "Go to previous diagnostic" })
 
-keymap.set("n", "<leader>dn", diagnostic.goto_next, { desc = "Go to next diagnostic" })
+keymap.set("n", "<leader>dn", function()
+	diagnostic.jump({ count = 1, float = true })
+end, { desc = "Go to next diagnostic" })

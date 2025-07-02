@@ -12,7 +12,7 @@ local function find_help_window()
 	for win_handle in iter(api.nvim_list_wins()) do
 		local buf_handle = api.nvim_win_get_buf(win_handle)
 		if buf_handle and buf_handle > 0 then
-			local success, result = pcall(api.nvim_buf_get_option, buf_handle, "buftype")
+			local success, result = pcall(api.nvim_get_option_value, "buftype", { buf = buf_handle })
 			if success and result == "help" then
 				return win_handle
 			end

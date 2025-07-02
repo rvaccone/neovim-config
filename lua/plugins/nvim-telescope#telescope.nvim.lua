@@ -17,6 +17,7 @@ return {
 				entry_prefix = "  ",
 				color_devicons = true,
 				results_title = false,
+				border = false,
 
 				-- Sorting
 				file_ignore_patterns = {
