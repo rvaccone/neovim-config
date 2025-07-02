@@ -137,31 +137,30 @@ Quick links:
 - [System Tools](#system-tools)
 
 > [!TIP]
-> Keymaps marked with <span style="color:#e74c3c">●</span> are recommended for new users to learn first.
+> Keymaps marked with 🔸 are recommended for new users to learn first.
 
 ### Help
 
-| Keymap                                           | Action                                | Mode   | Source                   |
-| ------------------------------------------------ | ------------------------------------- | ------ | ------------------------ |
-| `<leader>ho`                                     | Focus help window or open help search | Normal | keymaps/help.lua         |
-| `<leader>hq`                                     | Close help window                     | Normal | keymaps/help.lua         |
-| `<leader>?` <span style="color:#e74c3c">●</span> | Show buffer keymaps                   | Normal | folke#which-key.nvim.lua |
+| Keymap         | Action                                | Mode   | Source                   |
+| -------------- | ------------------------------------- | ------ | ------------------------ |
+| `<leader>ho`   | Focus help window or open help search | Normal | keymaps/help.lua         |
+| `<leader>hq`   | Close help window                     | Normal | keymaps/help.lua         |
+| `<leader>?` 🔸 | Show buffer keymaps                   | Normal | folke#which-key.nvim.lua |
 
 ### Navigation
 
-| Keymap                                            | Action                   | Mode   | Source                            |
-| ------------------------------------------------- | ------------------------ | ------ | --------------------------------- |
-| `j`                                               | Move down by visual line | Normal | keymaps/navigation.lua            |
-| `k`                                               | Move up by visual line   | Normal | keymaps/navigation.lua            |
-| `<cr>`                                            | Quick jump               | Normal | echasnovski#mini.jump2d.lua       |
-| `<leader>ff` <span style="color:#e74c3c">●</span> | Find files               | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fg` <span style="color:#e74c3c">●</span> | Find with grep           | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fs`                                      | Find in file             | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fw`                                      | Find word                | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fb`                                      | Find buffer              | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fd`                                      | Find diagnostics         | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fm`                                      | Find marks               | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fr`                                      | Resume last find         | Normal | nvim-telescope#telescope.nvim.lua |
+| Keymap          | Action                   | Mode   | Source                            |
+| --------------- | ------------------------ | ------ | --------------------------------- | --- | ------------ | ------------ | ------ | --------------------------------- |
+| `j`             | Move down by visual line | Normal | keymaps/navigation.lua            |
+| `k`             | Move up by visual line   | Normal | keymaps/navigation.lua            |
+| `<cr>`          | Quick jump               | Normal | echasnovski#mini.jump2d.lua       |
+| `<leader>ff` 🔸 | Find files               | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fg` 🔸 | Find with grep           | Normal | nvim-telescope#telescope.nvim.lua |     | `<leader>fs` | Find in file | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fw`    | Find word                | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fb`    | Find buffer              | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fd`    | Find diagnostics         | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fm`    | Find marks               | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fr`    | Resume last find         | Normal | nvim-telescope#telescope.nvim.lua |
 
 > [!NOTE]
 > To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text.
@@ -179,67 +178,67 @@ Quick links:
 
 ### Window Management
 
-| Keymap                                               | Action                       | Mode           | Source                          |
-| ---------------------------------------------------- | ---------------------------- | -------------- | ------------------------------- |
-| `<leader>0` <span style="color:#e74c3c">●</span>     | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
-| `<leader>nt`                                         | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
-| `<leader>-`                                          | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua        |
-| `<leader>1`-`9` <span style="color:#e74c3c">●</span> | Focus/create window          | Normal         | keymaps/windows.lua             |
-| `<leader>v1`-`9`                                     | Focus/create vertical window | Normal         | keymaps/windows.lua             |
-| `<leader>q1`-`9`                                     | Close window without saving  | Normal         | keymaps/windows.lua             |
-| `<leader>z1`-`9`                                     | Close window with saving     | Normal         | keymaps/windows.lua             |
-| `QQ`                                                 | Quit session                 | Normal         | keymaps/session.lua             |
+| Keymap             | Action                       | Mode           | Source                          |
+| ------------------ | ---------------------------- | -------------- | ------------------------------- |
+| `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
+| `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
+| `<leader>-`        | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua        |
+| `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | keymaps/windows.lua             |
+| `<leader>v1`-`9`   | Focus/create vertical window | Normal         | keymaps/windows.lua             |
+| `<leader>q1`-`9`   | Close window without saving  | Normal         | keymaps/windows.lua             |
+| `<leader>z1`-`9`   | Close window with saving     | Normal         | keymaps/windows.lua             |
+| `QQ`               | Quit session                 | Normal         | keymaps/session.lua             |
 
 > [!NOTE]
 > You can also use the `q` key to close the floating parent directory.
 
 ### Language Server Protocol (LSP)
 
-| Keymap                                           | Action                                         | Mode           | Source                  |
-| ------------------------------------------------ | ---------------------------------------------- | -------------- | ----------------------- |
-| `gd` <span style="color:#e74c3c">●</span>        | Go to definition                               | Normal         | keymaps/lsp.lua         |
-| `<leader>gd`                                     | Go to definition in a new window               | Normal         | keymaps/lsp.lua         |
-| `<leader>vgd`                                    | Go to definition in a new vertical window      | Normal         | keymaps/lsp.lua         |
-| `gD`                                             | Go to declaration                              | Normal         | keymaps/lsp.lua         |
-| `<leader>gD`                                     | Go to declaration in a new window              | Normal         | keymaps/lsp.lua         |
-| `<leader>vgD`                                    | Go to declaration in a new vertical window     | Normal         | keymaps/lsp.lua         |
-| `gi`                                             | Go to implementation                           | Normal         | keymaps/lsp.lua         |
-| `gt`                                             | Go to type definition                          | Normal         | keymaps/lsp.lua         |
-| `<leader>gt`                                     | Go to type definition in a new window          | Normal         | keymaps/lsp.lua         |
-| `<leader>vgt`                                    | Go to type definition in a new vertical window | Normal         | keymaps/lsp.lua         |
-| `gr`                                             | Show references                                | Normal         | keymaps/lsp.lua         |
-| `K` <span style="color:#e74c3c">●</span>         | Show documentation                             | Normal         | keymaps/lsp.lua         |
-| `gs`                                             | Show signature help                            | Normal         | keymaps/lsp.lua         |
-| `<leader>a` <span style="color:#e74c3c">●</span> | Code action                                    | Normal, Visual | keymaps/lsp.lua         |
-| `<leader>rn`                                     | Rename symbol                                  | Normal         | keymaps/lsp.lua         |
-| `<leader>lr`                                     | Restart LSP                                    | Normal         | keymaps/lsp.lua         |
-| `<leader>dy`                                     | Yank diagnostic                                | Normal         | keymaps/diagnostics.lua |
-| `<leader>dh`                                     | Show & yank diagnostic hover                   | Normal         | keymaps/diagnostics.lua |
-| `<leader>dp`                                     | Previous diagnostic                            | Normal         | keymaps/diagnostics.lua |
-| `<leader>dn`                                     | Next diagnostic                                | Normal         | keymaps/diagnostics.lua |
+| Keymap         | Action                                         | Mode           | Source                  |
+| -------------- | ---------------------------------------------- | -------------- | ----------------------- |
+| `gd` 🔸        | Go to definition                               | Normal         | keymaps/lsp.lua         |
+| `<leader>gd`   | Go to definition in a new window               | Normal         | keymaps/lsp.lua         |
+| `<leader>vgd`  | Go to definition in a new vertical window      | Normal         | keymaps/lsp.lua         |
+| `gD`           | Go to declaration                              | Normal         | keymaps/lsp.lua         |
+| `<leader>gD`   | Go to declaration in a new window              | Normal         | keymaps/lsp.lua         |
+| `<leader>vgD`  | Go to declaration in a new vertical window     | Normal         | keymaps/lsp.lua         |
+| `gi`           | Go to implementation                           | Normal         | keymaps/lsp.lua         |
+| `gt`           | Go to type definition                          | Normal         | keymaps/lsp.lua         |
+| `<leader>gt`   | Go to type definition in a new window          | Normal         | keymaps/lsp.lua         |
+| `<leader>vgt`  | Go to type definition in a new vertical window | Normal         | keymaps/lsp.lua         |
+| `gr`           | Show references                                | Normal         | keymaps/lsp.lua         |
+| `K` 🔸         | Show documentation                             | Normal         | keymaps/lsp.lua         |
+| `gs`           | Show signature help                            | Normal         | keymaps/lsp.lua         |
+| `<leader>a` 🔸 | Code action                                    | Normal, Visual | keymaps/lsp.lua         |
+| `<leader>rn`   | Rename symbol                                  | Normal         | keymaps/lsp.lua         |
+| `<leader>lr`   | Restart LSP                                    | Normal         | keymaps/lsp.lua         |
+| `<leader>dy`   | Yank diagnostic                                | Normal         | keymaps/diagnostics.lua |
+| `<leader>dh`   | Show & yank diagnostic hover                   | Normal         | keymaps/diagnostics.lua |
+| `<leader>dp`   | Previous diagnostic                            | Normal         | keymaps/diagnostics.lua |
+| `<leader>dn`   | Next diagnostic                                | Normal         | keymaps/diagnostics.lua |
 
 ### Clipboard Operations
 
-| Keymap                                            | Action                            | Mode   | Source                |
-| ------------------------------------------------- | --------------------------------- | ------ | --------------------- |
-| `<leader>ya` <span style="color:#e74c3c">●</span> | Copy buffer and path to clipboard | Normal | keymaps/clipboard.lua |
-| `<leader>yn`                                      | Copy filename to clipboard        | Normal | keymaps/clipboard.lua |
+| Keymap          | Action                            | Mode   | Source                |
+| --------------- | --------------------------------- | ------ | --------------------- |
+| `<leader>ya` 🔸 | Copy buffer and path to clipboard | Normal | keymaps/clipboard.lua |
+| `<leader>yn`    | Copy filename to clipboard        | Normal | keymaps/clipboard.lua |
 
 ### Text Manipulation
 
-| Keymap                                     | Action                    | Mode           | Example                                       | Source                         |
-| ------------------------------------------ | ------------------------- | -------------- | --------------------------------------------- | ------------------------------ |
-| `gcc` <span style="color:#e74c3c">●</span> | Comment line              | Normal         | `gcc` - Comment current line                  | numToStr#Comment.nvim.lua      |
-| `gc`                                       | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                    | numToStr#Comment.nvim.lua      |
-| `<leader>=`                                | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | echasnovski#mini.operators.lua |
-| `<leader>==`                               | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | echasnovski#mini.operators.lua |
-| `sa` <span style="color:#e74c3c">●</span>  | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | echasnovski#mini.surround.lua  |
-| `sd`                                       | Delete surround           | Normal         | `sd"` - Remove quotes                         | echasnovski#mini.surround.lua  |
-| `sr`                                       | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | echasnovski#mini.surround.lua  |
-| `sf`                                       | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | echasnovski#mini.surround.lua  |
-| `sF`                                       | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | echasnovski#mini.surround.lua  |
-| `sh`                                       | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | echasnovski#mini.surround.lua  |
-| `sn`                                       | Update n_lines            | Normal         | `sn` - Update search lines                    | echasnovski#mini.surround.lua  |
+| Keymap       | Action                    | Mode           | Example                                       | Source                         |
+| ------------ | ------------------------- | -------------- | --------------------------------------------- | ------------------------------ |
+| `gcc` 🔸     | Comment line              | Normal         | `gcc` - Comment current line                  | numToStr#Comment.nvim.lua      |
+| `gc`         | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                    | numToStr#Comment.nvim.lua      |
+| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | echasnovski#mini.operators.lua |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | echasnovski#mini.operators.lua |
+| `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | echasnovski#mini.surround.lua  |
+| `sd`         | Delete surround           | Normal         | `sd"` - Remove quotes                         | echasnovski#mini.surround.lua  |
+| `sr`         | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | echasnovski#mini.surround.lua  |
+| `sf`         | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | echasnovski#mini.surround.lua  |
+| `sF`         | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | echasnovski#mini.surround.lua  |
+| `sh`         | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | echasnovski#mini.surround.lua  |
+| `sn`         | Update n_lines            | Normal         | `sn` - Update search lines                    | echasnovski#mini.surround.lua  |
 
 <details>
 <Summary>Available Surroundings</Summary>
@@ -291,10 +290,10 @@ Quick links:
 
 ### Language Tools
 
-| Keymap                                            | Action              | Mode   | Languages         | Source                                                      |
-| ------------------------------------------------- | ------------------- | ------ | ----------------- | ----------------------------------------------------------- |
-| `<leader>im`                                      | Add missing imports | Normal | TypeScript        | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
-| `<leader>io` <span style="color:#e74c3c">●</span> | Organize imports    | Normal | TypeScript/Python | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
+| Keymap          | Action              | Mode   | Languages         | Source                                                      |
+| --------------- | ------------------- | ------ | ----------------- | ----------------------------------------------------------- |
+| `<leader>im`    | Add missing imports | Normal | TypeScript        | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
+| `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
 
 ### Quickfix
 
@@ -307,11 +306,11 @@ Quick links:
 
 ### System Tools
 
-| Keymap                                            | Action                            | Mode   | Source                    |
-| ------------------------------------------------- | --------------------------------- | ------ | ------------------------- |
-| `<leader>ln`                                      | Open plugin package manager       | Normal | aggregators/plugins.lua   |
-| `<leader>lg` <span style="color:#e74c3c">●</span> | Open git UI                       | Normal | kdheepak#lazygit.nvim.lua |
-| `<leader>lm`                                      | Open LSP and tool package manager | Normal | mason-org#mason.nvim.lua  |
+| Keymap          | Action                            | Mode   | Source                    |
+| --------------- | --------------------------------- | ------ | ------------------------- |
+| `<leader>ln`    | Open plugin package manager       | Normal | aggregators/plugins.lua   |
+| `<leader>lg` 🔸 | Open git UI                       | Normal | kdheepak#lazygit.nvim.lua |
+| `<leader>lm`    | Open LSP and tool package manager | Normal | mason-org#mason.nvim.lua  |
 
 ## Text Objects
 
