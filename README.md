@@ -59,7 +59,7 @@ This configuration embraces the philosophy that your editor should evolve with y
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit make yazi ffmpeg sevenzip jq poppler fzf zoxide resvg imagemagick font-symbols-only-nerd-font gnu-sed
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make gnu-sed
 ```
 
 3. Install your favorite terminal emulator _(optional)_
@@ -183,7 +183,7 @@ Quick links:
 | ------------------ | ---------------------------- | -------------- | ------------------------------- |
 | `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
 | `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
-| `<leader>-`        | Open file manager            | Normal, Visual | mikavilpas#yazi.nvim.lua        |
+| `<leader>-`        | Open file manager            | Normal, Visual | stevearc#oil.nvim.lua           |
 | `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | keymaps/windows.lua             |
 | `<leader>v1`-`9`   | Focus/create vertical window | Normal         | keymaps/windows.lua             |
 | `<leader>q1`-`9`   | Close window without saving  | Normal         | keymaps/windows.lua             |
