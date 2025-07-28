@@ -6,6 +6,9 @@ local notify = vim.notify
 -- Create autocmd group
 local group = api.nvim_create_augroup("CodeTools", { clear = true })
 
+-- Import conform
+local conform = require("conform")
+
 api.nvim_create_autocmd("FileType", {
 	group = group,
 	pattern = "python",
@@ -15,7 +18,7 @@ api.nvim_create_autocmd("FileType", {
 	callback = function(event)
 		---@return nil
 		local function organize_imports()
-			require("conform").format({ bufnr = event.buf, formatters = { "ruff", "black" } })
+			conform.format({ bufnr = event.buf, formatters = { "ruff", "black" } })
 			notify("Organized imports")
 		end
 

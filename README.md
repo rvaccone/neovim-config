@@ -186,6 +186,7 @@ Quick links:
 | `<leader>-`        | Open file manager            | Normal, Visual | stevearc#oil.nvim.lua           |
 | `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | keymaps/windows.lua             |
 | `<leader>v1`-`9`   | Focus/create vertical window | Normal         | keymaps/windows.lua             |
+| `<leader>x1`-`9`   | Swap windows                 | Normal         | keymaps/windows.lua             |
 | `<leader>q1`-`9`   | Close window without saving  | Normal         | keymaps/windows.lua             |
 | `<leader>z1`-`9`   | Close window with saving     | Normal         | keymaps/windows.lua             |
 | `QQ`               | Quit session                 | Normal         | keymaps/session.lua             |

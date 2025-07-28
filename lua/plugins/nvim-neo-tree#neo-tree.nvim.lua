@@ -1,5 +1,8 @@
 -- Setup localized vim variables
 local defer_fn = vim.defer_fn
+local fn = vim.fn
+local log = vim.log
+local notify = vim.notify
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
@@ -28,6 +31,18 @@ return {
 
 			window = {
 				width = 30,
+
+				mappings = {
+					-- Custom filename copying
+					["Y"] = function(state)
+						local node = state.tree:get_node()
+						if node then
+							local filename = node.name
+							fn.setreg("+", filename)
+							notify("Copied filename: " .. filename, log.levels.INFO)
+						end
+					end,
+				},
 			},
 		})
 

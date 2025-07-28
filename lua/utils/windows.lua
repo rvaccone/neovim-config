@@ -96,4 +96,62 @@ function M.operate_on_window(window_number, operation)
 	end
 end
 
+--- Swaps the buffer of the current window with the buffer of the specified window
+---@param target_window_number number The window number to swap with (1-based indexed)
+---@return nil
+function M.swap_window(target_window_number)
+	local editor_windows = M.list_content_windows()
+	local current_window = api.nvim_get_current_win()
+
+	-- Find the current window's index in the editor windows list
+	local current_window_index = nil
+	for i, window in ipairs(editor_windows) do
+		if window == current_window then
+			current_window_index = i
+			break
+		end
+	end
+
+	-- Check if current window is a valid editor window
+	if not current_window_index then
+		notify("Current window is not a valid editor window", log.levels.WARN)
+		return
+	end
+
+	-- Check if target window exists
+	if target_window_number > #editor_windows or target_window_number < 1 then
+		notify("Target window " .. target_window_number .. " does not exist", log.levels.WARN)
+		return
+	end
+
+	-- Don't swap if it's the same window
+	if current_window_index == target_window_number then
+		notify("Cannot swap window with itself", log.levels.INFO)
+		return
+	end
+
+	local target_window = editor_windows[target_window_number]
+
+	-- Get buffers from both windows
+	local current_buffer = api.nvim_win_get_buf(current_window)
+	local target_buffer = api.nvim_win_get_buf(target_window)
+
+	-- Get cursor positions from both windows
+	local current_cursor = api.nvim_win_get_cursor(current_window)
+	local target_cursor = api.nvim_win_get_cursor(target_window)
+
+	-- Swap the buffers
+	api.nvim_win_set_buf(current_window, target_buffer)
+	api.nvim_win_set_buf(target_window, current_buffer)
+
+	-- Restore cursor positions (swap them too for better UX)
+	pcall(api.nvim_win_set_cursor, current_window, target_cursor)
+	pcall(api.nvim_win_set_cursor, target_window, current_cursor)
+
+	-- Focus on the target window after swapping
+	api.nvim_set_current_win(target_window)
+
+	notify("Swapped window " .. current_window_index .. " with window " .. target_window_number, log.levels.INFO)
+end
+
 return M

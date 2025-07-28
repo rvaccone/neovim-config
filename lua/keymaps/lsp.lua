@@ -19,10 +19,10 @@ local windows = require("utils.windows")
 ---@param split_direction "vsplit"|"split" The split direction to use when creating a new window
 ---@return nil
 local function open_lsp_location_in_new_window(method, split_direction)
-	local current_buf = vim.api.nvim_get_current_buf()
+	local current_buf = api.nvim_get_current_buf()
 	local current_windows = #windows.list_content_windows()
 	windows.focus_or_create_window(current_windows + 1, split_direction)
-	vim.api.nvim_win_set_buf(0, current_buf)
+	api.nvim_win_set_buf(0, current_buf)
 
 	if method == "declaration" then
 		buf.declaration()

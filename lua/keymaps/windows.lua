@@ -16,6 +16,11 @@ for index = 1, windows.windows_config.max_windows do
 		windows.focus_or_create_window(index, "split")
 	end, { desc = "Focus or create vertical window " .. index, noremap = true, silent = true })
 
+	-- Swapping windows
+	keymap.set("n", "<leader>x" .. index, function()
+		windows.swap_window(index)
+	end, { desc = "Swap window " .. index, noremap = true, silent = true })
+
 	-- Closing windows without saving
 	keymap.set("n", "<leader>q" .. index, function()
 		windows.operate_on_window(index, "q!")

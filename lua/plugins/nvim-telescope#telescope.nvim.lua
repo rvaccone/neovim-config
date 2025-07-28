@@ -1,3 +1,6 @@
+-- Setup localized vim variables
+local fn = vim.fn
+
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
@@ -9,7 +12,10 @@ return {
 		},
 	},
 	config = function()
-		require("telescope").setup({
+		local telescope = require("telescope")
+		local actions = require("telescope.actions")
+
+		telescope.setup({
 			defaults = {
 				-- Prefixes and appearance
 				prompt_prefix = "   ",
@@ -17,7 +23,12 @@ return {
 				entry_prefix = "  ",
 				color_devicons = true,
 				results_title = false,
-				border = false,
+
+				-- Performance
+				cache_picker = {
+					num_pickers = -1,
+					limit_entries = 1000,
+				},
 
 				-- Sorting
 				file_ignore_patterns = {
@@ -48,24 +59,46 @@ return {
 					"%.pdf",
 					"%.doc",
 				},
+
 				-- Layout
 				sorting_strategy = "ascending",
 				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
 						prompt_position = "top",
-						height = 0.5,
+						height = 0.6,
+						width = 0.9,
+						preview_width = 0.6,
 					},
 				},
-				path_display = { "truncate" },
+				path_display = { "truncate", truncate = 3 },
 				mappings = {
-					i = { ["<esc>"] = require("telescope.actions").close }, -- Immediately close Telescope
+					i = {
+						["<esc>"] = actions.close, -- Immediately close Telescope
+						["<c-u>"] = false, -- Clear the query
+
+						-- Preview
+						["<c-f>"] = actions.preview_scrolling_down,
+						["<c-d>"] = actions.preview_scrolling_up,
+					},
+					n = {
+						["q"] = actions.close,
+						["<c-u>"] = false,
+					},
 				},
 			},
 			pickers = {
 				find_files = {
 					hidden = true,
 					follow = true,
+					find_command = fn.executable("fd") == 1 and {
+						"fd",
+						"--type",
+						"f",
+						"--hidden",
+						"--follow",
+						"--strip-cwd-prefix",
+					} or nil, -- Falls back to Telescope's default
 				},
 				live_grep = {
 					hidden = true,
@@ -76,19 +109,29 @@ return {
 				buffers = {
 					show_all_buffers = true,
 					sort_lastused = true,
+					initial_mode = "normal",
 					mappings = {
 						i = {
-							["<c-d>"] = require("telescope.actions").delete_buffer,
+							["<c-d>"] = actions.delete_buffer,
+						},
+						n = {
+							["<c-d>"] = actions.delete_buffer,
+							["d"] = actions.delete_buffer,
 						},
 					},
 				},
 			},
 			extensions = {
-				fzf = {},
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
 			},
 		})
 
 		-- Load fzf extension
-		require("telescope").load_extension("fzf")
+		telescope.load_extension("fzf")
 	end,
 }

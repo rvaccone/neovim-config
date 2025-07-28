@@ -10,6 +10,7 @@ return {
 
 		keymaps = {
 			["q"] = { "actions.close", mode = "n" },
+			["<esc>"] = { "actions.close", mode = "n" },
 		},
 
 		win_options = {
@@ -19,6 +20,10 @@ return {
 
 		view_options = {
 			show_hidden = true,
+			sort = {
+				{ "type", "asc" },
+				{ "name", "asc" },
+			},
 		},
 	},
 }
