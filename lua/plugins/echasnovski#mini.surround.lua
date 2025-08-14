@@ -92,11 +92,11 @@ return {
 					output = function()
 						local patterns = {
 							-- JavaScript/TypeScript
-							["javascriptreact"] = { left = '<div className="">\n', right = "\n</div>" },
-							["typescriptreact"] = { left = '<div className="">\n', right = "\n</div>" },
+							["javascriptreact"] = { left = '<div className="">', right = "</div>" },
+							["typescriptreact"] = { left = '<div className="">', right = "</div>" },
 
 							-- HTML
-							["html"] = { left = "<div>\n", right = "\n</div>" },
+							["html"] = { left = "<div>", right = "</div>" },
 						}
 
 						return get_pattern(patterns, "output")
@@ -106,8 +106,8 @@ return {
 					output = function()
 						local patterns = {
 							-- JavaScript/TypeScript
-							["javascriptreact"] = { left = '<View className="">\n', right = "\n</View>" },
-							["typescriptreact"] = { left = '<View className="">\n', right = "\n</View>" },
+							["javascriptreact"] = { left = '<View className="">', right = "</View>" },
+							["typescriptreact"] = { left = '<View className="">', right = "</View>" },
 						}
 
 						return get_pattern(patterns, "output")
@@ -176,7 +176,7 @@ return {
 							["typescriptreact"] = { "try%s*{().-(}%s*catch)" },
 
 							-- Lua
-							["lua"] = { "pcall%s*%(function%s*%(%s*%)().-%send%s*%)" },
+							["lua"] = { "pcall%s*%(%sfunction%s%b()%s*()(. -)%send%s%)" },
 						}
 
 						return get_pattern(patterns, "input")
@@ -185,24 +185,24 @@ return {
 						local patterns = {
 							-- JavaScript/TypeScript
 							["javascript"] = {
-								left = "try {\n\t",
-								right = "\n} catch (error) {\n\tconsole.error(error);\n}",
+								left = "try {",
+								right = "} catch (error) {console.error(error);}",
 							},
 							["javascriptreact"] = {
-								left = "try {\n\t",
-								right = "\n} catch (error) {\n\tconsole.error(error);\n}",
+								left = "try {",
+								right = "} catch (error) {console.error(error);}",
 							},
 							["typescript"] = {
-								left = "try {\n\t",
-								right = "\n} catch (error: unknown) {\n\tconsole.error(error);\n}",
+								left = "try {",
+								right = "} catch (error: unknown) {console.error(error);}",
 							},
 							["typescriptreact"] = {
-								left = "try {\n\t",
-								right = "\n} catch (error: unknown) {\n\tconsole.error(error);\n}",
+								left = "try {",
+								right = "} catch (error: unknown) {console.error(error);}",
 							},
 
 							-- Lua
-							["lua"] = { left = "pcall(function()\n\t", right = "\nend)" },
+							["lua"] = { left = "pcall(function()", right = "end)" },
 						}
 
 						return get_pattern(patterns, "output")

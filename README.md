@@ -221,10 +221,11 @@ Quick links:
 
 ### Clipboard Operations
 
-| Keymap          | Action                            | Mode   | Source                |
-| --------------- | --------------------------------- | ------ | --------------------- |
-| `<leader>ya` 🔸 | Copy buffer and path to clipboard | Normal | keymaps/clipboard.lua |
-| `<leader>yn`    | Copy filename to clipboard        | Normal | keymaps/clipboard.lua |
+| Keymap          | Action                                                               | Mode   | Source                |
+| --------------- | -------------------------------------------------------------------- | ------ | --------------------- |
+| `<leader>ya` 🔸 | Copy buffer and path to clipboard                                    | Normal | keymaps/clipboard.lua |
+| `<leader>yA`    | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal | keymaps/clipboard.lua |
+| `<leader>yn`    | Copy filename to clipboard                                           | Normal | keymaps/clipboard.lua |
 
 ### Text Manipulation
 
