@@ -1,5 +1,6 @@
 -- Setup localized vim variables
 local api = vim.api
+local lsp = vim.lsp
 
 return {
 	"mason-org/mason-lspconfig.nvim",
@@ -31,8 +32,7 @@ return {
 		})
 
 		-- Manual configuration for language servers for customization
-		local lspconfig = require("lspconfig")
-		lspconfig.lua_ls.setup({
+		lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					runtime = { version = "LuaJIT" },
@@ -46,7 +46,7 @@ return {
 			},
 		})
 
-		lspconfig.pyright.setup({
+		lsp.config("pyright", {
 			settings = {
 				python = {
 					analysis = {
