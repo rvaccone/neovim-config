@@ -93,9 +93,9 @@ return {
 					"tex-fmt",
 					"stylua",
 					"prettier",
-					"prettierd",
 				},
-				auto_update = true,
+				auto_update = true, -- Automatically update tools
+				run_on_start = true, -- Install missing tools on startup
 			},
 		},
 		{ "neovim/nvim-lspconfig" },
