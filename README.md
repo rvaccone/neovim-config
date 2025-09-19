@@ -19,25 +19,21 @@ This configuration embraces the philosophy that your editor should evolve with y
 ## Features
 
 - **Batteries Included Language Support**
-
   - Language Server Protocol (LSP) support out of the box
   - In-line predictions and completion suggestions built-in
   - Common formatters, linters, and language parsers included
 
 - **Simply Beautiful Aesthetic**
-
   - Features a nostalgic Gruvbox theme
   - Polished icons, borders, and colors that are easy on the eyes
   - Clean visual design that employs functional minimalism
 
 - **Intuitive Window Management**
-
   - Keymaps for quick window navigation and creation
   - Support for managing help and quickfix windows
   - Robust mark support and reference
 
 - **Thoughtful Modular Configuration**
-
   - Isolated plugin and keymap specifications with aggregators
   - Dedicated files for vim settings and utility functions
   - Consistent plugin file naming convention and sources in the README
@@ -235,8 +231,6 @@ Quick links:
 
 | Keymap       | Action                    | Mode           | Example                                       | Source                         |
 | ------------ | ------------------------- | -------------- | --------------------------------------------- | ------------------------------ |
-| `gcc` 🔸     | Comment line              | Normal         | `gcc` - Comment current line                  | numToStr#Comment.nvim.lua      |
-| `gc`         | Comment selection         | Normal, Visual | `gcip` - Comment paragraph                    | numToStr#Comment.nvim.lua      |
 | `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | echasnovski#mini.operators.lua |
 | `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | echasnovski#mini.operators.lua |
 | `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | echasnovski#mini.surround.lua  |
