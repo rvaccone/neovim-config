@@ -2,8 +2,8 @@
 local bo = vim.bo
 
 return {
-	"echasnovski/mini.surround",
-	version = "*",
+	"nvim-mini/mini.surround",
+	version = false,
 
 	config = function()
 		---@alias SurroundInput string[]

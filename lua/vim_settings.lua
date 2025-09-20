@@ -11,7 +11,7 @@ function M.apply()
 	opt.clipboard = "unnamedplus" -- Use the system clipboard
 	opt.smoothscroll = true -- Enable smooth scrolling
 	opt.updatetime = 250 -- Milliseconds between swaps while typing
-	opt.timeoutlen = 250 -- Milliseconds to wait for a mapped sequence to complete
+	opt.timeoutlen = 300 -- Milliseconds to wait for a mapped sequence to complete
 
 	-- Search
 	opt.incsearch = true -- Show search results as you type

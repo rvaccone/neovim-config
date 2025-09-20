@@ -19,21 +19,25 @@ This configuration embraces the philosophy that your editor should evolve with y
 ## Features
 
 - **Batteries Included Language Support**
+
   - Language Server Protocol (LSP) support out of the box
   - In-line predictions and completion suggestions built-in
   - Common formatters, linters, and language parsers included
 
 - **Simply Beautiful Aesthetic**
+
   - Features a nostalgic Gruvbox theme
   - Polished icons, borders, and colors that are easy on the eyes
   - Clean visual design that employs functional minimalism
 
 - **Intuitive Window Management**
+
   - Keymaps for quick window navigation and creation
   - Support for managing help and quickfix windows
   - Robust mark support and reference
 
 - **Thoughtful Modular Configuration**
+
   - Isolated plugin and keymap specifications with aggregators
   - Dedicated files for vim settings and utility functions
   - Consistent plugin file naming convention and sources in the README
@@ -153,7 +157,7 @@ Quick links:
 | --------------- | ------------------------ | ------ | --------------------------------- |
 | `j`             | Move down by visual line | Normal | keymaps/navigation.lua            |
 | `k`             | Move up by visual line   | Normal | keymaps/navigation.lua            |
-| `<cr>`          | Quick jump               | Normal | echasnovski#mini.jump2d.lua       |
+| `<cr>`          | Quick jump               | Normal | nvim-mini#mini.jump2d.lua         |
 | `<leader>ff` 🔸 | Find files               | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fg` 🔸 | Find with grep           | Normal | nvim-telescope#telescope.nvim.lua |
 | `<leader>fs`    | Find in file             | Normal | nvim-telescope#telescope.nvim.lua |
@@ -229,17 +233,17 @@ Quick links:
 
 ### Text Manipulation
 
-| Keymap       | Action                    | Mode           | Example                                       | Source                         |
-| ------------ | ------------------------- | -------------- | --------------------------------------------- | ------------------------------ |
-| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | echasnovski#mini.operators.lua |
-| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | echasnovski#mini.operators.lua |
-| `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | echasnovski#mini.surround.lua  |
-| `sd`         | Delete surround           | Normal         | `sd"` - Remove quotes                         | echasnovski#mini.surround.lua  |
-| `sr`         | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | echasnovski#mini.surround.lua  |
-| `sf`         | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | echasnovski#mini.surround.lua  |
-| `sF`         | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | echasnovski#mini.surround.lua  |
-| `sh`         | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | echasnovski#mini.surround.lua  |
-| `sn`         | Update n_lines            | Normal         | `sn` - Update search lines                    | echasnovski#mini.surround.lua  |
+| Keymap       | Action                    | Mode           | Example                                       | Source                       |
+| ------------ | ------------------------- | -------------- | --------------------------------------------- | ---------------------------- |
+| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | nvim-mini#mini.operators.lua |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | nvim-mini#mini.operators.lua |
+| `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | nvim-mini#mini.surround.lua  |
+| `sd`         | Delete surround           | Normal         | `sd"` - Remove quotes                         | nvim-mini#mini.surround.lua  |
+| `sr`         | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | nvim-mini#mini.surround.lua  |
+| `sf`         | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | nvim-mini#mini.surround.lua  |
+| `sF`         | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | nvim-mini#mini.surround.lua  |
+| `sh`         | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | nvim-mini#mini.surround.lua  |
+| `sn`         | Update n_lines            | Normal         | `sn` - Update search lines                    | nvim-mini#mini.surround.lua  |
 
 <details>
 <Summary>Available Surroundings</Summary>
@@ -315,14 +319,14 @@ Quick links:
 
 ## Text Objects
 
-| Shorthand | Text Object        | Source                  |
-| --------- | ------------------ | ----------------------- |
-| `a`       | Argument/parameter | echasnovski#mini.ai.lua |
-| `b`       | Bracket            | echasnovski#mini.ai.lua |
-| `f`       | Function           | echasnovski#mini.ai.lua |
-| `q`       | Scope              | echasnovski#mini.ai.lua |
-| `t`       | Tag                | echasnovski#mini.ai.lua |
-| `?`       | User prompt        | echasnovski#mini.ai.lua |
+| Shorthand | Text Object        | Source                |
+| --------- | ------------------ | --------------------- |
+| `a`       | Argument/parameter | nvim-mini#mini.ai.lua |
+| `b`       | Bracket            | nvim-mini#mini.ai.lua |
+| `f`       | Function           | nvim-mini#mini.ai.lua |
+| `q`       | Scope              | nvim-mini#mini.ai.lua |
+| `t`       | Tag                | nvim-mini#mini.ai.lua |
+| `?`       | User prompt        | nvim-mini#mini.ai.lua |
 
 Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode. For example:
 
