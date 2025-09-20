@@ -11,6 +11,8 @@ return {
 			build = "make", -- Requires make to be installed
 		},
 	},
+	event = "VimEnter",
+	cmd = "Telescope",
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
@@ -88,25 +90,8 @@ return {
 				},
 			},
 			pickers = {
-				find_files = {
-					hidden = true,
-					follow = true,
-					find_command = fn.executable("fd") == 1 and {
-						"fd",
-						"--type",
-						"f",
-						"--hidden",
-						"--follow",
-						"--strip-cwd-prefix",
-					} or nil, -- Falls back to Telescope's default
-				},
-				live_grep = {
-					hidden = true,
-					additional_args = function()
-						return { "--hidden" }
-					end,
-				},
 				buffers = {
+					preview_title = false,
 					show_all_buffers = true,
 					sort_lastused = true,
 					initial_mode = "normal",
@@ -119,6 +104,44 @@ return {
 							["d"] = actions.delete_buffer,
 						},
 					},
+				},
+
+				current_buffer_fuzzy_find = {
+					preview_title = false,
+				},
+
+				diagnostics = {
+					preview_title = false,
+				},
+
+				find_files = {
+					preview_title = false,
+					hidden = true,
+					follow = true,
+					find_command = fn.executable("fd") == 1 and {
+						"fd",
+						"--type",
+						"f",
+						"--hidden",
+						"--follow",
+						"--strip-cwd-prefix",
+					} or nil, -- Falls back to Telescope's default
+				},
+
+				grep_string = {
+					preview_title = false,
+				},
+
+				live_grep = {
+					preview_title = false,
+					hidden = true,
+					additional_args = function()
+						return { "--hidden" }
+					end,
+				},
+
+				marks = {
+					preview_title = false,
 				},
 			},
 			extensions = {
