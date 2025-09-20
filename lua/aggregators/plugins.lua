@@ -43,8 +43,10 @@ function M.aggregate()
 	require("lazy").setup({
 		checker = { enabled = true },
 		ui = {
+			size = { width = 0.6, height = 0.8 },
 			border = "rounded",
 			title = "Lazy.nvim",
+			pills = false,
 		},
 		spec = { { import = "plugins" } },
 	})
