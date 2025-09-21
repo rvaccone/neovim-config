@@ -188,11 +188,11 @@ Quick links:
 | `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
 | `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
 | `<leader>-`        | Open file manager            | Normal, Visual | stevearc#oil.nvim.lua           |
-| `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | keymaps/windows.lua             |
-| `<leader>v1`-`9`   | Focus/create vertical window | Normal         | keymaps/windows.lua             |
-| `<leader>x1`-`9`   | Swap windows                 | Normal         | keymaps/windows.lua             |
-| `<leader>q1`-`9`   | Close window without saving  | Normal         | keymaps/windows.lua             |
-| `<leader>z1`-`9`   | Close window with saving     | Normal         | keymaps/windows.lua             |
+| `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | rvaccone/wind.nvim              |
+| `<leader>v1`-`9`   | Focus/create vertical window | Normal         | rvaccone/wind.nvim              |
+| `<leader>x1`-`9`   | Swap windows                 | Normal         | rvaccone/wind.nvim              |
+| `<leader>q1`-`9`   | Close window without saving  | Normal         | rvaccone/wind.nvim              |
+| `<leader>z1`-`9`   | Close window with saving     | Normal         | rvaccone/wind.nvim              |
 | `QQ`               | Quit session                 | Normal         | keymaps/session.lua             |
 
 > [!NOTE]
@@ -225,11 +225,11 @@ Quick links:
 
 ### Clipboard Operations
 
-| Keymap          | Action                                                               | Mode   | Source                |
-| --------------- | -------------------------------------------------------------------- | ------ | --------------------- |
-| `<leader>ya` 🔸 | Copy buffer and path to clipboard                                    | Normal | keymaps/clipboard.lua |
-| `<leader>yA`    | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal | keymaps/clipboard.lua |
-| `<leader>yn`    | Copy filename to clipboard                                           | Normal | keymaps/clipboard.lua |
+| Keymap          | Action                                                               | Mode   | Source             |
+| --------------- | -------------------------------------------------------------------- | ------ | ------------------ |
+| `<leader>ya` 🔸 | Copy buffer and path to clipboard                                    | Normal | rvaccone/wind.nvim |
+| `<leader>y*`    | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal | rvaccone/wind.nvim |
+| `<leader>yn`    | Copy filename to clipboard                                           | Normal | rvaccone/wind.nvim |
 
 ### Text Manipulation
 
