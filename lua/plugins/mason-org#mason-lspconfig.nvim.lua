@@ -1,7 +1,3 @@
--- Setup localized vim variables
-local api = vim.api
-local lsp = vim.lsp
-
 return {
 	"mason-org/mason-lspconfig.nvim",
 	config = function()
@@ -26,36 +22,7 @@ return {
 				"vimls",
 				"yamlls",
 			},
-			automatic_enable = {
-				exclude = { "pyright", "lua_ls" },
-			},
-		})
-
-		-- Manual configuration for language servers for customization
-		lsp.config("lua_ls", {
-			settings = {
-				Lua = {
-					runtime = { version = "LuaJIT" },
-					diagnostics = { globals = { "vim" } },
-					workspace = {
-						library = api.nvim_get_runtime_file("", true),
-						checkThirdParty = false,
-					},
-					telemetry = { enable = false },
-				},
-			},
-		})
-
-		lsp.config("pyright", {
-			settings = {
-				python = {
-					analysis = {
-						diagnosticMode = "workspace",
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
-					},
-				},
-			},
+			automatic_enable = true,
 		})
 	end,
 	dependencies = {
