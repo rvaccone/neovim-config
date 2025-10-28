@@ -3,6 +3,8 @@ return {
 	config = function()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				-- Language Servers
+				"basedpyright",
 				"bashls",
 				"cssls",
 				"docker_compose_language_service",
@@ -13,7 +15,6 @@ return {
 				"jsonls",
 				"lua_ls",
 				"marksman",
-				"pyright",
 				"ruff",
 				"rust_analyzer",
 				"sqlls",
