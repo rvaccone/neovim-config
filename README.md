@@ -149,19 +149,20 @@ Quick links:
 
 ### Navigation
 
-| Keymap          | Action                   | Mode   | Source                            |
-| --------------- | ------------------------ | ------ | --------------------------------- |
-| `j`             | Move down by visual line | Normal | keymaps/navigation.lua            |
-| `k`             | Move up by visual line   | Normal | keymaps/navigation.lua            |
-| `<cr>`          | Quick jump               | Normal | nvim-mini#mini.jump2d.lua         |
-| `<leader>ff` 🔸 | Find files               | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fg` 🔸 | Find with grep           | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fs`    | Find in file             | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fw`    | Find word                | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fb`    | Find buffer              | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fd`    | Find diagnostics         | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fm`    | Find marks               | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fr`    | Resume last find         | Normal | nvim-telescope#telescope.nvim.lua |
+| Keymap          | Action                    | Mode   | Source                            |
+| --------------- | ------------------------- | ------ | --------------------------------- |
+| `j`             | Move down by visual line  | Normal | keymaps/navigation.lua            |
+| `k`             | Move up by visual line    | Normal | keymaps/navigation.lua            |
+| `<cr>` 🔸       | Quick jump                | Normal | nvim-mini#mini.jump2d.lua         |
+| `<del>`         | Quick jump across windows | Normal | nvim-mini#mini.jump2d.lua         |
+| `<leader>ff` 🔸 | Find files                | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fg` 🔸 | Find with grep            | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fs`    | Find in file              | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fw`    | Find word                 | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fb`    | Find buffer               | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fd`    | Find diagnostics          | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fm`    | Find marks                | Normal | nvim-telescope#telescope.nvim.lua |
+| `<leader>fr`    | Resume last find          | Normal | nvim-telescope#telescope.nvim.lua |
 
 > [!NOTE]
 > To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text.
