@@ -93,6 +93,9 @@ rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
 
 While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. You can remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
 
+> [!IMPORTANT]
+> Supermaven was sunset and is no longer available to new customers.
+
 8. First launch
 
 ```
