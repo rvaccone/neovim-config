@@ -21,6 +21,7 @@ function M.apply()
 	-- Layout
 	opt.ruler = false -- Hide the ruler
 	opt.showmode = false -- Hide the mode indicator
+	opt.relativenumber = true -- Show relative line numbers
 	opt.number = true -- Show line numbers
 	opt.signcolumn = "yes" -- Always show the sign column
 
