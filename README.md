@@ -71,7 +71,7 @@ I use Ghostty ([download](https://ghostty.org/download)) and Warp ([download](ht
 
 4. Install a Nerd Font _(optional, but required for icons)_
 
-You can find a list of Nerd Fonts [here](https://www.nerdfonts.com/font-downloads). I use [JetBrains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip). You should set the font in your terminal after.
+You can find a list of Nerd Fonts [here](https://www.nerdfonts.com/font-downloads). I use [Maple Mono](https://github.com/subframe7536/maple-font). You should set the font in your terminal after.
 
 5. Save your current Neovim configuration _(optional)_
 
