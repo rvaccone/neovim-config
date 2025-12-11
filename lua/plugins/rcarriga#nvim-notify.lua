@@ -8,7 +8,8 @@ return {
 			fps = 60,
 			background_colour = "#000000",
 			render = "wrapped-compact",
-			timeout = 2000,
+			stages = "fade",
+			timeout = 1750,
 			top_down = false,
 		})
 		vim.notify = nvim_notify
