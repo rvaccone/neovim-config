@@ -1,46 +1,31 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
-	config = function()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				-- Language Servers
-				"basedpyright",
-				"bashls",
-				"cssls",
-				"docker_compose_language_service",
-				"dockerls",
-				"eslint",
-				"graphql",
-				"html",
-				"jsonls",
-				"lua_ls",
-				"marksman",
-				"ruff",
-				"rust_analyzer",
-				"sqlls",
-				"tailwindcss",
-				"texlab",
-				"vimls",
-				"yamlls",
-			},
-			automatic_enable = true,
-		})
-	end,
-	dependencies = {
-		{
-			"mason-org/mason.nvim",
-			opts = {
-				max_concurrent_installers = 10,
-				ui = {
-					border = "rounded",
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			},
+	opts = {
+		ensure_installed = {
+			-- Language Servers
+			"basedpyright",
+			"bashls",
+			"cssls",
+			"docker_compose_language_service",
+			"dockerls",
+			"eslint",
+			"graphql",
+			"html",
+			"jsonls",
+			"lua_ls",
+			"marksman",
+			"ruff",
+			"rust_analyzer",
+			"sqlls",
+			"tailwindcss",
+			"texlab",
+			"vimls",
+			"yamlls",
 		},
+		automatic_enable = true,
+	},
+	dependencies = {
+		"mason-org/mason.nvim",
 		{
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {

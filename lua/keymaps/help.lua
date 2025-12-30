@@ -1,9 +1,9 @@
 -- Setup localized vim variables
 local api = vim.api
 local iter = vim.iter
-local keymap = vim.keymap
 
--- Telescope builtin
+-- Import required modules
+local map = require("utils.keymap").map
 local builtin = require("telescope.builtin")
 
 --- Finds the window handle of the first open help window
@@ -21,9 +21,9 @@ local function find_help_window()
 	return nil
 end
 
-keymap.set("n", "<leader>hq", "<cmd>helpclose<cr>", { desc = "Close help window" })
+map("<leader>hq", "<cmd>helpclose<cr>", "Close help window")
 
-keymap.set("n", "<leader>ho", function()
+map("<leader>ho", function()
 	local help_win = find_help_window()
 
 	if help_win then
@@ -31,4 +31,4 @@ keymap.set("n", "<leader>ho", function()
 	else
 		builtin.help_tags()
 	end
-end, { desc = "Focus help window or open help search" })
+end, "Focus help window or open help search")

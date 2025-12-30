@@ -11,7 +11,6 @@ return {
 			build = "make", -- Requires make to be installed
 		},
 	},
-	event = "VimEnter",
 	cmd = "Telescope",
 	config = function()
 		local telescope = require("telescope")
@@ -156,5 +155,19 @@ return {
 
 		-- Load fzf extension
 		telescope.load_extension("fzf")
+	end,
+	keys = function()
+		local lazy_key = require("utils.keymap").lazy_key
+
+		return {
+			lazy_key("<leader>ff", require("telescope.builtin").find_files, "Find files"),
+			lazy_key("<leader>fg", require("telescope.builtin").live_grep, "Find with grep"),
+			lazy_key("<leader>fs", require("telescope.builtin").current_buffer_fuzzy_find, "Find in file"),
+			lazy_key("<leader>fw", require("telescope.builtin").grep_string, "Find word"),
+			lazy_key("<leader>fb", require("telescope.builtin").buffers, "Find buffer"),
+			lazy_key("<leader>fd", require("telescope.builtin").diagnostics, "Find diagnostic"),
+			lazy_key("<leader>fm", require("telescope.builtin").marks, "Search marks"),
+			lazy_key("<leader>fr", require("telescope.builtin").resume, "Resume last picker"),
+		}
 	end,
 }

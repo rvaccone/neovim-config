@@ -10,28 +10,28 @@ local M = {}
 --- Function to aggregate and execute all keymap files from lua/keymaps/
 ---@return nil
 function M.aggregate()
-	local base = fn.stdpath("config") .. "/lua/keymaps"
+	local keymaps_dir = fn.stdpath("config") .. "/lua/keymaps"
 
-	local function load(dir)
-		local h = loop.fs_scandir(dir)
-		while h do
-			local name, t = loop.fs_scandir_next(h)
-			if not name then
-				break
-			end
-			local full = dir .. "/" .. name
-			if t == "directory" then
-				load(full)
-			elseif name:match("%.lua$") then
-				local ok, err = pcall(cmd, "source " .. full)
-				if not ok then
-					notify("Keymap source failed: " .. full .. "\n" .. err, log.levels.ERROR)
-				end
+	local handle = loop.fs_scandir(keymaps_dir)
+	if not handle then
+		notify("Failed to scan keymaps directory", log.levels.ERROR)
+		return
+	end
+
+	while true do
+		local name, t = loop.fs_scandir_next(handle)
+		if not name then
+			break
+		end
+
+		if t == "file" and name:match("%.lua$") then
+			local filepath = keymaps_dir .. "/" .. name
+			local ok, err = pcall(cmd.source, filepath)
+			if not ok then
+				notify("Keymap source failed: " .. filepath .. "\n" .. err, log.levels.ERROR)
 			end
 		end
 	end
-
-	load(base)
 end
 
 return M

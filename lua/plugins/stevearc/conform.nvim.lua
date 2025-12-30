@@ -1,3 +1,7 @@
+-- Setup localized vim variables
+local api = vim.api
+local notify = vim.notify
+
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre", "BufNewFile" },
@@ -47,4 +51,20 @@ return {
 		notify_on_error = true,
 		stop_after_first = true,
 	},
+	config = function(_, opts)
+		require("conform").setup(opts)
+		local map = require("utils.keymap").map
+
+		api.nvim_create_autocmd("FileType", {
+			group = api.nvim_create_augroup("ConformPython", { clear = true }),
+			pattern = "python",
+
+			callback = function(event)
+				map("<leader>io", function()
+					require("conform").format({ bufnr = event.buf, formatters = { "ruff", "black" } })
+					notify("Organized imports")
+				end, "Python organize imports", { buffer = event.buf })
+			end,
+		})
+	end,
 }

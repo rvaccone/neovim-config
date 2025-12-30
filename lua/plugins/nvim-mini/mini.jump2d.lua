@@ -19,4 +19,17 @@ return {
 			silent = true,
 		})
 	end,
+	keys = function()
+		local lazy_key = require("utils.keymap").lazy_key
+
+		return {
+			lazy_key("<del>", function()
+				require("mini.jump2d").start({
+					allowed_windows = {
+						not_current = true,
+					},
+				})
+			end, "Quick jump across windows"),
+		}
+	end,
 }

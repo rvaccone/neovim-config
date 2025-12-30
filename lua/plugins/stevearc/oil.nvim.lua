@@ -26,4 +26,13 @@ return {
 			},
 		},
 	},
+	keys = function()
+		local lazy_key = require("utils.keymap").lazy_key
+
+		return {
+			lazy_key("<leader>-", "<cmd>Oil --float<cr>", "Open Oil at the current file", {
+				mode = { "n", "v" },
+			}),
+		}
+	end,
 }

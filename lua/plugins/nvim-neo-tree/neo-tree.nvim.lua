@@ -51,4 +51,12 @@ return {
 			require("neo-tree.command").execute({ action = "show" })
 		end, 100)
 	end,
+	keys = function()
+		local lazy_key = require("utils.keymap").lazy_key
+
+		return {
+			lazy_key("<leader>nt", "<cmd>Neotree toggle<cr>", "Toggle Neo-tree"),
+			lazy_key("<leader>0", "<cmd>Neotree focus<cr>", "Focus Neo-tree"),
+		}
+	end,
 }
