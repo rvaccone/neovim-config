@@ -1,23 +1,10 @@
--- Setup localized vim variables
-local keymap = vim.keymap
+-- Import required modules
+local map = require("utils.keymap").map
 
-keymap.set("n", "<leader>sr", ":%s/", {
-	desc = "Start search and replace",
-	noremap = true,
-})
+map("<leader>sr", ":%s/", "Start search and replace", { silent = false })
 
-keymap.set("v", "<leader>sr", ":s/", {
-	desc = "Replace in visual selection",
-	noremap = true,
-})
+map("<leader>sr", ":s/", "Replace in visual selection", { mode = "v", silent = false })
 
-keymap.set("n", "<leader>sw", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", {
-	desc = "Replace word under cursor",
-	noremap = true,
-})
+map("<leader>sw", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", "Replace word under cursor", { silent = false })
 
-keymap.set("n", "<leader>sn", ":nohl<CR>", {
-	desc = "Clear search highlighting",
-	noremap = true,
-	silent = true,
-})
+map("<leader>sn", ":nohl<CR>", "Clear search highlighting")

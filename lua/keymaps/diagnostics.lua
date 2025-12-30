@@ -2,10 +2,12 @@
 local api = vim.api
 local fn = vim.fn
 local diagnostic = vim.diagnostic
-local keymap = vim.keymap
 local notify = vim.notify
 
-keymap.set("n", "<leader>dy", function()
+-- Import required modules
+local map = require("utils.keymap").map
+
+map("<leader>dy", function()
 	-- Get the diagnostic message at the cursor
 	local diagnostics = diagnostic.get(0, { lnum = api.nvim_win_get_cursor(0)[1] - 1 })
 	if diagnostics and #diagnostics > 0 then
@@ -14,9 +16,9 @@ keymap.set("n", "<leader>dy", function()
 
 		notify("Copied diagnostic message to clipboard")
 	end
-end, { desc = "Copy diagnostic message to clipboard" })
+end, "Copy diagnostic message to clipboard")
 
-keymap.set("n", "<leader>dh", function()
+map("<leader>dh", function()
 	---@class FloatOpts
 	---@field border "rounded"|"single"|"double"|"shadow"|"none"
 	---@field focusable boolean
@@ -36,12 +38,12 @@ keymap.set("n", "<leader>dh", function()
 
 	-- Show the float as usual
 	diagnostic.open_float(float_opts)
-end, { desc = "Float diagnostic message and copy to clipboard" })
+end, "Float diagnostic message and copy to clipboard")
 
-keymap.set("n", "<leader>dp", function()
+map("<leader>dp", function()
 	diagnostic.jump({ count = -1, float = true })
-end, { desc = "Go to previous diagnostic" })
+end, "Go to previous diagnostic")
 
-keymap.set("n", "<leader>dn", function()
+map("<leader>dn", function()
 	diagnostic.jump({ count = 1, float = true })
-end, { desc = "Go to next diagnostic" })
+end, "Go to next diagnostic")

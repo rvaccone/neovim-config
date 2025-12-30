@@ -1,18 +1,16 @@
 -- Setup localized vim variables
 local api = vim.api
 local buf = vim.lsp.buf
-local keymap = vim.keymap
 local log = vim.log
 local notify = vim.notify
 
--- Telescope builtin
+-- Import required modules
+local map = require("utils.keymap").map
 local telescope_builtin = require("telescope.builtin")
+local windows = require("utils.windows")
 
 -- Create autocmd group
 local group = api.nvim_create_augroup("LSPConfig", { clear = true })
-
--- Local modules
-local windows = require("utils.windows")
 
 --- Opens a LSP location in a new window
 ---@param method "declaration"|"definition"|"type_definition" The LSP method to use
@@ -44,119 +42,58 @@ api.nvim_create_autocmd("LspAttach", {
 	---@return nil
 	callback = function(event)
 		-- Definition
-		keymap.set(
-			"n",
-			"gd",
-			buf.definition,
-			{ desc = "Go to definition", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set("n", "<leader>gd", function()
+		map("gd", buf.definition, "Go to definition", { buffer = event.buf })
+
+		map("<leader>gd", function()
 			open_lsp_location_in_new_window("definition", "vsplit")
-		end, {
-			desc = "Go to definition in a new window",
-			buffer = event.buf,
-			noremap = true,
-			silent = true,
-		})
-		keymap.set("n", "<leader>vgd", function()
+		end, "Go to definition in a new window", { buffer = event.buf })
+
+		map("<leader>vgd", function()
 			open_lsp_location_in_new_window("definition", "split")
-		end, { desc = "Go to definition in a new vertical window", buffer = event.buf, noremap = true, silent = true })
+		end, "Go to definition in a new vertical window", { buffer = event.buf })
 
 		-- Declaration
-		keymap.set(
-			"n",
-			"gD",
-			buf.declaration,
-			{ desc = "Go to declaration", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set("n", "<leader>gD", function()
+		map("gD", buf.declaration, "Go to declaration", { buffer = event.buf })
+
+		map("<leader>gD", function()
 			open_lsp_location_in_new_window("declaration", "vsplit")
-		end, { desc = "Go to declaration in a new window", buffer = event.buf, noremap = true, silent = true })
-		keymap.set("n", "<leader>vgD", function()
+		end, "Go to declaration in a new window", { buffer = event.buf })
+
+		map("<leader>vgD", function()
 			open_lsp_location_in_new_window("declaration", "split")
-		end, { desc = "Go to declaration in a new vertical window", buffer = event.buf, noremap = true, silent = true })
+		end, "Go to declaration in a new vertical window", { buffer = event.buf })
 
 		-- Implementation
-		keymap.set(
-			"n",
-			"gi",
-			telescope_builtin.lsp_implementations,
-			{ desc = "Go to implementation", buffer = event.buf, noremap = true, silent = true }
-		)
+		map("gi", telescope_builtin.lsp_implementations, "Go to implementation", { buffer = event.buf })
 
 		-- Type Definition
-		keymap.set(
-			"n",
-			"gt",
-			buf.type_definition,
-			{ desc = "Go to type definition", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set("n", "<leader>gt", function()
+		map("gt", buf.type_definition, "Go to type definition", { buffer = event.buf })
+
+		map("<leader>gt", function()
 			open_lsp_location_in_new_window("type_definition", "vsplit")
-		end, { desc = "Go to type definition in a new window", buffer = event.buf, noremap = true, silent = true })
-		keymap.set("n", "<leader>vgt", function()
+		end, "Go to type definition in a new window", { buffer = event.buf })
+
+		map("<leader>vgt", function()
 			open_lsp_location_in_new_window("type_definition", "split")
-		end, {
-			desc = "Go to type definition in a new vertical window",
-			buffer = event.buf,
-			noremap = true,
-			silent = true,
-		})
+		end, "Go to type definition in a new vertical window", { buffer = event.buf })
 
 		-- References
-		keymap.set(
-			"n",
-			"gr",
-			telescope_builtin.lsp_references,
-			{ desc = "Show references", buffer = event.buf, noremap = true, silent = true }
-		)
+		map("gr", telescope_builtin.lsp_references, "Show references", { buffer = event.buf })
 
 		-- Documentation
-		keymap.set(
-			"n",
-			"K",
-			buf.hover,
-			{ desc = "Show hover documentation", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set(
-			"n",
-			"gs",
-			buf.signature_help,
-			{ desc = "Show signature help", buffer = event.buf, noremap = true, silent = true }
-		)
+		map("K", buf.hover, "Show hover documentation", { buffer = event.buf })
+		map("gs", buf.signature_help, "Show signature help", { buffer = event.buf })
 
 		-- Symbols
-		keymap.set(
-			"n",
-			"<leader>sb",
-			telescope_builtin.lsp_document_symbols,
-			{ desc = "Show document symbols", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set(
-			"n",
-			"<leader>sB",
-			telescope_builtin.lsp_workspace_symbols,
-			{ desc = "Show workspace symbols", buffer = event.buf, noremap = true, silent = true }
-		)
+		map("<leader>sb", telescope_builtin.lsp_document_symbols, "Show document symbols", { buffer = event.buf })
+
+		map("<leader>sB", telescope_builtin.lsp_workspace_symbols, "Show workspace symbols", { buffer = event.buf })
 
 		-- Code actions
-		keymap.set(
-			"n",
-			"<leader>lr",
-			"<cmd>LspRestart<cr>",
-			{ desc = "LSP restart", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set(
-			{ "n", "v" },
-			"<leader>a",
-			buf.code_action,
-			{ desc = "Code action", buffer = event.buf, noremap = true, silent = true }
-		)
-		keymap.set(
-			"n",
-			"<leader>rn",
-			buf.rename,
-			{ desc = "Rename symbol", buffer = event.buf, noremap = true, silent = true }
-		)
+		map("<leader>lr", "<cmd>LspRestart<cr>", "LSP restart", { buffer = event.buf })
+
+		map("<leader>a", buf.code_action, "Code action", { mode = { "n", "v" }, buffer = event.buf })
+
+		map("<leader>rn", buf.rename, "Rename symbol", { buffer = event.buf })
 	end,
 })

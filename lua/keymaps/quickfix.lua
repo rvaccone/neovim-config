@@ -1,10 +1,10 @@
--- Setup localized vim variables
-local keymap = vim.keymap
+-- Import required modules
+local map = require("utils.keymap").map
 
-keymap.set("n", "<leader>co", "<cmd>cope<cr>", { desc = "Open quickfix window" })
+map("<leader>co", "<cmd>cope<cr>", "Open quickfix window")
 
-keymap.set("n", "<leader>cq", "<cmd>ccl<cr>", { desc = "Close quickfix window" })
+map("<leader>cq", "<cmd>ccl<cr>", "Close quickfix window")
 
-keymap.set("n", "<leader>cn", "<cmd>cn<cr>", { desc = "Next quickfix item" })
+map("<leader>cn", "<cmd>cn<cr>", "Next quickfix item")
 
-keymap.set("n", "<leader>cp", "<cmd>cp<cr>", { desc = "Previous quickfix item" })
+map("<leader>cp", "<cmd>cp<cr>", "Previous quickfix item")

@@ -1,0 +1,70 @@
+-- Setup localized vim variables
+local api = vim.api
+local notify = vim.notify
+
+return {
+	"stevearc/conform.nvim",
+	event = { "BufWritePre", "BufNewFile" },
+	cmd = { "ConformInfo" },
+	opts = {
+		formatters_by_ft = {
+			bash = { "shfmt" },
+			sh = { "shfmt" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescriptreact = { "prettier" },
+			css = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+			markdown = { "prettier" },
+			graphql = { "prettier" },
+			lua = { "stylua" },
+			latex = { "tex-fmt" },
+			tex = { "tex-fmt" },
+			plaintex = { "tex-fmt" },
+			python = { "black" },
+			sql = { "sqlfmt" },
+			["*"] = { "trim_whitespace" },
+			["_"] = { "trim_newlines" },
+		},
+		formatters = {
+			ruff = {
+				command = "ruff",
+				args = {
+					"check",
+					"--select=F401,I001", -- F401: unused imports, I001: unsorted imports
+					"--fix",
+					"--exit-zero",
+					"--stdin-filename",
+					"$FILENAME",
+					"-",
+				},
+				stdin = true,
+			},
+		},
+		format_on_save = {
+			timeout_ms = 1000,
+			lsp_format = "fallback",
+		},
+		notify_on_error = true,
+		stop_after_first = true,
+	},
+	config = function(_, opts)
+		require("conform").setup(opts)
+		local map = require("utils.keymap").map
+
+		api.nvim_create_autocmd("FileType", {
+			group = api.nvim_create_augroup("ConformPython", { clear = true }),
+			pattern = "python",
+
+			callback = function(event)
+				map("<leader>io", function()
+					require("conform").format({ bufnr = event.buf, formatters = { "ruff", "black" } })
+					notify("Organized imports")
+				end, "Python organize imports", { buffer = event.buf })
+			end,
+		})
+	end,
+}

@@ -92,7 +92,7 @@ git clone https://github.com/rvaccone/neovim-config.git ~/.config/nvim
 7. Remove the Supermaven plugin _(optional)_
 
 ```bash
-rm ~/.config/nvim/lua/plugins/supermaven-inc#supermaven-nvim.lua
+rm ~/.config/nvim/lua/plugins/supermaven-inc/supermaven-nvim.lua
 ```
 
 While I use [Supermaven](https://supermaven.com/)'s paid version, its free tier is excellent. You can remove the plugin to avoid activation prompts until you're ready to try it out for in-line prediction.
@@ -128,6 +128,9 @@ Modes:
 - Visual: Selection mode (press `v` to enter)
 - Command: Command mode (press `:` to enter)
 
+> [!NOTE]
+> Keymaps are organized by their location: `keymaps/` contains general keymaps, while `plugins/` paths indicate plugin-specific keymaps defined within the plugin specification file itself.
+
 Quick links:
 
 - [Help](#help)
@@ -152,7 +155,7 @@ Quick links:
 | -------------- | ------------------------------------- | ------ | ------------------------ |
 | `<leader>ho`   | Focus help window or open help search | Normal | keymaps/help.lua         |
 | `<leader>hq`   | Close help window                     | Normal | keymaps/help.lua         |
-| `<leader>?` 🔸 | Show buffer keymaps                   | Normal | folke#which-key.nvim.lua |
+| `<leader>?` 🔸 | Show buffer keymaps                   | Normal | folke/which-key.nvim.lua |
 
 ### Navigation
 
@@ -160,16 +163,16 @@ Quick links:
 | --------------- | ------------------------- | ------ | --------------------------------- |
 | `j`             | Move down by visual line  | Normal | keymaps/navigation.lua            |
 | `k`             | Move up by visual line    | Normal | keymaps/navigation.lua            |
-| `<cr>` 🔸       | Quick jump                | Normal | nvim-mini#mini.jump2d.lua         |
-| `<del>`         | Quick jump across windows | Normal | nvim-mini#mini.jump2d.lua         |
-| `<leader>ff` 🔸 | Find files                | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fg` 🔸 | Find with grep            | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fs`    | Find in file              | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fw`    | Find word                 | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fb`    | Find buffer               | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fd`    | Find diagnostics          | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fm`    | Find marks                | Normal | nvim-telescope#telescope.nvim.lua |
-| `<leader>fr`    | Resume last find          | Normal | nvim-telescope#telescope.nvim.lua |
+| `<cr>` 🔸       | Quick jump                | Normal | nvim-mini/mini.jump2d.lua         |
+| `<del>`         | Quick jump across windows | Normal | nvim-mini/mini.jump2d.lua         |
+| `<leader>ff` 🔸 | Find files                | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fg` 🔸 | Find with grep            | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fs`    | Find in file              | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fw`    | Find word                 | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fb`    | Find buffer               | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fd`    | Find diagnostics          | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fm`    | Find marks                | Normal | nvim-telescope/telescope.nvim.lua |
+| `<leader>fr`    | Resume last find          | Normal | nvim-telescope/telescope.nvim.lua |
 
 > [!NOTE]
 > To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text.
@@ -178,26 +181,26 @@ Quick links:
 
 | Keymap         | Action            | Mode   | Source                   |
 | -------------- | ----------------- | ------ | ------------------------ |
-| `m:`           | Preview mark      | Normal | chentoast#marks.nvim.lua |
-| `'` or `` ` `` | Show all marks    | Normal | folke#which-key.nvim.lua |
-| `m1`-`9`       | Toggle bookmark   | Normal | chentoast#marks.nvim.lua |
-| `dm1`-`9`      | Delete bookmark   | Normal | chentoast#marks.nvim.lua |
-| `]1`-`9`       | Next bookmark     | Normal | chentoast#marks.nvim.lua |
-| `[1`-`9`       | Previous bookmark | Normal | chentoast#marks.nvim.lua |
+| `m:`           | Preview mark      | Normal | chentoast/marks.nvim.lua |
+| `'` or `` ` `` | Show all marks    | Normal | folke/which-key.nvim.lua |
+| `m1`-`9`       | Toggle bookmark   | Normal | chentoast/marks.nvim.lua |
+| `dm1`-`9`      | Delete bookmark   | Normal | chentoast/marks.nvim.lua |
+| `]1`-`9`       | Next bookmark     | Normal | chentoast/marks.nvim.lua |
+| `[1`-`9`       | Previous bookmark | Normal | chentoast/marks.nvim.lua |
 
 ### Window Management
 
 | Keymap             | Action                       | Mode           | Source                          |
 | ------------------ | ---------------------------- | -------------- | ------------------------------- |
-| `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
-| `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree#neo-tree.nvim.lua |
-| `<leader>-`        | Open file manager            | Normal, Visual | stevearc#oil.nvim.lua           |
+| `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>-`        | Open file manager            | Normal, Visual | stevearc/oil.nvim.lua           |
 | `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | rvaccone/wind.nvim              |
 | `<leader>v1`-`9`   | Focus/create vertical window | Normal         | rvaccone/wind.nvim              |
 | `<leader>x1`-`9`   | Swap windows                 | Normal         | rvaccone/wind.nvim              |
 | `<leader>q1`-`9`   | Close window without saving  | Normal         | rvaccone/wind.nvim              |
 | `<leader>z1`-`9`   | Close window with saving     | Normal         | rvaccone/wind.nvim              |
-| `QQ`               | Quit session                 | Normal         | keymaps/session.lua             |
+| `QQ`               | Close current window         | Normal         | keymaps/quit.lua                |
 
 > [!NOTE]
 > You can also use the `q` key to close the floating parent directory.
@@ -239,15 +242,15 @@ Quick links:
 
 | Keymap       | Action                    | Mode           | Example                                       | Source                       |
 | ------------ | ------------------------- | -------------- | --------------------------------------------- | ---------------------------- |
-| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | nvim-mini#mini.operators.lua |
-| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | nvim-mini#mini.operators.lua |
-| `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | nvim-mini#mini.surround.lua  |
-| `sd`         | Delete surround           | Normal         | `sd"` - Remove quotes                         | nvim-mini#mini.surround.lua  |
-| `sr`         | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | nvim-mini#mini.surround.lua  |
-| `sf`         | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | nvim-mini#mini.surround.lua  |
-| `sF`         | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | nvim-mini#mini.surround.lua  |
-| `sh`         | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | nvim-mini#mini.surround.lua  |
-| `sn`         | Update n_lines            | Normal         | `sn` - Update search lines                    | nvim-mini#mini.surround.lua  |
+| `<leader>=`  | Evaluate and replace text | Normal         | Given `2+2`, `<leader>=iw` - Replace with `4` | nvim-mini/mini.operators.lua |
+| `<leader>==` | Evaluate and replace line | Normal         | Given `2-2`, `<leader>==` - Replace with `0`  | nvim-mini/mini.operators.lua |
+| `sa` 🔸      | Add surround              | Normal, Visual | `saiw"` - Surround word with quotes           | nvim-mini/mini.surround.lua  |
+| `sd`         | Delete surround           | Normal         | `sd"` - Remove quotes                         | nvim-mini/mini.surround.lua  |
+| `sr`         | Replace surround          | Normal         | `sr'"` - Change `'` to `"`                    | nvim-mini/mini.surround.lua  |
+| `sf`         | Find surround (right)     | Normal         | `sf"` - Jump to next `"`                      | nvim-mini/mini.surround.lua  |
+| `sF`         | Find surround (left)      | Normal         | `sF"` - Jump to previous `"`                  | nvim-mini/mini.surround.lua  |
+| `sh`         | Highlight surround        | Normal         | `sh"` - Highlight quotes                      | nvim-mini/mini.surround.lua  |
+| `sn`         | Update n_lines            | Normal         | `sn` - Update search lines                    | nvim-mini/mini.surround.lua  |
 
 <details>
 <Summary>Available Surroundings</Summary>
@@ -285,24 +288,24 @@ Quick links:
 | `<leader>sn` | Clear search highlighting   | Normal         | keymaps/search.lua         |
 | `<leader>sb` | Search document symbols     | Normal         | keymaps/lsp.lua            |
 | `<leader>sB` | Search workspace symbols    | Normal         | keymaps/lsp.lua            |
-| `<leader>sp` | Advanced search and replace | Normal         | nvim-pack#nvim-spectre.lua |
+| `<leader>sp` | Advanced search and replace | Normal         | nvim-pack/nvim-spectre.lua |
 
 ### Completion
 
 | Keymap   | Action                    | Mode   | Source                             |
 | -------- | ------------------------- | ------ | ---------------------------------- |
-| `<c-n>`  | Next completion item      | Insert | saghen#blink.cmp.lua               |
-| `<c-p>`  | Previous completion item  | Insert | saghen#blink.cmp.lua               |
-| `<cr>`   | Accept completion         | Insert | saghen#blink.cmp.lua               |
-| `<s-cr>` | Abort completion          | Insert | saghen#blink.cmp.lua               |
-| `<tab>`  | Accept in-line prediction | Insert | supermaven-inc#supermaven-nvim.lua |
+| `<c-n>`  | Next completion item      | Insert | saghen/blink.cmp.lua               |
+| `<c-p>`  | Previous completion item  | Insert | saghen/blink.cmp.lua               |
+| `<cr>`   | Accept completion         | Insert | saghen/blink.cmp.lua               |
+| `<s-cr>` | Abort completion          | Insert | saghen/blink.cmp.lua               |
+| `<tab>`  | Accept in-line prediction | Insert | supermaven-inc/supermaven-nvim.lua |
 
 ### Language Tools
 
 | Keymap          | Action              | Mode   | Languages         | Source                                                      |
 | --------------- | ------------------- | ------ | ----------------- | ----------------------------------------------------------- |
-| `<leader>im`    | Add missing imports | Normal | TypeScript        | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
-| `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | stevearc#conform.nvim.lua, pmizio#typescript-tools.nvim.lua |
+| `<leader>im`    | Add missing imports | Normal | TypeScript        | stevearc/conform.nvim.lua, pmizio/typescript-tools.nvim.lua |
+| `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | stevearc/conform.nvim.lua, pmizio/typescript-tools.nvim.lua |
 
 ### Quickfix
 
@@ -318,19 +321,19 @@ Quick links:
 | Keymap          | Action                            | Mode   | Source                    |
 | --------------- | --------------------------------- | ------ | ------------------------- |
 | `<leader>ln`    | Open plugin package manager       | Normal | aggregators/plugins.lua   |
-| `<leader>lg` 🔸 | Open git UI                       | Normal | kdheepak#lazygit.nvim.lua |
-| `<leader>lm`    | Open LSP and tool package manager | Normal | mason-org#mason.nvim.lua  |
+| `<leader>lg` 🔸 | Open git UI                       | Normal | kdheepak/lazygit.nvim.lua |
+| `<leader>lm`    | Open LSP and tool package manager | Normal | mason-org/mason.nvim.lua  |
 
 ## Text Objects
 
 | Shorthand | Text Object        | Source                |
 | --------- | ------------------ | --------------------- |
-| `a`       | Argument/parameter | nvim-mini#mini.ai.lua |
-| `b`       | Bracket            | nvim-mini#mini.ai.lua |
-| `f`       | Function           | nvim-mini#mini.ai.lua |
-| `q`       | Scope              | nvim-mini#mini.ai.lua |
-| `t`       | Tag                | nvim-mini#mini.ai.lua |
-| `?`       | User prompt        | nvim-mini#mini.ai.lua |
+| `a`       | Argument/parameter | nvim-mini/mini.ai.lua |
+| `b`       | Bracket            | nvim-mini/mini.ai.lua |
+| `f`       | Function           | nvim-mini/mini.ai.lua |
+| `q`       | Scope              | nvim-mini/mini.ai.lua |
+| `t`       | Tag                | nvim-mini/mini.ai.lua |
+| `?`       | User prompt        | nvim-mini/mini.ai.lua |
 
 Each text object can be used with `i` (inner) or `a` (around), combined with operators or visual mode. For example:
 
@@ -348,8 +351,8 @@ You can also select the last and next instance with `l` and `n` respectively. Fo
 📁 ~/.config/nvim
 ├── 📁 lua/
 │   ├── 📁 aggregators/        # Loaders for modularity
-│   │   ├── 📄 keymaps.lua     # Loads all keymap configurations
-│   │   └── 📄 plugins.lua     # Loads all plugin configurations
+│   │   ├── 📄 keymaps.lua     # Loads general keymap configurations
+│   │   └── 📄 plugins.lua     # Loads all plugin configurations and keymaps
 │   ├── 📁 keymaps/            # Specific keybinding configurations
 │   ├── 📁 plugins/            # Specific plugin configurations
 │   ├── 📄 ui.lua              # Overarching UI setup
@@ -363,5 +366,5 @@ You can also select the last and next instance with `l` and `n` respectively. Fo
 
 ### Plugin Naming Convention
 
-Plugin configuration files under `lua/plugins` follow the format: `[GitHub username]#[repository].lua`
-Example: `nvim-telescope#telescope.nvim.lua` for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+Plugin configuration files under `lua/plugins` follow the format: `[GitHub username]/[repository].lua`
+Example: `nvim-telescope/telescope.nvim.lua` for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
