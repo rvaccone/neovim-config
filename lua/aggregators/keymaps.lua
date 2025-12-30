@@ -1,4 +1,5 @@
 -- Setup localized vim variables
+local cmd = vim.cmd
 local fn = vim.fn
 local log = vim.log
 local loop = vim.loop
@@ -9,34 +10,28 @@ local M = {}
 --- Function to aggregate and execute all keymap files from lua/keymaps/
 ---@return nil
 function M.aggregate()
-	local keymaps_dir = fn.stdpath("config") .. "/lua/keymaps/"
+	local base = fn.stdpath("config") .. "/lua/keymaps"
 
-	-- Scan the keymaps directory once and store results
-	local handle, err_scandir = loop.fs_scandir(keymaps_dir)
-	if not handle then
-		notify("Failed to scan keymaps directory: " .. keymaps_dir .. "\nError: " .. err_scandir, log.levels.ERROR)
-		return
-	end
-
-	local files = {}
-	while true do
-		local name, type = loop.fs_scandir_next(handle)
-		if not name then
-			break
-		end
-		if type == "file" and name:match("%.lua$") then
-			table.insert(files, name)
-		end
-	end
-
-	-- Execute each keymap file
-	for _, name in ipairs(files) do
-		local filepath = keymaps_dir .. name
-		local success, result = pcall(dofile, filepath)
-		if not success then
-			notify("Failed to execute keymap file: " .. filepath .. "\nError: " .. result, log.levels.ERROR)
+	local function load(dir)
+		local h = loop.fs_scandir(dir)
+		while h do
+			local name, t = loop.fs_scandir_next(h)
+			if not name then
+				break
+			end
+			local full = dir .. "/" .. name
+			if t == "directory" then
+				load(full)
+			elseif name:match("%.lua$") then
+				local ok, err = pcall(cmd, "source " .. full)
+				if not ok then
+					notify("Keymap source failed: " .. full .. "\n" .. err, log.levels.ERROR)
+				end
+			end
 		end
 	end
+
+	load(base)
 end
 
 return M

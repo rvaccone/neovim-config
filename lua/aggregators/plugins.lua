@@ -34,6 +34,20 @@ local function bootstrap_lazy()
 	opt.rtp:prepend(lazypath)
 end
 
+-- Load plugin specifications
+local spec = {}
+local plugins_dir = fn.stdpath("config") .. "/lua/plugins"
+local handle = loop.fs_scandir(plugins_dir)
+while handle do
+	local name, type = loop.fs_scandir_next(handle)
+	if not name then
+		break
+	end
+	if type == "directory" then
+		table.insert(spec, { import = "plugins." .. name })
+	end
+end
+
 local M = {}
 
 --- Function to aggregate and execute all plugin files from lua/plugins/
@@ -48,7 +62,7 @@ function M.aggregate()
 			title = "Lazy.nvim",
 			pills = false,
 		},
-		spec = { { import = "plugins" } },
+		spec = spec,
 	})
 end
 
