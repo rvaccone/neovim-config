@@ -23,6 +23,10 @@ return {
 		local lazy_key = require("utils.keymap").lazy_key
 
 		return {
+			lazy_key("<CR>", function()
+				require("mini.jump2d").start()
+			end, "Quick jump in current window"),
+
 			lazy_key("<del>", function()
 				require("mini.jump2d").start({
 					allowed_windows = {
