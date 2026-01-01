@@ -190,17 +190,19 @@ Quick links:
 
 ### Window Management
 
-| Keymap             | Action                       | Mode           | Source                          |
-| ------------------ | ---------------------------- | -------------- | ------------------------------- |
-| `<leader>0` 🔸     | Focus file tree              | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>nt`       | Toggle file tree             | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>-`        | Open file manager            | Normal, Visual | stevearc/oil.nvim.lua           |
-| `<leader>1`-`9` 🔸 | Focus/create window          | Normal         | rvaccone/wind.nvim              |
-| `<leader>v1`-`9`   | Focus/create vertical window | Normal         | rvaccone/wind.nvim              |
-| `<leader>x1`-`9`   | Swap windows                 | Normal         | rvaccone/wind.nvim              |
-| `<leader>q1`-`9`   | Close window without saving  | Normal         | rvaccone/wind.nvim              |
-| `<leader>z1`-`9`   | Close window with saving     | Normal         | rvaccone/wind.nvim              |
-| `QQ`               | Close current window         | Normal         | keymaps/quit.lua                |
+| Keymap             | Action                                 | Mode           | Source                          |
+| ------------------ | -------------------------------------- | -------------- | ------------------------------- |
+| `<leader>0` 🔸     | Focus file tree                        | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>nt`       | Toggle file tree                       | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>-`        | Open file manager                      | Normal, Visual | stevearc/oil.nvim.lua           |
+| `<leader>1`-`9` 🔸 | Focus/create horizontal window         | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wh`       | Create horizontal window after current | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>v1`-`9`   | Focus/create vertical window           | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wv`       | Create vertical window after current   | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>x1`-`9`   | Swap windows                           | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>q1`-`9`   | Close window without saving            | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>z1`-`9`   | Close window with saving               | Normal, Visual | rvaccone/wind.nvim              |
+| `QQ`               | Close current window                   | Normal, Visual | keymaps/quit.lua                |
 
 > [!NOTE]
 > You can also use the `q` key to close the floating parent directory.
@@ -232,11 +234,12 @@ Quick links:
 
 ### Clipboard Operations
 
-| Keymap          | Action                                                               | Mode   | Source             |
-| --------------- | -------------------------------------------------------------------- | ------ | ------------------ |
-| `<leader>ya` 🔸 | Copy buffer and path to clipboard                                    | Normal | rvaccone/wind.nvim |
-| `<leader>y*`    | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal | rvaccone/wind.nvim |
-| `<leader>yn`    | Copy filename to clipboard                                           | Normal | rvaccone/wind.nvim |
+| Keymap          | Action                                                               | Mode           | Source             |
+| --------------- | -------------------------------------------------------------------- | -------------- | ------------------ |
+| `<leader>ya`    | Copy buffer and path to clipboard                                    | Normal, Visual | rvaccone/wind.nvim |
+| `<leader>y#`    | Copy AI-friendly buffer and path to clipboard                        | Normal, Visual | rvaccone/wind.nvim |
+| `<leader>y*` 🔸 | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal, Visual | rvaccone/wind.nvim |
+| `<leader>yn`    | Copy filename to clipboard                                           | Normal, Visual | rvaccone/wind.nvim |
 
 ### Text Manipulation
 
