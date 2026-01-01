@@ -190,19 +190,22 @@ Quick links:
 
 ### Window Management
 
-| Keymap             | Action                                 | Mode           | Source                          |
-| ------------------ | -------------------------------------- | -------------- | ------------------------------- |
-| `<leader>0` 🔸     | Focus file tree                        | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>nt`       | Toggle file tree                       | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>-`        | Open file manager                      | Normal, Visual | stevearc/oil.nvim.lua           |
-| `<leader>1`-`9` 🔸 | Focus/create horizontal window         | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wh`       | Create horizontal window after current | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>v1`-`9`   | Focus/create vertical window           | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wv`       | Create vertical window after current   | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>x1`-`9`   | Swap windows                           | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>q1`-`9`   | Close window without saving            | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>z1`-`9`   | Close window with saving               | Normal, Visual | rvaccone/wind.nvim              |
-| `QQ`               | Close current window                   | Normal, Visual | keymaps/quit.lua                |
+| Keymap             | Action                                  | Mode           | Source                          |
+| ------------------ | --------------------------------------- | -------------- | ------------------------------- |
+| `<leader>0` 🔸     | Focus file tree                         | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>nt`       | Toggle file tree                        | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>-`        | Open file manager                       | Normal, Visual | stevearc/oil.nvim.lua           |
+| `<leader>1`-`9` 🔸 | Focus/create horizontal window          | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wh`       | Create horizontal window after current  | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wH`       | Create horizontal window before current | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>v1`-`9`   | Focus/create vertical window            | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wv`       | Create vertical window after current    | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wV`       | Create vertical window before current   | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>wm`       | Toggle maximizing current window        | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>x1`-`9`   | Swap windows                            | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>q1`-`9`   | Close window without saving             | Normal, Visual | rvaccone/wind.nvim              |
+| `<leader>z1`-`9`   | Close window with saving                | Normal, Visual | rvaccone/wind.nvim              |
+| `QQ`               | Close current window                    | Normal, Visual | keymaps/quit.lua                |
 
 > [!NOTE]
 > You can also use the `q` key to close the floating parent directory.
