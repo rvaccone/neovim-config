@@ -15,3 +15,6 @@ require("ui").setup()
 
 -- Load keymaps
 require("aggregators/keymaps").aggregate()
+
+-- Setup autocmds
+require("autocmds").setup()

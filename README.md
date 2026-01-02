@@ -358,9 +358,10 @@ You can also select the last and next instance with `l` and `n` respectively. Fo
 ├── 📁 lua/
 │   ├── 📁 aggregators/        # Loaders for modularity
 │   │   ├── 📄 keymaps.lua     # Loads general keymap configurations
-│   │   └── 📄 plugins.lua     # Loads all plugin configurations and keymaps
-│   ├── 📁 keymaps/            # Specific keybinding configurations
-│   ├── 📁 plugins/            # Specific plugin configurations
+│   │   └── 📄 plugins.lua     # Loads all plugin configurations
+│   ├── 📁 keymaps/            # General keybinding configurations
+│   ├── 📁 plugins/            # Specific plugin configurations (with keymaps)
+│   ├── 📄 autocmds.lua        # Autocommands
 │   ├── 📄 ui.lua              # Overarching UI setup
 │   └── 📄 vim_settings.lua    # Core Neovim settings
 ├── 📁 spell/                  # Spell checking files
