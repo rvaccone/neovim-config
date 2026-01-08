@@ -46,6 +46,9 @@ return {
 					"tex-fmt",
 					"stylua",
 					"prettier",
+
+					-- Tools
+					"yq",
 				},
 				auto_update = true, -- Automatically update tools
 				run_on_start = true, -- Install missing tools on startup
