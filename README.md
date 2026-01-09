@@ -308,10 +308,10 @@ Quick links:
 
 ### Language Tools
 
-| Keymap          | Action              | Mode   | Languages         | Source                                                      |
-| --------------- | ------------------- | ------ | ----------------- | ----------------------------------------------------------- |
-| `<leader>im`    | Add missing imports | Normal | TypeScript        | stevearc/conform.nvim.lua, pmizio/typescript-tools.nvim.lua |
-| `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | stevearc/conform.nvim.lua, pmizio/typescript-tools.nvim.lua |
+| Keymap          | Action              | Mode   | Languages         | Source                                               |
+| --------------- | ------------------- | ------ | ----------------- | ---------------------------------------------------- |
+| `<leader>im`    | Add missing imports | Normal | TypeScript        | neovim/nvim-lspconfig.lua                            |
+| `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | neovim/nvim-lspconfig.lua, stevearc/conform.nvim.lua |
 
 ### Quickfix
 
