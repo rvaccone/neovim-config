@@ -19,10 +19,13 @@ return {
 			"sqlls",
 			"tailwindcss",
 			"texlab",
+			"ts_ls",
 			"vimls",
 			"yamlls",
 		},
-		automatic_enable = true,
+		automatic_enable = {
+			exclude = { "ts_ls" },
+		},
 	},
 	dependencies = {
 		"mason-org/mason.nvim",
