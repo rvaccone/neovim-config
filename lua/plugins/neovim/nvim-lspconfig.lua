@@ -1,4 +1,5 @@
 -- Setup localized vim variables
+local api = vim.api
 local lsp = vim.lsp
 
 return {
@@ -34,13 +35,12 @@ return {
 
 				-- Organize imports
 				map("<leader>io", function()
-					lsp.buf.code_action({
-						apply = true,
-						context = {
-							only = { "source.organizeImports" },
-							diagnostics = {},
-						},
-					})
+					local params = {
+						command = "_typescript.organizeImports",
+						arguments = { api.nvim_buf_get_name(0) },
+					}
+
+					lsp.buf_request_sync(0, "workspace/executeCommand", params, 1000)
 					notify("Organized imports")
 				end, "Organize imports", { buffer = bufnr })
 			end,
