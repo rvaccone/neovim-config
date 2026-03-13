@@ -127,6 +127,7 @@ Modes:
 - Insert: Text editing mode (press `i` or `a` to enter)
 - Visual: Selection mode (press `v` to enter)
 - Command: Command mode (press `:` to enter)
+- Terminal: Terminal mode (Use the toggle terminal keymap)
 
 > [!NOTE]
 > Keymaps are organized by their location: `keymaps/` contains general keymaps, while `plugins/` paths indicate plugin-specific keymaps defined within the plugin specification file itself.
@@ -145,6 +146,7 @@ Quick links:
 - [Language Tools](#language-tools)
 - [Quickfix](#quickfix)
 - [System Tools](#system-tools)
+- [Terminal](#terminal)
 
 > [!TIP]
 > Keymaps marked with 🔸 are recommended for new users to learn first.
@@ -329,6 +331,13 @@ Quick links:
 | `<leader>ln`    | Open plugin package manager       | Normal | aggregators/plugins.lua   |
 | `<leader>lg` 🔸 | Open git UI                       | Normal | kdheepak/lazygit.nvim.lua |
 | `<leader>lm`    | Open LSP and tool package manager | Normal | mason-org/mason.nvim.lua  |
+
+### Terminal
+
+| Keymap      | Action          | Mode     | Source                      |
+| ----------- | --------------- | -------- | --------------------------- |
+| `<leader>t` | Toggle terminal | Normal   | akinsho/toggleterm.nvim.lua |
+| `<esc>`🔸   | Close terminal  | Terminal | akinsho/toggleterm.nvim.lua |
 
 ## Text Objects
 
