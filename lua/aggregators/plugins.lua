@@ -1,7 +1,7 @@
 -- Setup localized vim variables
 local api = vim.api
 local fn = vim.fn
-local loop = vim.loop
+local fs = vim.fs
 local opt = vim.opt
 local uv = vim.uv
 local v = vim.v
@@ -10,7 +10,7 @@ local v = vim.v
 ---@return nil
 local function bootstrap_lazy()
 	local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
-	if not (uv or loop).fs_stat(lazypath) then
+	if not uv.fs_stat(lazypath) then
 		local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 		local out = fn.system({
 			"git",
@@ -37,12 +37,7 @@ end
 -- Load plugin specifications
 local spec = {}
 local plugins_dir = fn.stdpath("config") .. "/lua/plugins"
-local handle = loop.fs_scandir(plugins_dir)
-while handle do
-	local name, type = loop.fs_scandir_next(handle)
-	if not name then
-		break
-	end
+for name, type in fs.dir(plugins_dir) do
 	if type == "directory" then
 		table.insert(spec, { import = "plugins." .. name })
 	end

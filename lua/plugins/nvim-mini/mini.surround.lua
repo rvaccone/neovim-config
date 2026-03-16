@@ -13,7 +13,7 @@ return {
 		---Get surround pattern for current filetype with fallback support
 		---@param patterns SurroundPatterns
 		---@param return_type "input"|"output"
-		---@return SurroundInput|SurroundOutput
+		---@return SurroundInput|SurroundOutput|{ left: string, right: string }
 		local function get_pattern(patterns, return_type)
 			local filetype = bo.filetype
 

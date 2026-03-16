@@ -18,8 +18,8 @@ local group = api.nvim_create_augroup("LSPConfig", { clear = true })
 ---@return nil
 local function open_lsp_location_in_new_window(method, split_direction)
 	local current_buf = api.nvim_get_current_buf()
-	local current_windows = #windows.list_content_windows()
-	windows.focus_or_create_window(current_windows + 1, split_direction)
+	local window_count = #windows.list_content_windows()
+	windows.focus_or_create_window(window_count + 1, split_direction)
 	api.nvim_win_set_buf(0, current_buf)
 
 	if method == "declaration" then

@@ -19,10 +19,7 @@ map("<leader>dy", function()
 end, "Copy diagnostic message to clipboard")
 
 map("<leader>dh", function()
-	---@class FloatOpts
-	---@field border "rounded"|"single"|"double"|"shadow"|"none"
-	---@field focusable boolean
-	---@field close_events string[]
+	---@type vim.diagnostic.Opts.Float
 	local float_opts = {
 		border = "rounded",
 		focusable = true,

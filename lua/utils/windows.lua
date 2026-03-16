@@ -9,14 +9,14 @@ local M = {}
 
 ---@class WindowsConfig
 ---@field excluded_filetypes string[] List of filetypes to exclude from window creation
----@field max_windows number Maximum number of windows to support
+---@field max_windows integer Maximum number of windows to support
 M.windows_config = {
 	excluded_filetypes = { "help", "neo-tree" },
 	max_windows = 9,
 }
 
 --- Returns a list of all editor windows
----@return table
+---@return integer[]
 function M.list_content_windows()
 	local windows = api.nvim_list_wins()
 	local editor_windows = {}
@@ -63,14 +63,14 @@ function M.create_window(split_direction)
 end
 
 --- Focuses or creates a window at the end of the editor window list
----@param window_number number The window number to focus or create (1-based indexed)
+---@param window_number integer The window number to focus or create (1-based indexed)
 ---@param split_direction "vsplit"|"split" The split direction to use when creating a new window
 ---@return nil
 function M.focus_or_create_window(window_number, split_direction)
 	local editor_windows = M.list_content_windows()
 
 	-- If the requested window exists, focus it
-	if window_number <= #editor_windows then
+	if window_number >= 1 and window_number <= #editor_windows then
 		api.nvim_set_current_win(editor_windows[window_number])
 		return
 	end
@@ -80,16 +80,18 @@ function M.focus_or_create_window(window_number, split_direction)
 end
 
 --- Executes a command on a window
----@param window_number number The window number to operate on
+---@param window_number integer The window number to operate on
 ---@param operation string The command to execute on the window
 ---@return nil
 function M.operate_on_window(window_number, operation)
 	local editor_windows = M.list_content_windows()
 
-	if window_number <= #editor_windows then
+	if window_number >= 1 and window_number <= #editor_windows then
 		api.nvim_set_current_win(editor_windows[window_number])
 
-		local success, result = pcall(cmd, operation)
+		local success, result = pcall(function()
+			cmd(operation)
+		end)
 		if not success then
 			notify("Error operating on window: " .. result, log.levels.ERROR)
 		end
@@ -97,7 +99,7 @@ function M.operate_on_window(window_number, operation)
 end
 
 --- Swaps the buffer of the current window with the buffer of the specified window
----@param target_window_number number The window number to swap with (1-based indexed)
+---@param target_window_number integer The window number to swap with (1-based indexed)
 ---@return nil
 function M.swap_window(target_window_number)
 	local editor_windows = M.list_content_windows()
