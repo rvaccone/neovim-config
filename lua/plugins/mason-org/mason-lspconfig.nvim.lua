@@ -47,7 +47,6 @@ return {
 					"prettier",
 					"prettierd",
 					"shfmt",
-					"sqruff",
 					"stylua",
 					"tex-fmt",
 
