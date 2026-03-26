@@ -14,7 +14,6 @@ return {
 			"jsonls",
 			"lua_ls",
 			"marksman",
-			"postgres_lsp",
 			"ruff",
 			"rust_analyzer",
 			"sqlls",
