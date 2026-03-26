@@ -36,19 +36,18 @@ return {
 					-- Linters
 					"eslint_d",
 					"hadolint",
-					"luacheck",
 					"pylint",
+					"selene",
 					"shellcheck",
 					"sqruff",
 					"typos",
 
 					-- Formatters
-					"black",
-					"shfmt",
-					"sqlfmt",
-					"tex-fmt",
-					"stylua",
 					"prettier",
+					"prettierd",
+					"shfmt",
+					"stylua",
+					"tex-fmt",
 
 					-- Tools
 					"yq",
