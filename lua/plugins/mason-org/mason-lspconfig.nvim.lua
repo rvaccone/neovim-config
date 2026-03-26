@@ -14,6 +14,7 @@ return {
 			"jsonls",
 			"lua_ls",
 			"marksman",
+			"postgres_lsp",
 			"ruff",
 			"rust_analyzer",
 			"sqlls",
@@ -36,19 +37,19 @@ return {
 					-- Linters
 					"eslint_d",
 					"hadolint",
-					"luacheck",
 					"pylint",
+					"selene",
 					"shellcheck",
 					"sqruff",
 					"typos",
 
 					-- Formatters
-					"black",
-					"shfmt",
-					"sqlfmt",
-					"tex-fmt",
-					"stylua",
 					"prettier",
+					"prettierd",
+					"shfmt",
+					"sqruff",
+					"stylua",
+					"tex-fmt",
 
 					-- Tools
 					"yq",
