@@ -11,13 +11,12 @@ local v = vim.v
 local function bootstrap_lazy()
 	local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not uv.fs_stat(lazypath) then
-		local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 		local out = fn.system({
 			"git",
 			"clone",
 			"--filter=blob:none",
 			"--branch=stable",
-			lazyrepo,
+			"https://github.com/folke/lazy.nvim.git",
 			lazypath,
 		})
 
