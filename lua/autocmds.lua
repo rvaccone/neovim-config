@@ -19,6 +19,7 @@ function M.setup()
 
 	-- Close lazy window on escape
 	api.nvim_create_autocmd("FileType", {
+		group = api.nvim_create_augroup("lazy_filetype", { clear = true }),
 		pattern = "lazy",
 		callback = function(event)
 			map("<esc>", "<cmd>close<cr>", "Close Lazy", { buffer = event.buf })
@@ -27,6 +28,7 @@ function M.setup()
 
 	-- Disable comment auto-wrapping
 	api.nvim_create_autocmd("BufEnter", {
+		group = api.nvim_create_augroup("disable_comment_autowrap", { clear = true }),
 		callback = function()
 			opt_local.formatoptions:remove({ "c", "r", "o" })
 		end,
