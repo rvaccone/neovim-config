@@ -17,6 +17,7 @@ function M.apply()
 	opt.incsearch = true -- Show search results as you type
 	opt.ignorecase = true -- Ignore case when searching
 	opt.smartcase = true -- Override ignorecase when pattern contains uppercase characters
+	opt.hlsearch = false -- Prevent persistent search highlighting
 
 	-- Layout
 	opt.ruler = false -- Hide the ruler
@@ -49,13 +50,24 @@ function M.apply()
 	opt.undofile = true -- Enable persistent undo
 	opt.swapfile = false -- Do not create a swapfile
 
+	-- Whitespace
+	opt.list = true
+	opt.listchars = {
+		tab = "→ ",
+		space = "·",
+		trail = "•",
+		nbsp = "␣",
+		extends = "›",
+		precedes = "‹",
+	}
+	opt.fillchars = {
+		eob = " ",
+	}
+
 	-- Spell check
 	opt.spell = true -- Enable spell checking
 	opt.spelllang = "en_us" -- Set the spell language to English
 	opt.spelloptions = "camel" -- Treat camelCase as separate words for spell checking
-
-	-- Formatting
-	cmd("autocmd BufEnter * set formatoptions-=cro") -- Disable comment auto-wrapping
 end
 
 return M
