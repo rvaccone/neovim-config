@@ -63,12 +63,12 @@ This configuration embraces the philosophy that your editor should evolve with y
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit make gnu-sed
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make gnu-sed tree-sitter-cli
 ```
 
 3. Install your favorite terminal emulator _(optional)_
 
-I use Ghostty ([download](https://ghostty.org/download)) and Warp ([download](https://app.warp.dev/get_warp?package=dmg)) terminal emulators for Neovim.
+I use Ghostty ([download](https://ghostty.org/download)) for Neovim.
 
 > [!TIP]
 > For the best experience, use a terminal that supports true color and ligatures.
