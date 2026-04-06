@@ -147,7 +147,7 @@ Quick links:
 - [Quickfix](#quickfix)
 - [System Tools](#system-tools)
 - [Terminal](#terminal)
-- [AI] (#ai)
+- [AI](#ai)
 
 > [!TIP]
 > Keymaps marked with 🔸 are recommended for new users to learn first.
