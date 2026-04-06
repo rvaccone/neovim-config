@@ -11,7 +11,7 @@ local M = {}
 ---@field excluded_filetypes string[] List of filetypes to exclude from window creation
 ---@field max_windows integer Maximum number of windows to support
 M.windows_config = {
-	excluded_filetypes = { "help", "neo-tree" },
+	excluded_filetypes = { "help", "neo-tree", "notify" },
 	max_windows = 9,
 }
 

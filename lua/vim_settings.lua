@@ -47,6 +47,7 @@ function M.apply()
 	opt.shiftround = true -- Round indent to a multiple of shiftwidth
 
 	-- File handling
+	opt.autoread = true -- Automatically read a file when it is changed
 	opt.undofile = true -- Enable persistent undo
 	opt.swapfile = false -- Do not create a swapfile
 
