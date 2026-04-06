@@ -90,7 +90,7 @@ api.nvim_create_autocmd("LspAttach", {
 		map("<leader>sB", telescope_builtin.lsp_workspace_symbols, "Show workspace symbols", { buffer = event.buf })
 
 		-- Code actions
-		map("<leader>lr", "<cmd>LspRestart<cr>", "LSP restart", { buffer = event.buf })
+		map("<leader>lr", "<cmd>lsp restart<cr>", "LSP restart", { buffer = event.buf })
 
 		map("<leader>a", buf.code_action, "Code action", { mode = { "n", "v" }, buffer = event.buf })
 
