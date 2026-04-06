@@ -63,7 +63,7 @@ This configuration embraces the philosophy that your editor should evolve with y
 2. Install Neovim and its dependencies
 
 ```bash
-brew install neovim lua luarocks stylua ripgrep fd trash lazygit make gnu-sed tree-sitter-cli
+brew install neovim lua luarocks stylua ripgrep fd trash lazygit make gnu-sed tree-sitter-cli anomalyco/tap/opencode
 ```
 
 3. Install your favorite terminal emulator _(optional)_
@@ -147,6 +147,7 @@ Quick links:
 - [Quickfix](#quickfix)
 - [System Tools](#system-tools)
 - [Terminal](#terminal)
+- [AI](#ai)
 
 > [!TIP]
 > Keymaps marked with 🔸 are recommended for new users to learn first.
@@ -338,6 +339,17 @@ Quick links:
 | ----------- | --------------- | -------- | --------------------------- |
 | `<leader>t` | Toggle terminal | Normal   | akinsho/toggleterm.nvim.lua |
 | `<esc>`🔸   | Close terminal  | Terminal | akinsho/toggleterm.nvim.lua |
+
+### AI
+
+| Keymap       | Action                              | Mode           | Source                         |
+| ------------ | ----------------------------------- | -------------- | ------------------------------ |
+| `<leader>oa` | Ask opencode                        | Normal, Visual | nickjvandyke/opencode.nvim.lua |
+| `<leader>ow` | Ask opencode with workspace context | Normal, Visual | nickjvandyke/opencode.nvim.lua |
+| `<leader>os` | Execute opencode action             | Normal, Visual | nickjvandyke/opencode.nvim.lua |
+| `<leader>ot` | Toggle opencode                     | Normal         | nickjvandyke/opencode.nvim.lua |
+| `<leader>oj` | Scroll opencode down                | Normal         | nickjvandyke/opencode.nvim.lua |
+| `<leader>ok` | Scroll opencode up                  | Normal         | nickjvandyke/opencode.nvim.lua |
 
 ## Text Objects
 
