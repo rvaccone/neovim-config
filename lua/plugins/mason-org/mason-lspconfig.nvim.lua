@@ -34,6 +34,7 @@ return {
 			opts = {
 				ensure_installed = {
 					-- Linters
+					"dotenv-linter",
 					"eslint_d",
 					"hadolint",
 					"pylint",
