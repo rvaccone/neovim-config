@@ -16,6 +16,7 @@ return {
 			css = { "prettierd", "prettier" },
 			html = { "prettierd", "prettier" },
 			json = { "prettierd", "prettier" },
+			jsonc = { "prettierd", "prettier" },
 			yaml = { "prettierd", "prettier" },
 			markdown = { "prettierd", "prettier" },
 			graphql = { "prettierd", "prettier" },
