@@ -29,7 +29,7 @@ return {
 		end,
 
 		completion = {
-			list = { max_items = 5 },
+			list = { max_items = 10 },
 
 			menu = {
 				border = "rounded",
@@ -82,10 +82,10 @@ return {
 		-- Sources configuration
 		sources = {
 			providers = {
-				lsp = { max_items = 5 },
-				buffer = { max_items = 5 },
-				path = { max_items = 5 },
-				snippets = { max_items = 5 },
+				lsp = { max_items = 10 },
+				buffer = { max_items = 10 },
+				path = { max_items = 10 },
+				snippets = { max_items = 10 },
 			},
 		},
 
