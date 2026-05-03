@@ -24,7 +24,7 @@ return {
 						apply = true,
 						context = {
 							only = { "source" },
-							diagnostics = lsp.diagnostic.get_line_diagnostics(),
+							diagnostics = vim.diagnostic.get(0, { lnum = api.nvim_win_get_cursor(0)[1] - 1 }),
 						},
 						filter = function(action)
 							return action.title:match("Add all missing imports")
