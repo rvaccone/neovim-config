@@ -1,6 +1,6 @@
 return {
 	"stevearc/oil.nvim",
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false,
 
 	---@module 'oil'
@@ -8,14 +8,13 @@ return {
 	opts = {
 		default_file_explorer = false,
 
+		float = {
+			border = "rounded",
+		},
+
 		keymaps = {
 			["q"] = { "actions.close", mode = "n" },
 			["<esc>"] = { "actions.close", mode = "n" },
-		},
-
-		win_options = {
-			wrap = true,
-			spell = true,
 		},
 
 		view_options = {
@@ -24,6 +23,13 @@ return {
 				{ "type", "asc" },
 				{ "name", "asc" },
 			},
+		},
+
+		watch_for_changes = true,
+
+		win_options = {
+			wrap = true,
+			spell = true,
 		},
 	},
 	keys = function()
