@@ -36,11 +36,3 @@ map("<leader>dh", function()
 	-- Show the float as usual
 	diagnostic.open_float(float_opts)
 end, "Float diagnostic message and copy to clipboard")
-
-map("<leader>dp", function()
-	diagnostic.jump({ count = -1, float = true })
-end, "Go to previous diagnostic")
-
-map("<leader>dn", function()
-	diagnostic.jump({ count = 1, float = true })
-end, "Go to next diagnostic")

@@ -136,6 +136,7 @@ Quick links:
 
 - [Help](#help)
 - [Navigation](#navigation)
+- [Bracket Navigation](#bracket-navigation)
 - [Mark Management](#mark-management)
 - [Window Management](#window-management)
 - [Language Server Protocol (LSP)](#language-server-protocol-lsp)
@@ -179,6 +180,35 @@ Quick links:
 > [!NOTE]
 > To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text.
 
+### Bracket Navigation
+
+Using `lower-suffix` and `upper-suffix` (lower and upper case suffix) for a single target the following mappings are created:
+
+- `[` + `upper-suffix` : go first
+- `[` + `lower-suffix` : go backward
+- `]` + `lower-suffix` : go forward
+- `]` + `upper-suffix` : go last
+
+Supported targets:
+
+| Target                                            | Mappings            | Source                       |
+| ------------------------------------------------- | ------------------- | ---------------------------- |
+| Buffer                                            | `[B` `[b` `]b` `]B` | nvim-mini/mini.bracketed.lua |
+| Comment block                                     | `[C` `[c` `]c` `]C` | nvim-mini/mini.bracketed.lua |
+| Conflict marker                                   | `[X` `[x` `]x` `]X` | nvim-mini/mini.bracketed.lua |
+| Diagnostic                                        | `[D` `[d` `]d` `]D` | nvim-mini/mini.bracketed.lua |
+| File on disk                                      | `[F` `[f` `]f` `]F` | nvim-mini/mini.bracketed.lua |
+| Git hunk                                          | `[H` `[h` `]h` `]H` | nvim-mini/mini.diff.lua      |
+| Indent change                                     | `[I` `[i` `]i` `]I` | nvim-mini/mini.bracketed.lua |
+| Jump from jumplist inside current buffer          | `[J` `[j` `]j` `]J` | nvim-mini/mini.bracketed.lua |
+| Location from location list                       | `[L` `[l` `]l` `]L` | nvim-mini/mini.bracketed.lua |
+| Old files                                         | `[O` `[o` `]o` `]O` | nvim-mini/mini.bracketed.lua |
+| Quickfix entry from quickfix list                 | `[Q` `[q` `]q` `]Q` | nvim-mini/mini.bracketed.lua |
+| Tree-sitter node and parents                      | `[T` `[t` `]t` `]T` | nvim-mini/mini.bracketed.lua |
+| Undo states from specially tracked linear history | `[U` `[u` `]u` `]U` | nvim-mini/mini.bracketed.lua |
+| Window in current tab                             | `[W` `[w` `]w` `]W` | nvim-mini/mini.bracketed.lua |
+| Yank selection replacing latest put region        | `[Y` `[y` `]y` `]Y` | nvim-mini/mini.bracketed.lua |
+
 ### Mark Management
 
 | Keymap         | Action            | Mode   | Source                   |
@@ -214,28 +244,28 @@ Quick links:
 
 ### Language Server Protocol (LSP)
 
-| Keymap         | Action                                         | Mode           | Source                  |
-| -------------- | ---------------------------------------------- | -------------- | ----------------------- |
-| `gd` 🔸        | Go to definition                               | Normal         | keymaps/lsp.lua         |
-| `<leader>gd`   | Go to definition in a new window               | Normal         | keymaps/lsp.lua         |
-| `<leader>vgd`  | Go to definition in a new vertical window      | Normal         | keymaps/lsp.lua         |
-| `gD`           | Go to declaration                              | Normal         | keymaps/lsp.lua         |
-| `<leader>gD`   | Go to declaration in a new window              | Normal         | keymaps/lsp.lua         |
-| `<leader>vgD`  | Go to declaration in a new vertical window     | Normal         | keymaps/lsp.lua         |
-| `gi`           | Go to implementation                           | Normal         | keymaps/lsp.lua         |
-| `gt`           | Go to type definition                          | Normal         | keymaps/lsp.lua         |
-| `<leader>gt`   | Go to type definition in a new window          | Normal         | keymaps/lsp.lua         |
-| `<leader>vgt`  | Go to type definition in a new vertical window | Normal         | keymaps/lsp.lua         |
-| `gr`           | Show references                                | Normal         | keymaps/lsp.lua         |
-| `K` 🔸         | Show documentation                             | Normal         | keymaps/lsp.lua         |
-| `gs`           | Show signature help                            | Normal         | keymaps/lsp.lua         |
-| `<leader>a` 🔸 | Code action                                    | Normal, Visual | keymaps/lsp.lua         |
-| `<leader>rn`   | Rename symbol                                  | Normal         | keymaps/lsp.lua         |
-| `<leader>lr`   | Restart LSP                                    | Normal         | keymaps/lsp.lua         |
-| `<leader>dy`   | Yank diagnostic                                | Normal         | keymaps/diagnostics.lua |
-| `<leader>dh`   | Show & yank diagnostic hover                   | Normal         | keymaps/diagnostics.lua |
-| `<leader>dp`   | Previous diagnostic                            | Normal         | keymaps/diagnostics.lua |
-| `<leader>dn`   | Next diagnostic                                | Normal         | keymaps/diagnostics.lua |
+| Keymap         | Action                                         | Mode           | Source                       |
+| -------------- | ---------------------------------------------- | -------------- | ---------------------------- |
+| `gd` 🔸        | Go to definition                               | Normal         | keymaps/lsp.lua              |
+| `<leader>gd`   | Go to definition in a new window               | Normal         | keymaps/lsp.lua              |
+| `<leader>vgd`  | Go to definition in a new vertical window      | Normal         | keymaps/lsp.lua              |
+| `gD`           | Go to declaration                              | Normal         | keymaps/lsp.lua              |
+| `<leader>gD`   | Go to declaration in a new window              | Normal         | keymaps/lsp.lua              |
+| `<leader>vgD`  | Go to declaration in a new vertical window     | Normal         | keymaps/lsp.lua              |
+| `gi`           | Go to implementation                           | Normal         | keymaps/lsp.lua              |
+| `gt`           | Go to type definition                          | Normal         | keymaps/lsp.lua              |
+| `<leader>gt`   | Go to type definition in a new window          | Normal         | keymaps/lsp.lua              |
+| `<leader>vgt`  | Go to type definition in a new vertical window | Normal         | keymaps/lsp.lua              |
+| `gr`           | Show references                                | Normal         | keymaps/lsp.lua              |
+| `K` 🔸         | Show documentation                             | Normal         | keymaps/lsp.lua              |
+| `gs`           | Show signature help                            | Normal         | keymaps/lsp.lua              |
+| `<leader>a` 🔸 | Code action                                    | Normal, Visual | keymaps/lsp.lua              |
+| `<leader>rn`   | Rename symbol                                  | Normal         | keymaps/lsp.lua              |
+| `<leader>lr`   | Restart LSP                                    | Normal         | keymaps/lsp.lua              |
+| `<leader>dy`   | Yank diagnostic                                | Normal         | keymaps/diagnostics.lua      |
+| `<leader>dh`   | Show & yank diagnostic hover                   | Normal         | keymaps/diagnostics.lua      |
+| `]d`           | Next diagnostic                                | Normal         | nvim-mini/mini.bracketed.lua |
+| `[d`           | Previous diagnostic                            | Normal         | nvim-mini/mini.bracketed.lua |
 
 ### Clipboard Operations
 
@@ -317,12 +347,10 @@ Quick links:
 
 ### Quickfix
 
-| Keymap       | Action                 | Mode   | Source               |
-| ------------ | ---------------------- | ------ | -------------------- |
-| `<leader>co` | Open quickfix          | Normal | keymaps/quickfix.lua |
-| `<leader>cq` | Close quickfix         | Normal | keymaps/quickfix.lua |
-| `<leader>cn` | Next quickfix item     | Normal | keymaps/quickfix.lua |
-| `<leader>cp` | Previous quickfix item | Normal | keymaps/quickfix.lua |
+| Keymap       | Action         | Mode   | Source               |
+| ------------ | -------------- | ------ | -------------------- |
+| `<leader>co` | Open quickfix  | Normal | keymaps/quickfix.lua |
+| `<leader>cq` | Close quickfix | Normal | keymaps/quickfix.lua |
 
 ### System Tools
 
