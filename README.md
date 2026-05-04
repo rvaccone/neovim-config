@@ -269,12 +269,14 @@ Supported targets:
 
 ### Clipboard Operations
 
-| Keymap          | Action                                                               | Mode           | Source             |
-| --------------- | -------------------------------------------------------------------- | -------------- | ------------------ |
-| `<leader>ya`    | Copy buffer and path to clipboard                                    | Normal, Visual | rvaccone/wind.nvim |
-| `<leader>y#`    | Copy AI-friendly buffer and path to clipboard                        | Normal, Visual | rvaccone/wind.nvim |
-| `<leader>y*` 🔸 | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal, Visual | rvaccone/wind.nvim |
-| `<leader>yn`    | Copy filename to clipboard                                           | Normal, Visual | rvaccone/wind.nvim |
+| Keymap          | Action                                                               | Mode           | Source                |
+| --------------- | -------------------------------------------------------------------- | -------------- | --------------------- |
+| `<leader>ya`    | Copy buffer and path to clipboard                                    | Normal, Visual | rvaccone/wind.nvim    |
+| `<leader>y#`    | Copy AI-friendly buffer and path to clipboard                        | Normal, Visual | rvaccone/wind.nvim    |
+| `<leader>y*` 🔸 | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal, Visual | rvaccone/wind.nvim    |
+| `<leader>yn`    | Copy filename to clipboard                                           | Normal, Visual | rvaccone/wind.nvim    |
+| `yr`            | Replace word from clipboard                                          | Normal         | keymaps/clipboard.lua |
+| `yR`            | Replace WORD from clipboard                                          | Normal         | keymaps/clipboard.lua |
 
 ### Text Manipulation
 
