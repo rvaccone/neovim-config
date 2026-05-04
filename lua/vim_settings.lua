@@ -15,6 +15,7 @@ function M.apply()
 
 	-- Search
 	opt.incsearch = true -- Show search results as you type
+	opt.inccommand = "split" -- Live preview of substitutions in a split window
 	opt.ignorecase = true -- Ignore case when searching
 	opt.smartcase = true -- Override ignorecase when pattern contains uppercase characters
 	opt.hlsearch = false -- Prevent persistent search highlighting
