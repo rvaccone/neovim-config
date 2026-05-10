@@ -1,5 +1,6 @@
 -- Setup localized vim variables
 local api = vim.api
+local diagnostic = vim.diagnostic
 local lsp = vim.lsp
 
 return {
@@ -20,11 +21,22 @@ return {
 			on_attach = function(_, bufnr)
 				-- Add missing imports
 				map("<leader>im", function()
+					local diagnostics = {}
+					for _, entry in
+						ipairs(diagnostic.get(0, {
+							lnum = api.nvim_win_get_cursor(0)[1] - 1,
+						}))
+					do
+						if entry.user_data and entry.user_data.lsp then
+							table.insert(diagnostics, entry.user_data.lsp)
+						end
+					end
+
 					lsp.buf.code_action({
 						apply = true,
 						context = {
 							only = { "source" },
-							diagnostics = vim.diagnostic.get(0, { lnum = api.nvim_win_get_cursor(0)[1] - 1 }),
+							diagnostics = diagnostics,
 						},
 						filter = function(action)
 							return action.title:match("Add all missing imports")
@@ -35,12 +47,14 @@ return {
 
 				-- Organize imports
 				map("<leader>io", function()
-					local params = {
-						command = "_typescript.organizeImports",
-						arguments = { api.nvim_buf_get_name(0) },
-					}
-
-					lsp.buf_request_sync(0, "workspace/executeCommand", params, 1000)
+					local client = (lsp.get_clients({ name = "ts_ls", bufnr = 0 }) or {})[1]
+					if client then
+						client:exec_cmd({
+							title = "Organize Imports",
+							command = "_typescript.organizeImports",
+							arguments = { api.nvim_buf_get_name(0) },
+						}, { bufnr = 0 })
+					end
 					notify("Organized imports")
 				end, "Organize imports", { buffer = bufnr })
 			end,
