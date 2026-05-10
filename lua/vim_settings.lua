@@ -66,6 +66,9 @@ function M.apply()
 		eob = " ",
 	}
 
+	-- Formatting
+	opt.formatoptions:remove({ "c", "r", "o" })
+
 	-- Spell check
 	opt.spell = true -- Enable spell checking
 	opt.spelllang = "en_us" -- Set the spell language to English
