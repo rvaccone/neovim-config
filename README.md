@@ -145,6 +145,7 @@ Quick links:
 - [Search and Replace](#search-and-replace)
 - [Completion](#completion)
 - [Language Tools](#language-tools)
+- [Git](#git)
 - [Quickfix](#quickfix)
 - [System Tools](#system-tools)
 - [Terminal](#terminal)
@@ -346,6 +347,12 @@ Supported targets:
 | --------------- | ------------------- | ------ | ----------------- | ---------------------------------------------------- |
 | `<leader>im`    | Add missing imports | Normal | TypeScript        | neovim/nvim-lspconfig.lua                            |
 | `<leader>io` 🔸 | Organize imports    | Normal | TypeScript/Python | neovim/nvim-lspconfig.lua, stevearc/conform.nvim.lua |
+
+### Git
+
+| Keymap       | Action                          | Mode   | Source                 |
+| ------------ | ------------------------------- | ------ | ---------------------- |
+| `<leader>gb` | Show git blame for line (float) | Normal | nvim-mini/mini.git.lua |
 
 ### Quickfix
 
