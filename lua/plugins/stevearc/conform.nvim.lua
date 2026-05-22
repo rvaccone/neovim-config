@@ -20,6 +20,7 @@ return {
 			yaml = { "prettierd", "prettier" },
 			markdown = { "prettierd", "prettier" },
 			graphql = { "prettierd", "prettier" },
+			go = { "goimports" },
 			lua = { "stylua" },
 			latex = { "tex-fmt" },
 			tex = { "tex-fmt" },

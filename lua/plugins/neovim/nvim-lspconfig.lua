@@ -46,7 +46,48 @@ return {
 			end,
 		})
 
-		-- Enable ts_ls for all matching buffers
+		-- Go (gopls)
+		lsp.config("gopls", {
+			cmd = { "gopls" },
+			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			root_markers = { "go.mod", ".git" },
+			settings = {
+				gopls = {
+					gofumpt = true,
+					staticcheck = true,
+					analyses = {
+						unusedparams = true,
+						unreachable = true,
+						nilness = true,
+						shadow = true,
+					},
+					hints = {
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						constantValues = true,
+						functionTypeParameters = true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
+				},
+			},
+			on_attach = function(_, bufnr)
+				-- Organize imports
+				map("<leader>io", function()
+					lsp.buf.code_action({
+						apply = true,
+						context = {
+							only = { "source.organizeImports" },
+							diagnostics = vim.diagnostic.get(0, { lnum = api.nvim_win_get_cursor(0)[1] - 1 }),
+						},
+					})
+					notify("Organized imports")
+				end, "Organize imports", { buffer = bufnr })
+			end,
+		})
+
+		-- Enable ts_ls and gopls for all matching buffers
 		lsp.enable("ts_ls")
+		lsp.enable("gopls")
 	end,
 }

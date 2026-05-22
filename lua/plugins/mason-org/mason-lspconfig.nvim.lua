@@ -9,6 +9,7 @@ return {
 			"docker_compose_language_service",
 			"dockerls",
 			"eslint",
+			"gopls",
 			"graphql",
 			"html",
 			"jsonls",
@@ -38,12 +39,14 @@ return {
 					"eslint_d",
 					"hadolint",
 					"pylint",
+					"revive",
 					"selene",
 					"shellcheck",
 					"sqruff",
 					"typos",
 
 					-- Formatters
+					"goimports",
 					"prettier",
 					"prettierd",
 					"shfmt",
