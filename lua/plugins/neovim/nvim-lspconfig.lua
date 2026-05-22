@@ -53,7 +53,6 @@ return {
 			root_markers = { "go.mod", ".git" },
 			settings = {
 				gopls = {
-					gofumpt = true,
 					staticcheck = true,
 					analyses = {
 						unusedparams = true,

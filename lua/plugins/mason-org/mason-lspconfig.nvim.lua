@@ -46,7 +46,7 @@ return {
 					"typos",
 
 					-- Formatters
-					"goimports",
+					"gofumpt",
 					"prettier",
 					"prettierd",
 					"shfmt",
