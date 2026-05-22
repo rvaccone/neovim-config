@@ -19,6 +19,7 @@ return {
 			jsonc = { "prettierd", "prettier" },
 			yaml = { "prettierd", "prettier" },
 			markdown = { "prettierd", "prettier" },
+			go = { "gofumpt" },
 			graphql = { "prettierd", "prettier" },
 			lua = { "stylua" },
 			latex = { "tex-fmt" },
