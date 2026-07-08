@@ -12,6 +12,11 @@
     </p>
 </div>
 
+<!-- Demo -->
+<div align="center">
+    <img src="demo/demo.gif" alt="Neovim configuration demo" />
+</div>
+
 ## About
 
 This configuration embraces the philosophy that your editor should evolve with you. Every keymap and design choice prioritizes **intentionality** over convenience. The goal is to make navigation instinctive and editing flow naturally.
