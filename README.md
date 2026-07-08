@@ -384,6 +384,7 @@ Supported targets:
 | `<leader>tt` 🔸  | Reopen the last terminal or dismiss the visible  | Normal   | rvaccone/capo.nvim.lua |
 | `<leader>tn`     | Spawn a terminal at the lowest free number       | Normal   | rvaccone/capo.nvim.lua |
 | `<leader>td`     | Kill the current terminal; a busy one asks twice | Normal   | rvaccone/capo.nvim.lua |
+| `<leader>tc`     | Forget every terminal and the stored roster      | Normal   | rvaccone/capo.nvim.lua |
 | `<esc>` 🔸       | Dismiss an idle terminal; a busy one receives it | Terminal | rvaccone/capo.nvim.lua |
 
 > [!NOTE]
