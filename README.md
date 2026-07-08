@@ -19,21 +19,25 @@ This configuration embraces the philosophy that your editor should evolve with y
 ## Features
 
 - **Batteries Included Language Support**
+
   - Language Server Protocol (LSP) support out of the box
   - In-line predictions and completion suggestions built-in
   - Common formatters, linters, and language parsers included
 
 - **Simply Beautiful Aesthetic**
+
   - Features a nostalgic Gruvbox theme
   - Polished icons, borders, and colors that are easy on the eyes
   - Clean visual design that employs functional minimalism
 
 - **Intuitive Window Management**
+
   - Keymaps for quick window navigation and creation
   - Support for managing help and quickfix windows
   - Robust mark support and reference
 
 - **Thoughtful Modular Configuration**
+
   - Isolated plugin and keymap specifications with aggregators
   - Dedicated files for vim settings and utility functions
   - Consistent plugin file naming convention and sources in the README
@@ -123,7 +127,7 @@ Modes:
 - Insert: Text editing mode (press `i` or `a` to enter)
 - Visual: Selection mode (press `v` to enter)
 - Command: Command mode (press `:` to enter)
-- Terminal: Terminal mode (Use the toggle terminal keymap)
+- Terminal: Terminal mode (use the terminal keymaps)
 
 > [!NOTE]
 > Keymaps are organized by their location: `keymaps/` contains general keymaps, while `plugins/` paths indicate plugin-specific keymaps defined within the plugin specification file itself.
@@ -159,23 +163,26 @@ Quick links:
 
 ### Navigation
 
-| Keymap          | Action                    | Mode   | Source                            |
-| --------------- | ------------------------- | ------ | --------------------------------- |
-| `j`             | Move down by visual line  | Normal | keymaps/navigation.lua            |
-| `k`             | Move up by visual line    | Normal | keymaps/navigation.lua            |
-| `<cr>` 🔸       | Quick jump                | Normal | nvim-mini/mini.jump2d.lua         |
-| `<del>`         | Quick jump across windows | Normal | nvim-mini/mini.jump2d.lua         |
-| `<leader>ff` 🔸 | Find files                | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fg` 🔸 | Find with grep            | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fs`    | Find in file              | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fw`    | Find word                 | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fb`    | Find buffer               | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fd`    | Find diagnostics          | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fm`    | Find marks                | Normal | nvim-telescope/telescope.nvim.lua |
-| `<leader>fr`    | Resume last find          | Normal | nvim-telescope/telescope.nvim.lua |
+| Keymap          | Action                                     | Mode           | Source                            |
+| --------------- | ------------------------------------------ | -------------- | --------------------------------- |
+| `j`             | Move down by visual line                   | Normal         | keymaps/navigation.lua            |
+| `k`             | Move up by visual line                     | Normal         | keymaps/navigation.lua            |
+| `f` / `t` 🔸    | Jump to a character ahead, colored by cost | Normal, Visual | rvaccone/quickdraw.nvim.lua       |
+| `F` / `T`       | Jump to a character behind                 | Normal, Visual | rvaccone/quickdraw.nvim.lua       |
+| `;` / `,`       | Repeat the last jump                       | Normal, Visual | rvaccone/quickdraw.nvim.lua       |
+| `<cr>` 🔸       | Quick jump                                 | Normal         | nvim-mini/mini.jump2d.lua         |
+| `<del>`         | Quick jump across windows                  | Normal         | nvim-mini/mini.jump2d.lua         |
+| `<leader>ff` 🔸 | Find files                                 | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fg` 🔸 | Find with grep                             | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fs`    | Find in file                               | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fw`    | Find word                                  | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fb`    | Find buffer                                | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fd`    | Find diagnostics                           | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fm`    | Find marks                                 | Normal         | nvim-telescope/telescope.nvim.lua |
+| `<leader>fr`    | Resume last find                           | Normal         | nvim-telescope/telescope.nvim.lua |
 
 > [!NOTE]
-> To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text.
+> To ensure more intentional navigation, `<cr>` will allow you to jump to visible locations, replacing the default behavior. Similarly, `j` and `k` have been remapped to move by visual lines rather than file lines, making navigation more intuitive with wrapped text. The `f` and `t` motions reach any visible line: the view dims and every reachable character is colored by how many keystrokes it costs.
 
 ### Bracket Navigation
 
@@ -219,22 +226,29 @@ Supported targets:
 
 ### Window Management
 
-| Keymap             | Action                                  | Mode           | Source                          |
-| ------------------ | --------------------------------------- | -------------- | ------------------------------- |
-| `<leader>0` 🔸     | Focus file tree                         | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>nt`       | Toggle file tree                        | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
-| `<leader>-`        | Open file manager                       | Normal, Visual | stevearc/oil.nvim.lua           |
-| `<leader>1`-`9` 🔸 | Focus/create horizontal window          | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wh`       | Create horizontal window after current  | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wH`       | Create horizontal window before current | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>v1`-`9`   | Focus/create vertical window            | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wv`       | Create vertical window after current    | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wV`       | Create vertical window before current   | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>wm`       | Toggle maximizing current window        | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>x1`-`9`   | Swap windows                            | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>q1`-`9`   | Close window without saving             | Normal, Visual | rvaccone/wind.nvim              |
-| `<leader>z1`-`9`   | Close window with saving                | Normal, Visual | rvaccone/wind.nvim              |
-| `QQ`               | Close current window                    | Normal, Visual | keymaps/quit.lua                |
+| Keymap             | Action                             | Mode           | Source                          |
+| ------------------ | ---------------------------------- | -------------- | ------------------------------- |
+| `<leader>0` 🔸     | Focus file tree                    | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>nt`       | Toggle file tree                   | Normal         | nvim-neo-tree/neo-tree.nvim.lua |
+| `<leader>-`        | Open file manager                  | Normal, Visual | stevearc/oil.nvim.lua           |
+| `<leader>1`-`9` 🔸 | Focus or create window             | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>v1`-`9`   | Focus or create stacked window     | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>w1`-`9`   | Move the current window            | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>wx1`-`9`  | Swap the current window            | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>q1`-`9`   | Close window                       | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>z1`-`9`   | Save and close window              | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>wo`       | Close every other window           | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>wm`       | Toggle the zoom lens               | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>wu`/`wr`  | Undo/redo layout changes           | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>w=`       | Equalize window sizes              | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>w+`/`w-`  | Grow/shrink the current window     | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>b1`-`9`   | Return to breath (layout snapshot) | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>bb`       | Update the last visited breath     | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>bn`       | Hold a new breath                  | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>bd`       | Release the current breath         | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `<leader>bc`       | Clear all breaths                  | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `` <leader>b` ``   | Toggle current and previous layout | Normal, Visual | rvaccone/wind.nvim.lua          |
+| `QQ`               | Close current window               | Normal, Visual | keymaps/quit.lua                |
 
 > [!NOTE]
 > You can also use the `q` key to close the floating parent directory.
@@ -266,14 +280,11 @@ Supported targets:
 
 ### Clipboard Operations
 
-| Keymap          | Action                                                               | Mode           | Source                |
-| --------------- | -------------------------------------------------------------------- | -------------- | --------------------- |
-| `<leader>ya`    | Copy buffer and path to clipboard                                    | Normal, Visual | rvaccone/wind.nvim    |
-| `<leader>y#`    | Copy AI-friendly buffer and path to clipboard                        | Normal, Visual | rvaccone/wind.nvim    |
-| `<leader>y*` 🔸 | Copy AI-friendly buffers and paths for all open windows to clipboard | Normal, Visual | rvaccone/wind.nvim    |
-| `<leader>yn`    | Copy filename to clipboard                                           | Normal, Visual | rvaccone/wind.nvim    |
-| `yr`            | Replace word from clipboard                                          | Normal         | keymaps/clipboard.lua |
-| `yR`            | Replace WORD from clipboard                                          | Normal         | keymaps/clipboard.lua |
+| Keymap          | Action                            | Mode           | Source                |
+| --------------- | --------------------------------- | -------------- | --------------------- |
+| `<leader>ya` 🔸 | Copy buffer and path to clipboard | Normal, Visual | keymaps/clipboard.lua |
+| `yr`            | Replace word from clipboard       | Normal         | keymaps/clipboard.lua |
+| `yR`            | Replace WORD from clipboard       | Normal         | keymaps/clipboard.lua |
 
 ### Text Manipulation
 
@@ -367,10 +378,16 @@ Supported targets:
 
 ### Terminal
 
-| Keymap      | Action          | Mode     | Source                      |
-| ----------- | --------------- | -------- | --------------------------- |
-| `<leader>t` | Toggle terminal | Normal   | akinsho/toggleterm.nvim.lua |
-| `<esc>`🔸   | Close terminal  | Terminal | akinsho/toggleterm.nvim.lua |
+| Keymap           | Action                                           | Mode     | Source                 |
+| ---------------- | ------------------------------------------------ | -------- | ---------------------- |
+| `<leader>t1`-`9` | Focus terminal, spawning it if it is missing     | Normal   | rvaccone/capo.nvim.lua |
+| `<leader>tt` 🔸  | Reopen the last terminal or dismiss the visible  | Normal   | rvaccone/capo.nvim.lua |
+| `<leader>tn`     | Spawn a terminal at the lowest free number       | Normal   | rvaccone/capo.nvim.lua |
+| `<leader>td`     | Kill the current terminal; a busy one asks twice | Normal   | rvaccone/capo.nvim.lua |
+| `<esc>` 🔸       | Dismiss an idle terminal; a busy one receives it | Terminal | rvaccone/capo.nvim.lua |
+
+> [!NOTE]
+> Hesitate after `<leader>t` and a card lists every terminal with what it is running and where. The roster persists per project, and a terminal that finishes a long job out of sight announces itself.
 
 ## Text Objects
 
