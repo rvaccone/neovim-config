@@ -23,6 +23,7 @@ return {
 			graphql = { "prettierd", "prettier" },
 			lua = { "stylua" },
 			latex = { "tex-fmt" },
+			nix = { "nixfmt" },
 			tex = { "tex-fmt" },
 			plaintex = { "tex-fmt" },
 			python = { "ruff_format" },
